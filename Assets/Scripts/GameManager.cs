@@ -12,7 +12,7 @@ public class ImageLoader : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         PuzzleSelection puzzleSelectionInstance = PuzzleSelection.Instance;
-        //puzzleSelectionInstance.SetPuzzlePhoto();
+        puzzleSelectionInstance.SetPuzzlePhoto(1);
     }
 
 }
