@@ -40,7 +40,7 @@ namespace Juego.UIIntegracionVisual
         public void SetPuzzlePhoto(int levelPuzzle)
         {
             //aqui editar con el levelPuzzle
-            Sprite randomSprite = images[1];
+            Sprite randomSprite = images[0];
 
             for (int i = 0; i < 36; i++)
             {

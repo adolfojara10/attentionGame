@@ -5,12 +5,39 @@ using UnityEngine.UI;
 using Juego.UIIntegracionVisual;
 using System.IO;
 
-public class ImageLoader : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
 
-    public List<Image> imagesIntegracionVisual = new List<Image>();
+    //public List<Image> imagesIntegracionVisual = new List<Image>();
+
+    public static GameManager Instance;
+
+    public enum GameState
+    {
+        Idle,
+        ChooseGame,
+        InGame,
+        GameOver
+    }
+
+
+    public GameState gameState;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         PuzzleSelection puzzleSelectionInstance = PuzzleSelection.Instance;
         puzzleSelectionInstance.SetPuzzlePhoto(1);
     }
