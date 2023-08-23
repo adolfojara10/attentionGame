@@ -26,6 +26,23 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
 
     public UnityEvent<GameState> OnGameStateUpdated;
+    public UnityEvent<GamePlaying> OnGamePlayingUpdated;
+
+    public enum GamePlaying
+    {
+        AtencionAuditivaLocalizarSonido,
+        ConcienciaCorporal,
+        AtencionSelectivaLaberinto,
+        Yoga,
+        AtencionSelectivaObjetosPerdidos,
+        AtencionSelectivaPiezasFaltantes,
+        AtencionSelectivaSostenida,
+        IntegracionVisual,
+        AtencionAuditivaDiscriminarFigura
+    }
+
+
+    public GamePlaying gamePlaying;
 
     private void Awake()
     {

@@ -46,7 +46,7 @@ public class PieceScript : MonoBehaviour
         {
 
             //rigthPosition = transform.position;
-            this.gameObject.transform.position = new Vector3(Random.Range(200f, 300f), Random.Range(39f, 111f), 0);
+            this.gameObject.transform.position = new Vector3(Random.Range(320f, 400f), Random.Range(100f, 175f), 0);
             Debug.Log(rigthPosition + "----------------" + transform.position + this.gameObject.name);
             newPosition = this.gameObject.transform.position;
             inRigthPosition = false;
