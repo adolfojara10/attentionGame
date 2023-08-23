@@ -17,34 +17,43 @@ public class DragAndDrop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        MovePiece();
+    }
 
-            if (hit.transform.CompareTag("Puzzle"))
+    public void MovePiece()
+    {
+
+        if (GameManager.Instance.gameState == GameManager.GameState.InGame)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                if (!hit.transform.GetComponent<PieceScript>().inRigthPosition)
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                if (hit.transform.CompareTag("Puzzle"))
                 {
-                    selectedPiece = hit.transform.gameObject;
-                    selectedPiece.GetComponent<PieceScript>().selected = true;
-                    selectedPiece.GetComponent<SortingGroup>().sortingOrder = OIL;
-                    OIL++;
+                    if (!hit.transform.GetComponent<PieceScript>().inRigthPosition)
+                    {
+                        selectedPiece = hit.transform.gameObject;
+                        selectedPiece.GetComponent<PieceScript>().selected = true;
+                        selectedPiece.GetComponent<SortingGroup>().sortingOrder = OIL;
+                        OIL++;
+                    }
+
                 }
+            }
+
+            if (Input.GetMouseButtonUp(0) && selectedPiece != null)
+            {
+                selectedPiece.GetComponent<PieceScript>().selected = false;
+                selectedPiece = null;
 
             }
-        }
 
-        if (Input.GetMouseButtonUp(0) && selectedPiece != null)
-        {
-            selectedPiece.GetComponent<PieceScript>().selected = false;
-            selectedPiece = null;
-            
-        }
-
-        if (selectedPiece != null)
-        {
-            Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            selectedPiece.transform.position = new Vector3(mousePoint.x, mousePoint.y, 0);
+            if (selectedPiece != null)
+            {
+                Vector3 mousePoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                selectedPiece.transform.position = new Vector3(mousePoint.x, mousePoint.y, 0);
+            }
         }
     }
 }

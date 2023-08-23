@@ -11,11 +11,15 @@ public class Stopwatch : MonoBehaviour
 
     public TextMeshProUGUI timeLabel;
 
+    private void Start() {
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.gameState == GameManager.GameState.InGame)
+        if (GameManager.Instance.gameState == GameManager.GameState.InGame && !Puzzle.Instance.allPiecesInRigthPlace)
         {
             IncreaseTime();
         }
@@ -31,9 +35,9 @@ public class Stopwatch : MonoBehaviour
     {
         time += Time.deltaTime;
 
-        yield return new WaitForSeconds(0.02f);
+        yield return new WaitForSeconds(0.2f);
 
-        int timeEntero = (int) time;
+        int timeEntero = (int)time;
 
         timeLabel.text = timeEntero.ToString();
 
@@ -45,7 +49,13 @@ public class Stopwatch : MonoBehaviour
     {
         if (newState == GameManager.GameState.GameOver)
         {
-            time = 0;
+            time = 0f;
+            //pointsLabel.text = displayedPoints.ToString();
+        }
+
+        if (newState == GameManager.GameState.GameCompleted)
+        {
+            time = 0f;
             //pointsLabel.text = displayedPoints.ToString();
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Juego.UIIntegracionVisual;
 using System.IO;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,11 +18,14 @@ public class GameManager : MonoBehaviour
         Idle,
         ChooseGame,
         InGame,
+        GameCompleted,
         GameOver
     }
 
 
     public GameState gameState;
+
+    public UnityEvent<GameState> OnGameStateUpdated;
 
     private void Awake()
     {
@@ -40,6 +44,37 @@ public class GameManager : MonoBehaviour
     {
         PuzzleSelection puzzleSelectionInstance = PuzzleSelection.Instance;
         puzzleSelectionInstance.SetPuzzlePhoto(1);
+    }
+
+    private void Update() {
+        if(Puzzle.Instance.allPiecesInRigthPlace){
+            gameState = GameState.GameCompleted;
+            OnGameStateUpdated?.Invoke(gameState);
+        }
+    }
+
+    public void StartGame()
+    {
+
+        gameState = GameState.InGame;
+        OnGameStateUpdated?.Invoke(gameState);
+
+    }
+
+    public void RestartGame()
+    {
+
+        gameState = GameState.InGame;
+        OnGameStateUpdated?.Invoke(gameState);
+
+    }
+
+    public void ExitGame()
+    {
+
+        gameState = GameState.Idle;
+        OnGameStateUpdated?.Invoke(gameState);
+
     }
 
 }

@@ -13,6 +13,7 @@ public class Puzzle : MonoBehaviour
     public int piecesToMove;
 
     public bool allPiecesMoved = false;
+    public bool allPiecesInRigthPlace = false;
 
     public static Puzzle Instance;
 
@@ -32,14 +33,51 @@ public class Puzzle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
         MovePieces();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        allPiecesInRigthPlace = CheckPiecesPosition();
     }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnGameStateUpdated.RemoveListener(GameStateUpdated);
+    }
+
+    public void GameStateUpdated(GameManager.GameState state)
+    {
+        if (state == GameManager.GameState.GameOver)
+        {
+            movedPieces.Clear();
+            allPiecesMoved = false;
+            allPiecesInRigthPlace = false;
+            //StartCoroutine(DisplayPointsCoroutine());
+        }
+
+        if (state == GameManager.GameState.GameCompleted)
+        {
+            movedPieces.Clear();
+            allPiecesMoved = false;
+            allPiecesInRigthPlace = false;
+            //StartCoroutine(DisplayPointsCoroutine());
+        }
+
+        if (state == GameManager.GameState.InGame)
+        {
+            movedPieces.Clear();
+            allPiecesMoved = false;
+            allPiecesInRigthPlace = false;
+            //PuzzleSelection.Instance.SetPuzzlePhoto(1);
+            MovePieces();
+            
+        }
+    }
+
+
 
     public void MovePieces()
     {
@@ -65,5 +103,19 @@ public class Puzzle : MonoBehaviour
         }
 
         allPiecesMoved = true;
+    }
+
+
+    public bool CheckPiecesPosition()
+    {
+        foreach (var item in movedPieces)
+        {
+            if (!item.inRigthPosition)
+            {
+                return false;
+            }
+        }
+
+        return true;
     }
 }

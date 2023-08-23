@@ -30,9 +30,17 @@ namespace Juego.UIIntegracionVisual
         private void Start()
         {
 
-            //ReadImages();
-            //Debug.Log("numero de imagenes " + images.Count);
-            // SetPuzzlePhoto();
+            GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+        }
+
+        public void GameStateUpdated(GameManager.GameState state)
+        {
+            if (state == GameManager.GameState.InGame)
+            {
+                SetPuzzlePhoto(1);
+            }
+
+
         }
 
 
