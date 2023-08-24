@@ -15,7 +15,7 @@ public class UIGameCompleted : MonoBehaviour
 
     public void MenuButtonClicked()
     {
-        GameManager.Instance.ExitGame();
+        GameManager.Instance.ChooseGame();
     }
 
 }

@@ -16,6 +16,7 @@ public class Puzzle : MonoBehaviour
     public bool allPiecesInRigthPlace = false;
 
     public static Puzzle Instance;
+    public bool isGameManagerCompletedGame;
 
     private void Awake()
     {
@@ -41,11 +42,15 @@ public class Puzzle : MonoBehaviour
     void Update()
     {
         allPiecesInRigthPlace = CheckPiecesPosition();
+        if(allPiecesInRigthPlace && !isGameManagerCompletedGame){
+            GameManager.Instance.CompletedGame();
+            isGameManagerCompletedGame = true;
+        }
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.OnGameStateUpdated.RemoveListener(GameStateUpdated);
+        //GameManager.Instance.OnGameStateUpdated.RemoveListener(GameStateUpdated);
     }
 
     public void GameStateUpdated(GameManager.GameState state)
@@ -68,9 +73,11 @@ public class Puzzle : MonoBehaviour
 
         if (state == GameManager.GameState.InGame)
         {
+            Debug.Log("moviendo piezas");
             movedPieces.Clear();
             allPiecesMoved = false;
             allPiecesInRigthPlace = false;
+            isGameManagerCompletedGame = false;
             //PuzzleSelection.Instance.SetPuzzlePhoto(1);
             MovePieces();
             
@@ -99,7 +106,7 @@ public class Puzzle : MonoBehaviour
         foreach (var item in movedPieces)
         {
             item.inRigthPosition = false;
-            Debug.Log(item.inRigthPosition);
+            //Debug.Log(item.inRigthPosition);
         }
 
         allPiecesMoved = true;

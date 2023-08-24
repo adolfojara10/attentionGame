@@ -38,14 +38,14 @@ public class PanelManager : MonoBehaviour
                 UIActive = uiScript;
             }
 
-            uiScript.background.enabled = initialState;
-            uiScript.containerRect.gameObject.SetActive(initialState);
+            uiScript.UIObject.SetActive(initialState);
         }
     }
 
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
+        Debug.Log("game state " + newState);
         foreach (var ui in panels)
         {
             var uiScript = ui.GetComponent<UIScreen>();
@@ -56,6 +56,7 @@ public class PanelManager : MonoBehaviour
                 {
                     UIActive.HideScreen();
                     uiScript.ShowScreen();
+
                     UIActive = uiScript;
                 }
             }
@@ -64,9 +65,29 @@ public class PanelManager : MonoBehaviour
     }
 
 
-    public void GamePlayingUpdated(GameManager.GamePlaying gamePlaying)
+    public void GamePlayingUpdated(GameManager.GamePlaying newPlaying)
     {
+        Debug.Log("new playing " + newPlaying);
+        foreach (var ui in panels)
+        {
+            var uiScript = ui.GetComponent<UIScreen>();
+            if (newPlaying != GameManager.GamePlaying.None)
+            {
+                bool actualPlaying = GameManager.Instance.gamePlaying == uiScript.visiblePlaying;
+                bool actualState = GameManager.Instance.gameState == uiScript.visibleState;
+                //Debug.Log(GameManager.Instance.gameState + "  " + GameManager.Instance.gamePlaying);
+                if (actualPlaying && actualState)
+                {
+                    //Debug.Log("sirvioooo");
+                    UIActive.HideScreen();
+                    //UIActive.UIObject.SetActive(false);
+                    //uiScript.UIObject.SetActive(false);
+                    uiScript.ShowScreen();
+                    UIActive = uiScript;
+                }
+            }
 
+        }
     }
 
 

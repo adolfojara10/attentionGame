@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Puzzle.Instance.allPiecesInRigthPlace)
+        /*if (Puzzle.Instance.allPiecesInRigthPlace)
         {
             gameState = GameState.GameCompleted;
             OnGameStateUpdated?.Invoke(gameState);
-        }
+        }*/
     }
 
     public void StartGame()
@@ -86,6 +86,16 @@ public class GameManager : MonoBehaviour
 
         gameState = GameState.InGame;
         OnGameStateUpdated?.Invoke(gameState);
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+
+    }
+
+    public void CompletedGame()
+    {
+
+        gameState = GameState.GameCompleted;
+        OnGameStateUpdated?.Invoke(gameState);
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
 
     }
 
@@ -93,6 +103,7 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.Idle;
+        gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
 
     }
@@ -100,11 +111,19 @@ public class GameManager : MonoBehaviour
     public void ChooseGame()
     {
         gameState = GameState.ChooseGame;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void MainMenu()
+    {
+        gameState = GameState.Idle;
+        gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
     }
 
 
-    public void AtencionAuditivaGame()
+    public void AtencionAuditivaLocalizarSonidoGame()
     {
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
@@ -113,6 +132,7 @@ public class GameManager : MonoBehaviour
 
     public void IntegracionVisualGame()
     {
+        gameState = GameState.InGame;
         gamePlaying = GamePlaying.IntegracionVisual;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
     }
