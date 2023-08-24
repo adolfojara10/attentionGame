@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     public enum GamePlaying
     {
+        None,
         AtencionAuditivaLocalizarSonido,
         ConcienciaCorporal,
         AtencionSelectivaLaberinto,
@@ -92,6 +93,17 @@ public class GameManager : MonoBehaviour
         gameState = GameState.Idle;
         OnGameStateUpdated?.Invoke(gameState);
 
+    }
+
+    public void ChooseGame(){
+        gameState = GameState.ChooseGame;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+
+    public void AtencionAuditivaGame(){
+        gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
     }
 
 }

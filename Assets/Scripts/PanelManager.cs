@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PanelManager : MonoBehaviour
 {
 
-    public List<Panel> generalPanels = new List<Panel>();
+    public List<GameObject> generalPanels = new List<GameObject>();
 
 
     // Start is called before the first frame update
