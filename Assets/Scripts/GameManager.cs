@@ -64,8 +64,10 @@ public class GameManager : MonoBehaviour
         puzzleSelectionInstance.SetPuzzlePhoto(1);
     }
 
-    private void Update() {
-        if(Puzzle.Instance.allPiecesInRigthPlace){
+    private void Update()
+    {
+        if (Puzzle.Instance.allPiecesInRigthPlace)
+        {
             gameState = GameState.GameCompleted;
             OnGameStateUpdated?.Invoke(gameState);
         }
@@ -95,14 +97,23 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ChooseGame(){
+    public void ChooseGame()
+    {
         gameState = GameState.ChooseGame;
         OnGameStateUpdated?.Invoke(gameState);
     }
 
 
-    public void AtencionAuditivaGame(){
+    public void AtencionAuditivaGame()
+    {
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+    }
+
+
+    public void IntegracionVisualGame()
+    {
+        gamePlaying = GamePlaying.IntegracionVisual;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
     }
 
