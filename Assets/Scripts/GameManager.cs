@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.InGame;
+        Debug.Log("INGAME");
         OnGameStateUpdated?.Invoke(gameState);
 
     }
@@ -85,8 +86,9 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.InGame;
-        OnGameStateUpdated?.Invoke(gameState);
+        
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
 
     }
 
@@ -133,8 +135,10 @@ public class GameManager : MonoBehaviour
     public void IntegracionVisualGame()
     {
         gameState = GameState.InGame;
+        
         gamePlaying = GamePlaying.IntegracionVisual;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
     }
 
 }
