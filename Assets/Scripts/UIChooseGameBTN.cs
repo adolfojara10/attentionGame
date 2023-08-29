@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class UIChooseGameBTN : MonoBehaviour
 {
+    public void AtencionAuditivaLocalizarSonidoGameButtonClicked()
+    {
+        GameManager.Instance.AtencionAuditivaLocalizarSonidoGame();
+    }
+
+
+
     public void IntegracionVisualButtonClicked()
     {
         GameManager.Instance.IntegracionVisualGame();

@@ -49,13 +49,17 @@ public class PanelManager : MonoBehaviour
         foreach (var ui in panels)
         {
             var uiScript = ui.GetComponent<UIScreen>();
-            if (newState != GameManager.GameState.InGame && newState != GameManager.GameState.GameCompleted)
+            //if (newState != GameManager.GameState.InGame && newState != GameManager.GameState.GameCompleted)
+            if (newState != GameManager.GameState.InGame)
             {
                 bool actualState = GameManager.Instance.gameState == uiScript.visibleState;
+                Debug.Log(uiScript.visibleState);
                 if (actualState)
                 {
                     UIActive.HideScreen();
                     uiScript.ShowScreen();
+
+                    Debug.Log("si entraaaa 1");
 
                     UIActive = uiScript;
                 }
@@ -83,6 +87,8 @@ public class PanelManager : MonoBehaviour
                     //UIActive.UIObject.SetActive(false);
                     //uiScript.UIObject.SetActive(false);
                     uiScript.ShowScreen();
+
+                    Debug.Log("si entraaaa 2");
                     UIActive = uiScript;
                 }
             }

@@ -96,8 +96,9 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.GameCompleted;
-        OnGameStateUpdated?.Invoke(gameState);
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+        
 
     }
 
@@ -127,6 +128,7 @@ public class GameManager : MonoBehaviour
 
     public void AtencionAuditivaLocalizarSonidoGame()
     {
+        gameState = GameState.InGame;
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
     }
