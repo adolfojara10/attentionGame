@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.InGame;
-        
+
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
 
@@ -98,7 +98,17 @@ public class GameManager : MonoBehaviour
         gameState = GameState.GameCompleted;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        
+
+
+    }
+
+    public void GameOver()
+    {
+
+        gameState = GameState.GameOver;
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
 
     }
 
@@ -137,7 +147,7 @@ public class GameManager : MonoBehaviour
     public void IntegracionVisualGame()
     {
         gameState = GameState.InGame;
-        
+
         gamePlaying = GamePlaying.IntegracionVisual;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);

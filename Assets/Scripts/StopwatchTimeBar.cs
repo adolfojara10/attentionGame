@@ -42,9 +42,8 @@ public class StopwatchTimeBar : MonoBehaviour
 
             if (currentTimeToMatch > timeToMatch)
             {
-                Debug.Log("game oveeeer");
-                //gameState = GameState.GameOver;
-                //OnGameStateUpdated?.Invoke(gameState);
+                IsPlaying = false;
+                GameManager.Instance.GameOver();
             }
         }
     }

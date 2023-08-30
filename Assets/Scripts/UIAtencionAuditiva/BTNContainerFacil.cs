@@ -9,6 +9,6 @@ public class BTNContainerFacil : MonoBehaviour
     }
 
     public void WrongBTNClicked(){
-        Debug.Log("Instrumento incorrecto");
+        GameManager.Instance.GameOver();
     }
 }
