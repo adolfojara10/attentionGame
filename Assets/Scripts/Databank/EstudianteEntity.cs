@@ -13,6 +13,11 @@ namespace DataBank
         public string _lastName;
         public string _born;
 
+        public EstudianteEntity()
+        {
+
+        }
+
 
         public EstudianteEntity(string id, String name, string lastName, string born)
         {
