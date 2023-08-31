@@ -79,7 +79,32 @@ public class GameManager : MonoBehaviour
         nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
 
         IDataReader dataReader = estudianteDB.getDataByIdString("2");
-        estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+        if (dataReader == null)
+        {
+            string dateString = "2023-08-21";
+            estudianteDB.addData(new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString));
+            estudiante = new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString);
+            
+            NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "2");
+
+            nivelAtencionJuegosDB.addData(nivelAtencionJuegos);
+        }
+        else
+        {
+            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
+            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+        }
+
 
         /*dataReader = estudianteDB.getAllData();
 
@@ -99,7 +124,7 @@ public class GameManager : MonoBehaviour
             myList2.Add(entity);
         }*/
 
-        nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
+        
         //nivelAtencionJuegosDB.Update();
 
         //Debug.Log("nivel " + nivelAtencionJuegos._idEstudiante);
