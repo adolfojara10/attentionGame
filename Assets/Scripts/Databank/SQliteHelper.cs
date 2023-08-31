@@ -35,14 +35,58 @@ namespace DataBank
         // virtual functions
         public virtual IDataReader getDataById(int id)
         {
+
             Debug.Log(Tag + "This function is not implemnted");
             throw null;
         }
 
-        public virtual IDataReader getDataByString(string str)
+        public IDataReader getDataByIdString(string table_name, string id)
         {
-            Debug.Log(Tag + "This function is not implemnted");
-            throw null;
+
+            IDbCommand dbcmd = db_connection.CreateCommand();
+            dbcmd.CommandText = "SELECT * FROM " + table_name + " WHERE ID = " + id;
+            try
+            {
+                IDataReader reader = dbcmd.ExecuteReader();
+
+                // Check if there is a valid row before accessing data
+                if (reader.Read())
+                {
+                    return reader; // Return the reader with the valid row
+                }
+                else
+                {
+                    Debug.LogWarning("No data found for the specified ID.");
+                    reader.Close(); // Close the reader when no data is found
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error while retrieving data by ID: " + ex.Message);
+                return null;
+            }
+        }
+
+        public void UpdateDataByIdStringNivelAtencion(string table_name, NivelAtencionJuegosEntity nivel)
+        {
+            IDbCommand dbcmd = db_connection.CreateCommand();
+            dbcmd.CommandText =
+                "UPDATE " + table_name
+                + " SET "
+                + "atencionAuditivaLocalizarSonido" + " = '" + nivel._atencionAuditivaLocalizarSonido + "', "
+                + "concienciaCorporal" + " = '" + nivel._concienciaCorporal + "', "
+                + "atencionSelectivaLaberinto" + " = '" + nivel._atencionSelectivaLaberinto + "', "
+                + "yoga" + " = '" + nivel._yoga + "', "
+                + "atencionSelectivaObjetosPerdidos" + " = '" + nivel._atencionSelectivaObjetosPerdidos + "', "
+                + "atencionSelectivaPiezasFaltantes" + " = '" + nivel._atencionSelectivaPiezasFaltantes + "', "
+                + "atencionSelectivaSostenida" + " = '" + nivel._atencionSelectivaSostenida + "', "
+                + "integracionVisual" + " = '" + nivel._integracionVisual + "', "
+                + "atencionAuditivaDiscriminarFigura" + " = '" + nivel._atencionAuditivaDiscriminarFigura + "' "
+                + "WHERE " + "id" + " = '" + nivel._id + "'";
+
+            // Execute the command
+            dbcmd.ExecuteNonQuery();
         }
 
         public virtual void deleteDataById(int id)

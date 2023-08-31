@@ -45,7 +45,7 @@ public class PanelManager : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
-        Debug.Log("game state " + newState);
+        //Debug.Log("game state " + newState);
         foreach (var ui in panels)
         {
             var uiScript = ui.GetComponent<UIScreen>();
@@ -59,7 +59,7 @@ public class PanelManager : MonoBehaviour
                     UIActive.HideScreen();
                     uiScript.ShowScreen();
 
-                    Debug.Log("si entraaaa 1");
+                    //Debug.Log("si entraaaa 1");
 
                     UIActive = uiScript;
                 }
@@ -71,7 +71,7 @@ public class PanelManager : MonoBehaviour
 
     public void GamePlayingUpdated(GameManager.GamePlaying newPlaying)
     {
-        Debug.Log("new playing " + newPlaying);
+        //Debug.Log("new playing " + newPlaying);
         foreach (var ui in panels)
         {
             var uiScript = ui.GetComponent<UIScreen>();
@@ -88,7 +88,7 @@ public class PanelManager : MonoBehaviour
                     //uiScript.UIObject.SetActive(false);
                     uiScript.ShowScreen();
 
-                    Debug.Log("si entraaaa 2");
+                    //Debug.Log("si entraaaa 2");
                     UIActive = uiScript;
                 }
             }

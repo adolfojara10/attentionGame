@@ -39,26 +39,21 @@ public class AudioManager : MonoBehaviour
         if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido)
         {
 
-            //hacer dependiendo del nivel
-            SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[0]);
+            if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "facil")
+            {
+                SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[0]);
+            }
 
-        }
-    }
+            if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
+            {
+                SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[1]);
+            }
 
-    public void PlaySound(GameManager.GamePlaying newGamePlaying)
-    {
-        StartCoroutine(PlaySoundCoroutine(newGamePlaying));
-    }
+            if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
+            {
+                SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[2]);
+            }
 
-
-    IEnumerator PlaySoundCoroutine(GameManager.GamePlaying newGamePlaying)
-    {
-        yield return new WaitForSeconds(0.5f);
-        if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido && GameManager.Instance.gameState == GameManager.GameState.InGame)
-        {
-
-            //hacer dependiendo del nivel
-            SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[0]);
 
         }
     }

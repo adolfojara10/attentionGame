@@ -50,12 +50,12 @@ namespace DataBank
             dbcmd.ExecuteNonQuery();
         }
 
-        public override IDataReader getDataById(int id)
+        /*public override IDataReader getDataById(int id)
         {
             return base.getDataById(id);
-        }
+        }*/
 
-        public override IDataReader getDataByString(string str)
+        /*public override IDataReader getDataByString(string str)
         {
             Debug.Log(Tag + "Getting Location: " + str);
 
@@ -63,7 +63,7 @@ namespace DataBank
             dbcmd.CommandText =
                 "SELECT * FROM " + TABLE_NAME + " WHERE " + KEY_ID + " = '" + str + "'";
             return dbcmd.ExecuteReader();
-        }
+        }*/
 
         public override void deleteDataByString(string id)
         {

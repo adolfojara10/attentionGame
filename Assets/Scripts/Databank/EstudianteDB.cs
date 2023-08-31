@@ -50,11 +50,12 @@ namespace DataBank
             dbcmd.ExecuteNonQuery();
         }
 
-        public override IDataReader getDataById(int id)
+        public IDataReader getDataByIdString(string id)
         {
-            return base.getDataById(id);
+            return base.getDataByIdString(TABLE_NAME, id);
         }
 
+        
         public override IDataReader getAllData()
         {
             return base.getAllData(TABLE_NAME);

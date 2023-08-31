@@ -54,7 +54,7 @@ public class DbTestBehaviourScript : MonoBehaviour
         string dateString = "2023-08-21";
         DateTime parsedDateTime = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
 
-        //estDB.addData(new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString));
+        estDB.addData(new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString));
         System.Data.IDataReader reader = estDB.getAllData();
 
         int fieldCount2 = reader.FieldCount;

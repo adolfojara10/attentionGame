@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using Juego.UIIntegracionVisual;
 using System.IO;
 using UnityEngine.Events;
+using DataBank;
+using System.Data;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,6 +14,14 @@ public class GameManager : MonoBehaviour
     //public List<Image> imagesIntegracionVisual = new List<Image>();
 
     public static GameManager Instance;
+
+    public EstudianteEntity estudiante;
+    public NivelAtencionJuegosEntity nivelAtencionJuegos;
+
+
+    private EstudianteDB estudianteDB;
+    private NivelAtencionJuegosDB nivelAtencionJuegosDB;
+
 
     public enum GameState
     {
@@ -60,8 +70,43 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PuzzleSelection puzzleSelectionInstance = PuzzleSelection.Instance;
-        puzzleSelectionInstance.SetPuzzlePhoto(1);
+        //PuzzleSelection puzzleSelectionInstance = PuzzleSelection.Instance;
+        //puzzleSelectionInstance.SetPuzzlePhoto(1);
+
+        //Debug.Log("manager");
+
+        estudianteDB = new EstudianteDB();
+        nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
+
+        IDataReader dataReader = estudianteDB.getDataByIdString("2");
+        estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+
+        /*dataReader = estudianteDB.getAllData();
+
+        int fieldCount2 = dataReader.FieldCount;
+        List<EstudianteEntity> myList2 = new List<EstudianteEntity>();
+        while (dataReader.Read())
+        {
+            //string dateTimeString = reader[3];
+            //Debug.Log("------------------" + reader[3]);
+
+            EstudianteEntity entity = new EstudianteEntity(dataReader[0].ToString(),
+                                    dataReader[1].ToString(),
+                                    dataReader[2].ToString(),
+                                    dataReader[3].ToString());
+
+            Debug.Log("id: " + entity._id + " nombre: " + entity._name + " born: " + entity._born);
+            myList2.Add(entity);
+        }*/
+
+        nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
+        //nivelAtencionJuegosDB.Update();
+
+        //Debug.Log("nivel " + nivelAtencionJuegos._idEstudiante);
+
+
+        //Debug.Log("estudiante   " + estudiante._name);
+
     }
 
     private void Update()
@@ -73,11 +118,12 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+
     public void StartGame()
     {
 
         gameState = GameState.InGame;
-        Debug.Log("INGAME");
+        //Debug.Log("INGAME");
         OnGameStateUpdated?.Invoke(gameState);
 
     }
@@ -138,9 +184,11 @@ public class GameManager : MonoBehaviour
 
     public void AtencionAuditivaLocalizarSonidoGame()
     {
+        Debug.Log("--------------------- game manager");
         gameState = GameState.InGame;
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
     }
 
 
