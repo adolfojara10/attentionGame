@@ -27,22 +27,25 @@ public class ContainerAtencionAuditivaManager : MonoBehaviour
 
     public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
     {
-        Debug.Log("jugando--------------- " + newGamePlaying);
+        //Debug.Log("jugando--------------- " + newGamePlaying);
         if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido)
         {
-            Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
+            //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "facil")
             {
+                StopwatchTimeBar.Instance.timeToMatch = 15f;
                 containersLevels[0].SetActive(true);
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
             {
+                StopwatchTimeBar.Instance.timeToMatch = 26.3f;
                 containersLevels[1].SetActive(true);
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
             {
+                StopwatchTimeBar.Instance.timeToMatch = 31f;
                 containersLevels[2].SetActive(true);
             }
         }
@@ -51,7 +54,7 @@ public class ContainerAtencionAuditivaManager : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
-        Debug.Log("state--------------- " + newState);
+        //Debug.Log("state--------------- " + newState);
         if (newState != GameManager.GameState.InGame)
         {
             foreach (var container in containersLevels)

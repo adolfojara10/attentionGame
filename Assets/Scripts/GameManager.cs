@@ -19,8 +19,8 @@ public class GameManager : MonoBehaviour
     public NivelAtencionJuegosEntity nivelAtencionJuegos;
 
 
-    private EstudianteDB estudianteDB;
-    private NivelAtencionJuegosDB nivelAtencionJuegosDB;
+    public EstudianteDB estudianteDB;
+    public NivelAtencionJuegosDB nivelAtencionJuegosDB;
 
 
     public enum GameState
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
             string dateString = "2023-08-21";
             estudianteDB.addData(new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString));
             estudiante = new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString);
-            
+
             NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
             "facil",
             "facil",
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
             myList2.Add(entity);
         }*/
 
-        
+
         //nivelAtencionJuegosDB.Update();
 
         //Debug.Log("nivel " + nivelAtencionJuegos._idEstudiante);
@@ -209,9 +209,18 @@ public class GameManager : MonoBehaviour
 
     public void AtencionAuditivaLocalizarSonidoGame()
     {
-        Debug.Log("--------------------- game manager");
+        //Debug.Log("--------------------- game manager");
         gameState = GameState.InGame;
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void ConcienciaCorporalGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.ConcienciaCorporal;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
     }

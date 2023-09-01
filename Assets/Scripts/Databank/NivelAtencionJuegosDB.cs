@@ -96,19 +96,19 @@ namespace DataBank
         }
 
 
-        public void Update()
+        public void Update(NivelAtencionJuegosEntity nivelEntity)
         {
-            NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity("1",
-            "medio",
-            "medio",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "2");
+            /*NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity("1",
+             "medio",
+             "medio",
+             "facil",
+             "facil",
+             "facil",
+             "facil",
+             "facil",
+             "facil",
+             "facil",
+             "2");*/
             base.UpdateDataByIdStringNivelAtencion(TABLE_NAME, nivelEntity);
 
         }

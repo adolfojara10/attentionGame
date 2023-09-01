@@ -9,6 +9,11 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.AtencionAuditivaLocalizarSonidoGame();
     }
 
+    public void ConcienciaCorporalGameButtonClicked()
+    {
+        GameManager.Instance.ConcienciaCorporalGame();
+    }
+
 
 
     public void IntegracionVisualButtonClicked()

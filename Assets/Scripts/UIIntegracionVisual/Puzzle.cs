@@ -54,7 +54,7 @@ public class Puzzle : MonoBehaviour
     {
         if (state == GameManager.GameState.GameOver)
         {
-            Debug.Log("GAME OVER");
+            //Debug.Log("GAME OVER");
             movedPieces.Clear();
             allPiecesMoved = false;
             allPiecesInRigthPlace = false;
@@ -63,7 +63,7 @@ public class Puzzle : MonoBehaviour
 
         if (state == GameManager.GameState.GameCompleted)
         {
-            Debug.Log("GAME COMPLETED");
+            //Debug.Log("GAME COMPLETED");
             movedPieces.Clear();
             allPiecesMoved = false;
             allPiecesInRigthPlace = false;
@@ -72,7 +72,7 @@ public class Puzzle : MonoBehaviour
 
         if (state == GameManager.GameState.InGame)
         {
-            Debug.Log("moviendo piezas");
+            //Debug.Log("moviendo piezas");
             movedPieces.Clear();
             allPiecesMoved = false;
             allPiecesInRigthPlace = false;

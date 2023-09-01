@@ -1591,13 +1591,14 @@ GameObject:
   - component: {fileID: 164267066}
   - component: {fileID: 164267065}
   - component: {fileID: 164267064}
+  - component: {fileID: 164267068}
   m_Layer: 5
   m_Name: UIConcienciaCorporal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &164267064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1684,6 +1685,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &164267068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164267063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a10288d9583664e499b8b5dfcc3d2da5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIObject: {fileID: 164267063}
+  containerRect: {fileID: 0}
+  containerCanvas: {fileID: 0}
+  background: {fileID: 525133230}
+  visibleState: 2
+  visiblePlaying: 2
+  transitionTime: 1
+  isGameUI: 1
 --- !u!1 &174968187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4825,8 +4846,9 @@ MonoBehaviour:
   - {fileID: 1525884063}
   - {fileID: 440783427}
   - {fileID: 657575900}
-  - {fileID: 2072128079}
   - {fileID: 360692388}
+  - {fileID: 164267063}
+  - {fileID: 2072128079}
 --- !u!114 &516204007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12170,7 +12192,7 @@ GameObject:
   - component: {fileID: 1227535425}
   - component: {fileID: 1227535424}
   m_Layer: 5
-  m_Name: BTNCredits
+  m_Name: BTNConcienciaCorporal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12240,7 +12262,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1227535425}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1525884069}
+        m_TargetAssemblyTypeName: UIChooseGameBTN, Assembly-CSharp
+        m_MethodName: ConcienciaCorporalGameButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1227535425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12795,6 +12829,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296934981}
   m_CullTransparentMesh: 1
+--- !u!1 &1311621976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311621978}
+  - component: {fileID: 1311621977}
+  m_Layer: 0
+  m_Name: BDManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1311621977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311621976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084976d112c74804eae3850bdb084133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1311621978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311621976}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1311753775
 GameObject:
   m_ObjectHideFlags: 0
@@ -15604,7 +15682,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1525884064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20874,7 +20952,7 @@ Transform:
   m_Children:
   - {fileID: 1646610802}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009812247
 GameObject:
@@ -20947,6 +21025,7 @@ MonoBehaviour:
   OtherSprite: {fileID: 21300000, guid: ad38c125564108a4a9b4798fcb8a432f, type: 3}
   OtherSprite1: {fileID: 21300000, guid: ff00000fa59eae742acf9a5ab7f402ef, type: 3}
   number: 5
+  images: []
 --- !u!1 &2013556060
 GameObject:
   m_ObjectHideFlags: 0

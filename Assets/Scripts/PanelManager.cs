@@ -53,7 +53,7 @@ public class PanelManager : MonoBehaviour
             if (newState != GameManager.GameState.InGame)
             {
                 bool actualState = GameManager.Instance.gameState == uiScript.visibleState;
-                Debug.Log(uiScript.visibleState);
+                //Debug.Log(uiScript.visibleState);
                 if (actualState)
                 {
                     UIActive.HideScreen();

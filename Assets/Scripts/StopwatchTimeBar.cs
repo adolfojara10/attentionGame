@@ -53,7 +53,7 @@ public class StopwatchTimeBar : MonoBehaviour
         if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido && GameManager.Instance.gameState == GameManager.GameState.InGame)
         {
             //setear dependiendo del nivel del niño
-            timeToMatch = 15f;
+            //timeToMatch = 15f;
             IsPlaying = true;
         }
         else
