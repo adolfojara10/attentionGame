@@ -14,6 +14,15 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.ConcienciaCorporalGame();
     }
 
+    public void YogaGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.YogaGame();
+    }
+
+
+
+
 
 
     public void IntegracionVisualButtonClicked()

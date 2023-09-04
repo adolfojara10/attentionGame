@@ -10,9 +10,9 @@ namespace DataBank
     {
         public string _id;
 
-        public string _juego;
-        public string _fecha;
-        public string _resultado;
+        public string _game;
+        public string _date;
+        public string _result;
 
         public string _idEstudiante;
 
@@ -21,12 +21,13 @@ namespace DataBank
 
         }
 
-        public ReporteEntity(string id, string juego, string fecha, string resultado, string idEstudiante)
+        public ReporteEntity(string id, string game, string date, 
+        string result, string idEstudiante)
         {
             _id = id;
-            _juego = juego;
-            _fecha = fecha;
-            _resultado = resultado;
+            _game = game;
+            _date = date;
+            _result = result;
             _idEstudiante = idEstudiante;
         }
 

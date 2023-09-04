@@ -150,6 +150,24 @@ namespace DataBank
             return reader;
         }
 
+        public int GetRowCount(string table_name)
+        {
+            IDbCommand dbcmd = db_connection.CreateCommand();
+            dbcmd.CommandText = "SELECT COUNT(*) FROM " + table_name;
+
+            try
+            {
+                int rowCount = Convert.ToInt32(dbcmd.ExecuteScalar());
+                return rowCount;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error while getting row count: " + ex.Message);
+                return -1; // or another suitable error value
+            }
+        }
+
+
         public void close()
         {
             db_connection.Close();

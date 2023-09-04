@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public EstudianteDB estudianteDB;
     public NivelAtencionJuegosDB nivelAtencionJuegosDB;
 
+    public ReporteDB reporteDB;
+
 
     public enum GameState
     {
@@ -77,6 +79,8 @@ public class GameManager : MonoBehaviour
 
         estudianteDB = new EstudianteDB();
         nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
+        reporteDB = new ReporteDB();
+
 
         IDataReader dataReader = estudianteDB.getDataByIdString("2");
         if (dataReader == null)
@@ -180,6 +184,8 @@ public class GameManager : MonoBehaviour
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
 
+        AudioManager.Instance.SFXSource.Stop();
+
 
     }
 
@@ -221,6 +227,15 @@ public class GameManager : MonoBehaviour
         //Debug.Log("--------------------- game manager");
         gameState = GameState.InGame;
         gamePlaying = GamePlaying.ConcienciaCorporal;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void YogaGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.Yoga;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
     }

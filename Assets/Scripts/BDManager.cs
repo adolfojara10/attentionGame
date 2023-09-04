@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DataBank;
+using System;
 
 
 public class BDManager : MonoBehaviour
 {
 
     private NivelAtencionJuegosEntity nivelAtencionJuegos;
+
+    string game = "";
+    string result = "";
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +23,15 @@ public class BDManager : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
+
+        game = "";
+        result = "";
+
         if (newState == GameManager.GameState.GameCompleted)
         {
             Debug.Log("BDDDDDDD");
+
+            result = "Mejora - Juego completado";
 
             nivelAtencionJuegos = GameManager.Instance.nivelAtencionJuegos;
 
@@ -39,6 +49,8 @@ public class BDManager : MonoBehaviour
                     nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
+                game = "Atencion Auditiva - Localizar Sonido";
+
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
@@ -54,6 +66,9 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._concienciaCorporal = "dificil";
                 }
+
+                game = "Conciencia Corporal";
+
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaLaberinto)
@@ -69,6 +84,8 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaLaberinto = "dificil";
                 }
+
+                game = "Atencion Selectiva - Laberinto";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
@@ -83,6 +100,8 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._yoga = "dificil";
                 }
+
+                game = "Yoga";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
@@ -97,6 +116,8 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "dificil";
                 }
+
+                game = "Atencion Selectiva - Objetos Perdidos";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
@@ -111,6 +132,8 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "dificil";
                 }
+
+                game = "Atencion Selectiva - Piezas Faltantes";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
@@ -125,6 +148,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaSostenida = "dificil";
                 }
+                game = "Atencion Selectiva y Sostenida";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual)
@@ -139,6 +163,8 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._integracionVisual = "dificil";
                 }
+
+                game = "Integracion Visual";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
@@ -153,11 +179,94 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "dificil";
                 }
-            }
 
+                game = "Atencion Auditiva - Discriminar Figura";
+            }
             GameManager.Instance.nivelAtencionJuegos = this.nivelAtencionJuegos;
             GameManager.Instance.nivelAtencionJuegosDB.Update(this.nivelAtencionJuegos);
 
+            CreateReport();
+
         }
+
+
+
+        if (newState == GameManager.GameState.GameOver)
+        {
+            result = "Juego no completado";
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido)
+            {
+                game = "Atencion Auditiva - Localizar Sonido";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
+            {
+                game = "Conciencia Corporal";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaLaberinto)
+            {
+                game = "Atencion Selectiva - Laberinto";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
+            {
+                game = "Yoga";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
+            {
+                game = "Atencion Selectiva - Objetos Perdidos";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
+            {
+                game = "Atencion Selectiva - Piezas Faltantes";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
+            {
+                game = "Atencion Selectiva y Sostenida";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual)
+            {
+                game = "Integracion Visual";
+            }
+
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
+            {
+                game = "Atencion Auditiva - Discriminar Figura";
+            }
+
+            CreateReport();
+        }
+
+    }
+
+
+    public void CreateReport()
+    {
+
+        int rowCount = GameManager.Instance.reporteDB.GetRowCount() + 1;
+        string rowCountAsString = rowCount.ToString();
+
+        string formattedDate = DateTime.Now.ToString("dd/MM/yyyy");
+
+        Debug.Log($"rowCountAsString: {rowCountAsString}");
+        Debug.Log($"game: {game}");
+        Debug.Log($"formattedDate: {formattedDate}");
+        Debug.Log($"result: {result}");
+        Debug.Log($"nivelAtencionJuegos._idEstudiante: {GameManager.Instance.nivelAtencionJuegos._idEstudiante}");
+
+        ReporteEntity rep = new ReporteEntity(rowCountAsString,
+            game,
+            formattedDate,
+            result,
+            GameManager.Instance.nivelAtencionJuegos._idEstudiante);
+
+
+        GameManager.Instance.reporteDB.addData(rep);
     }
 }

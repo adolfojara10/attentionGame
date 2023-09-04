@@ -57,6 +57,7 @@ public class ContainerAtencionAuditivaManager : MonoBehaviour
         //Debug.Log("state--------------- " + newState);
         if (newState != GameManager.GameState.InGame)
         {
+            StopwatchTimeBar.Instance.currentTimeToMatch = 0f;
             foreach (var container in containersLevels)
             {
                 container.SetActive(false);
