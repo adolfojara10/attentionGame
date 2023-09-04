@@ -20,6 +20,17 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.YogaGame();
     }
 
+    public void ObjetosPerdidosGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.ObjetosPerdidosGame();
+    }
+
+    public void DiferenciasGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.DiferenciasGame();
+    }
 
 
 

@@ -240,6 +240,24 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
     }
 
+    public void ObjetosPerdidosGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void DiferenciasGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.AtencionSelectivaPiezasFaltantes;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
 
     public void IntegracionVisualGame()
     {

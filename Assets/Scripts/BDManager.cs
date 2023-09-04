@@ -254,12 +254,12 @@ public class BDManager : MonoBehaviour
 
         string formattedDate = DateTime.Now.ToString("dd/MM/yyyy");
 
-        Debug.Log($"rowCountAsString: {rowCountAsString}");
+        /*Debug.Log($"rowCountAsString: {rowCountAsString}");
         Debug.Log($"game: {game}");
         Debug.Log($"formattedDate: {formattedDate}");
         Debug.Log($"result: {result}");
         Debug.Log($"nivelAtencionJuegos._idEstudiante: {GameManager.Instance.nivelAtencionJuegos._idEstudiante}");
-
+*/
         ReporteEntity rep = new ReporteEntity(rowCountAsString,
             game,
             formattedDate,
