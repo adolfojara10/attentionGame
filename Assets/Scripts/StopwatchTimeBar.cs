@@ -50,7 +50,9 @@ public class StopwatchTimeBar : MonoBehaviour
 
     public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
     {
-        if ((newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido && GameManager.Instance.gameState == GameManager.GameState.InGame) || (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes && GameManager.Instance.gameState == GameManager.GameState.InGame))
+        if ((newGamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido && GameManager.Instance.gameState == GameManager.GameState.InGame)
+            || (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes && GameManager.Instance.gameState == GameManager.GameState.InGame)
+            || (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida && GameManager.Instance.gameState == GameManager.GameState.InGame))
         {
             //setear dependiendo del nivel del niño
             //timeToMatch = 15f;
