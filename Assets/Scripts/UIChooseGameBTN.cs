@@ -32,6 +32,11 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.DiferenciasGame();
     }
 
+    public void AtencionSelectivaSostenidaGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.AtencionSelectivaSostenidaGame();
+    }
 
 
 

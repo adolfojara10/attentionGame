@@ -258,6 +258,15 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
     }
 
+    public void AtencionSelectivaSostenidaGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.AtencionSelectivaSostenida;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
 
     public void IntegracionVisualGame()
     {
