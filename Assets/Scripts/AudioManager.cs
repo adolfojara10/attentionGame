@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
-        Debug.Log(" estad audio " + newState);
+        //Debug.Log(" estad audio " + newState);
         if (newState != GameManager.GameState.InGame)
         {
             if (SFXSource.isPlaying)
