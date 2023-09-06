@@ -113,6 +113,11 @@ namespace DataBank
 
         }
 
+        public void ResetValues()
+        {
+            base.ResetFacilValuesNivelJuegos();
+        }
+
         public NivelAtencionJuegosEntity getDataByIdEstudiante(string id)
         {
             IDataReader dataReader = this.getAllData();

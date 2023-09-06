@@ -89,6 +89,28 @@ namespace DataBank
             dbcmd.ExecuteNonQuery();
         }
 
+
+        public void ResetFacilValuesNivelJuegos()
+        {
+            IDbCommand dbcmd = db_connection.CreateCommand();
+            dbcmd.CommandText =
+                "UPDATE " + "NivelAtencionJuegos" + " SET " +
+                "atencionAuditivaLocalizarSonido = '" + "facil" + "', " +
+                "concienciaCorporal = '" + "facil" + "', " +
+                "atencionSelectivaLaberinto = '" + "facil" + "', " +
+                "yoga = '" + "facil" + "', " +
+                "atencionSelectivaObjetosPerdidos = '" + "facil" + "', " +
+                "atencionSelectivaPiezasFaltantes = '" + "facil" + "', " +
+                "atencionSelectivaSostenida = '" + "facil" + "', " +
+                "integracionVisual = '" + "facil" + "', " +
+                "atencionAuditivaDiscriminarFigura = '" + "facil" + "' " +
+                "WHERE id = " + "1";
+
+
+            dbcmd.ExecuteNonQuery();
+
+        }
+
         public virtual void deleteDataById(int id)
         {
             Debug.Log(Tag + "This function is not implemented");

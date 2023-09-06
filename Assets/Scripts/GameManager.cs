@@ -81,6 +81,8 @@ public class GameManager : MonoBehaviour
         nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
         reporteDB = new ReporteDB();
 
+        nivelAtencionJuegosDB.ResetValues();
+
 
         IDataReader dataReader = estudianteDB.getDataByIdString("2");
         if (dataReader == null)
@@ -105,6 +107,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+
+            //nivelAtencionJuegosDB.ResetValues();
             nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
             estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
         }

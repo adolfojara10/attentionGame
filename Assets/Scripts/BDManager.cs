@@ -42,9 +42,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
+                else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
                 {
                     nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
@@ -60,9 +58,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._concienciaCorporal = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._concienciaCorporal == "medio")
+                else if (nivelAtencionJuegos._concienciaCorporal == "medio")
                 {
                     nivelAtencionJuegos._concienciaCorporal = "dificil";
                 }
@@ -78,9 +74,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaLaberinto = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionSelectivaLaberinto == "medio")
+                else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "medio")
                 {
                     nivelAtencionJuegos._atencionSelectivaLaberinto = "dificil";
                 }
@@ -94,9 +88,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._yoga = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._yoga == "medio")
+                else if (nivelAtencionJuegos._yoga == "medio")
                 {
                     nivelAtencionJuegos._yoga = "dificil";
                 }
@@ -110,9 +102,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "medio")
+                else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "medio")
                 {
                     nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "dificil";
                 }
@@ -126,9 +116,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "medio")
+                else if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "medio")
                 {
                     nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "dificil";
                 }
@@ -142,9 +130,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionSelectivaSostenida = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionSelectivaSostenida == "medio")
+                else if (nivelAtencionJuegos._atencionSelectivaSostenida == "medio")
                 {
                     nivelAtencionJuegos._atencionSelectivaSostenida = "dificil";
                 }
@@ -157,9 +143,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._integracionVisual = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._integracionVisual == "medio")
+                else if (nivelAtencionJuegos._integracionVisual == "medio")
                 {
                     nivelAtencionJuegos._integracionVisual = "dificil";
                 }
@@ -173,9 +157,7 @@ public class BDManager : MonoBehaviour
                 {
                     nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "medio";
                 }
-
-
-                if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "medio")
+                else if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "medio")
                 {
                     nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "dificil";
                 }
