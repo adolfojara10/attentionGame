@@ -52,6 +52,7 @@ public class UIChooseGameBTN : MonoBehaviour
 
     public void BackButtonClicked()
     {
+        Debug.Log("MAIN MENUUU");
         GameManager.Instance.MainMenu();
     }
 }
