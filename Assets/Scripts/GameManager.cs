@@ -271,6 +271,15 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
     }
 
+    public void AtencionAuditivaDiscriminarFiguraGame()
+    {
+        //Debug.Log("--------------------- game manager");
+        gameState = GameState.InGame;
+        gamePlaying = GamePlaying.AtencionAuditivaDiscriminarFigura;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
 
     public void IntegracionVisualGame()
     {

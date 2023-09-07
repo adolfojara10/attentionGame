@@ -39,6 +39,13 @@ public class UIChooseGameBTN : MonoBehaviour
     }
 
 
+    public void AtencionAuditivaDiscriminarFiguraGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.AtencionAuditivaDiscriminarFiguraGame();
+    }
+
+
 
 
     public void IntegracionVisualButtonClicked()
@@ -52,7 +59,7 @@ public class UIChooseGameBTN : MonoBehaviour
 
     public void BackButtonClicked()
     {
-        Debug.Log("MAIN MENUUU");
+        //Debug.Log("MAIN MENUUU");
         GameManager.Instance.MainMenu();
     }
 }
