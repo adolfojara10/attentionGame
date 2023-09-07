@@ -46,7 +46,10 @@ public class UIChooseGameBTN : MonoBehaviour
     }
 
 
-
+    public void RompecabezasButtonClicked()
+    {
+        GameManager.Instance.RompecabezasGame();
+    }
 
     public void IntegracionVisualButtonClicked()
     {

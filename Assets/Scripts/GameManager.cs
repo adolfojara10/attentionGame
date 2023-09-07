@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
         AtencionSelectivaPiezasFaltantes,
         AtencionSelectivaSostenida,
         IntegracionVisual,
-        AtencionAuditivaDiscriminarFigura
+        AtencionAuditivaDiscriminarFigura,
+        Rompecabezas
     }
 
 
@@ -280,6 +281,15 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
     }
 
+
+    public void RompecabezasGame()
+    {
+        gameState = GameState.InGame;
+
+        gamePlaying = GamePlaying.Rompecabezas;
+        OnGamePlayingUpdated?.Invoke(gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+    }
 
     public void IntegracionVisualGame()
     {
