@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 121185222}
   - component: {fileID: 121185223}
   - component: {fileID: 121185224}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: im2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 609400714}
   - component: {fileID: 609400715}
   - component: {fileID: 609400716}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: im1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -688,6 +688,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1740252442}
   - component: {fileID: 1740252444}
+  - component: {fileID: 1740252445}
+  - component: {fileID: 1740252446}
   m_Layer: 0
   m_Name: LineManager
   m_TagString: Untagged
@@ -717,7 +719,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740252441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf39e53320798514e889955a13acaeae, type: 3}
   m_Name: 
@@ -725,6 +727,42 @@ MonoBehaviour:
   lineRenderer: {fileID: 662971325}
   lineMaterial: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
   lineWidth: 0.1
+--- !u!114 &1740252445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740252441}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57a7c93899375594caa5987e1af661f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 662971325}
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  selectedCards: []
+--- !u!114 &1740252446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1740252441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eef0aa758a6722b43997a1f27cf2faa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineRenderer: {fileID: 662971325}
+  lineMaterial: {fileID: 10756, guid: 0000000000000000e000000000000000, type: 0}
+  lineWidth: 0.1
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  selectedCards: []
 --- !u!1 &1806602005
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +835,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
