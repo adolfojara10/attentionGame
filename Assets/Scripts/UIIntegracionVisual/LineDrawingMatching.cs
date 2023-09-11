@@ -12,10 +12,22 @@ public class LineDrawingMatching : MonoBehaviour
     public LayerMask cardLayer; // Create a LayerMask for the cards.
 
     public List<Transform> selectedCards = new List<Transform>();
+
+    public List<Transform> matchedCards = new List<Transform>();
+
+    [SerializeField]
+    private List<LineRenderer> lineRenderers = new List<LineRenderer>();
+
+    [SerializeField]
+    private List<Vector3> linePositions = new List<Vector3>();
+
+    public int numberOfImages = 0;
     // Start is called before the first frame update
     void Start()
     {
         InitializeLineRenderer();
+        GameManager.Instance.OnGamePlayingUpdated.AddListener(GamePlayingUpdated);
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
     }
 
     // Update is called once per frame
@@ -24,13 +36,35 @@ public class LineDrawingMatching : MonoBehaviour
         // Check for mouse button down to start drawing.
         if (Input.GetMouseButtonDown(0))
         {
+            //CheckForMatch();
             StartDrawing();
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, cardLayer);
+
+            if (hit.collider != null && !matchedCards.Contains(hit.transform))
+            {
+                SelectCard(hit.transform);
+            }
         }
 
         // Check for mouse button release to stop drawing.
         if (Input.GetMouseButtonUp(0))
         {
+            //CheckForMatch();
+
+
+
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, cardLayer);
+
+            if (hit.collider != null && !matchedCards.Contains(hit.transform))
+            {
+                SelectCard(hit.transform);
+            }
+
             StopDrawing();
+            //CheckForMatch();
         }
 
         // Draw the line while the mouse button is held down.
@@ -40,7 +74,7 @@ public class LineDrawingMatching : MonoBehaviour
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, cardLayer);
@@ -49,9 +83,9 @@ public class LineDrawingMatching : MonoBehaviour
             {
                 SelectCard(hit.transform);
             }
-        }
+        }*/
 
-        if (Input.GetMouseButtonUp(0))
+        /*if (Input.GetMouseButtonUp(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, cardLayer);
@@ -60,10 +94,10 @@ public class LineDrawingMatching : MonoBehaviour
             {
                 SelectCard(hit.transform);
             }
-        }
+        }*/
 
         // Continue drawing when the mouse button is held down.
-        if (isDrawing && Input.GetMouseButton(0))
+        /*if (isDrawing && Input.GetMouseButton(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             UpdateLine(mousePos);
@@ -77,10 +111,10 @@ public class LineDrawingMatching : MonoBehaviour
                 CheckForMatch();
             }
 
-        }
+        }*/
 
         // Check for user input to stop drawing and check for a match.
-        if (isDrawing && Input.GetMouseButtonUp(0))
+        /*if (isDrawing && Input.GetMouseButtonUp(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero, 0f, cardLayer);
@@ -92,10 +126,41 @@ public class LineDrawingMatching : MonoBehaviour
             }
 
             ResetLine();
+        }*/
+
+        //CheckForMatch();
+    }
+
+    public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
+    {
+        if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
+        {
+
         }
 
-        CheckForMatch();
     }
+
+    public void GameStateUpdated(GameManager.GameState newState)
+    {
+        //Debug.Log("state--------------- " + newState);
+        if (newState != GameManager.GameState.InGame)
+        {
+            StopwatchTimeBar.Instance.currentTimeToMatch = 0f;
+            /*foreach (var container in containersLevels)
+            {
+                container.SetActive(false);
+            }*/
+            
+            ClearLines();
+            lineRenderers.Clear();
+            linePositions.Clear();
+            matchedCards.Clear();
+            lineRenderer.positionCount = 0;
+        }
+
+    }
+
+
 
     void InitializeLineRenderer()
     {
@@ -111,7 +176,68 @@ public class LineDrawingMatching : MonoBehaviour
     void StartDrawing()
     {
         isDrawing = true;
+        linePositions.Clear(); // Clear previous line positions.
         lineRenderer.positionCount = 0;
+    }
+
+    void StopDrawing()
+    {
+        if (linePositions.Count > 1 && CheckForMatch())
+        {
+            CreateNewLineRenderer();
+            lineRenderers[lineRenderers.Count - 1].positionCount = linePositions.Count;
+            lineRenderers[lineRenderers.Count - 1].SetPositions(linePositions.ToArray());
+
+
+            if (numberOfImages == matchedCards.Count)
+            {
+                GameManager.Instance.CompletedGame();
+            }
+        }
+
+        isDrawing = false;
+        linePositions.Clear(); // Clear stored line positions.
+        lineRenderer.positionCount = 0;
+    }
+
+    void DrawLine()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        linePositions.Add(mousePosition); // Store line position.
+
+        int pointCount = linePositions.Count;
+        lineRenderer.positionCount = pointCount;
+        lineRenderer.SetPosition(pointCount - 1, mousePosition);
+    }
+
+    void CreateNewLineRenderer()
+    {
+        GameObject lineObj = new GameObject("LineRenderer");
+        LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
+        lineRenderer.material = lineMaterial;
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+        lineRenderer.startColor = Color.black;
+        lineRenderer.endColor = Color.black;
+
+        lineRenderers.Add(lineRenderer);
+    }
+
+    void ClearLines()
+    {
+        foreach (var lineRenderer in lineRenderers)
+        {
+            Destroy(lineRenderer.gameObject); // Destroy the game object associated with the LineRenderer
+        }
+        lineRenderers.Clear(); // Clear the list
+    }
+
+    /*void StartDrawing()
+    {
+        isDrawing = true;
+        //lineRenderer.positionCount = 0;
     }
 
     void StopDrawing()
@@ -128,7 +254,7 @@ public class LineDrawingMatching : MonoBehaviour
         int pointCount = lineRenderer.positionCount;
         lineRenderer.positionCount = pointCount + 1;
         lineRenderer.SetPosition(pointCount, mousePosition);
-    }
+    }*/
 
     void SelectCard(Transform card)
     {
@@ -173,21 +299,52 @@ public class LineDrawingMatching : MonoBehaviour
                 Debug.Log("No match!");
                 // You can implement actions for an incorrect match.
             }*/
+            /*
+                        char lastChar1 = selectedCards[0].name[selectedCards[0].name.Length - 1];
+                        char lastChar2 = selectedCards[1].name[selectedCards[1].name.Length - 1];
 
-            char lastChar1 = selectedCards[0].name[selectedCards[0].name.Length - 1];
-            char lastChar2 = selectedCards[1].name[selectedCards[1].name.Length - 1];
+                        Debug.Log(lastChar1 + "----------------" + lastChar2);
+                        // Check if the last characters are digits and if they are the same
+                        if (lastChar1 == lastChar2)
+                        {
+                            matchedCards.Add(selectedCards[0]);
+                            matchedCards.Add(selectedCards[1]);
 
-            // Check if the last characters are digits and if they are the same
-            if (lastChar1 == lastChar2)
+                            Debug.Log("Match!");
+                            selectedCards.Clear();
+                            return lastChar1 == lastChar2;
+                        }*/
+
+            string name1 = selectedCards[0].name.Substring(0, selectedCards[0].name.Length - 1);
+            string name2 = selectedCards[1].name.Substring(0, selectedCards[1].name.Length - 1);
+
+            Debug.Log(name1 + "----------------" + name2);
+
+            // Check if the modified names are the same
+            if (name1 == name2)
             {
+                matchedCards.Add(selectedCards[0]);
+                matchedCards.Add(selectedCards[1]);
+
                 Debug.Log("Match!");
-                return lastChar1 == lastChar2;
+                selectedCards.Clear();
+                return true;
             }
 
             Debug.Log("No match!");
+            selectedCards.Clear();
 
             // If either string doesn't end with a digit, they are not considered a match.
             return false;
+        }
+        else
+        {
+            selectedCards.Clear();
+        }
+
+        if (selectedCards.Count > 2)
+        {
+            selectedCards.Clear();
         }
         return false;
     }

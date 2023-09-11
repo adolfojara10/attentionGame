@@ -32,7 +32,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
                 containersLevels[0].SetActive(true);
                 title.text = "Encuentra las 5 diferencias";
-                
+
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "medio")
@@ -59,8 +59,17 @@ public class ContainerDiferenciasManager : MonoBehaviour
             StopwatchTimeBar.Instance.currentTimeToMatch = 0f;
             foreach (var container in containersLevels)
             {
-                container.SetActive(false);
+
+                if (container != null && !ReferenceEquals(container, null))
+                {
+                    container.SetActive(false);
+                }
             }
+        }
+
+        if (newState == GameManager.GameState.InGame && GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes == GameManager.Instance.gamePlaying)
+        {
+            GamePlayingUpdated(GameManager.Instance.gamePlaying);
         }
 
     }

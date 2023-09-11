@@ -15,14 +15,9 @@ public class BTNManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        Instance = this;
+
     }
 
 
@@ -61,6 +56,7 @@ public class BTNManager : MonoBehaviour
                 button.gameObject.SetActive(true);
             }
         }
+        //differencesFound = 0;
     }
 
     public void GameStateUpdated(GameManager.GameState newState)
@@ -69,6 +65,7 @@ public class BTNManager : MonoBehaviour
         if (newState != GameManager.GameState.InGame)
         {
             differencesFound = 0;
+            differencesMissing.text = differencesFound.ToString();
         }
 
         if (newState == GameManager.GameState.InGame)

@@ -1,40 +1,37 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LineDrawing : MonoBehaviour
 {
-    public LineRenderer lineRenderer; // Attach a LineRenderer component to an empty GameObject in the scene.
-    public Material lineMaterial; // The material for the line.
-    public float lineWidth = 0.1f; // The width of the line.
-    private bool isDrawing = false; // Indicates whether the line is being drawn.
+    public Material lineMaterial;
+    public float lineWidth = 0.1f;
+    private bool isDrawing = false;
+    private List<Vector3> linePositions = new List<Vector3>();
+    private List<LineRenderer> lineRenderers = new List<LineRenderer>();
+    public LineRenderer lineRenderer;
 
-    void Start()
+
+    private void Start()
     {
         InitializeLineRenderer();
     }
-
     void Update()
     {
-        // Check for mouse button down to start drawing.
         if (Input.GetMouseButtonDown(0))
         {
             StartDrawing();
         }
 
-        // Check for mouse button release to stop drawing.
         if (Input.GetMouseButtonUp(0))
         {
             StopDrawing();
         }
 
-        // Draw the line while the mouse button is held down.
         if (isDrawing)
         {
             DrawLine();
         }
     }
-
     void InitializeLineRenderer()
     {
         lineRenderer = gameObject.AddComponent<LineRenderer>();
@@ -45,17 +42,23 @@ public class LineDrawing : MonoBehaviour
         lineRenderer.endColor = Color.black;
         lineRenderer.positionCount = 0;
     }
-
     void StartDrawing()
     {
         isDrawing = true;
-        lineRenderer.positionCount = 0;
+        linePositions.Clear();
     }
 
     void StopDrawing()
     {
+        if (linePositions.Count > 1)
+        {
+            CreateNewLineRenderer();
+            lineRenderers[lineRenderers.Count - 1].positionCount = linePositions.Count;
+            lineRenderers[lineRenderers.Count - 1].SetPositions(linePositions.ToArray());
+        }
+
         isDrawing = false;
-        lineRenderer.positionCount = 0;
+        linePositions.Clear();
     }
 
     void DrawLine()
@@ -63,8 +66,23 @@ public class LineDrawing : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0;
 
-        int pointCount = lineRenderer.positionCount;
-        lineRenderer.positionCount = pointCount + 1;
-        lineRenderer.SetPosition(pointCount, mousePosition);
+        linePositions.Add(mousePosition);
+
+        int pointCount = linePositions.Count;
+        lineRenderer.positionCount = pointCount;
+        lineRenderer.SetPosition(pointCount - 1, mousePosition);
+    }
+
+    void CreateNewLineRenderer()
+    {
+        GameObject lineObj = new GameObject("LineRenderer");
+        LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
+        lineRenderer.material = lineMaterial;
+        lineRenderer.startWidth = lineWidth;
+        lineRenderer.endWidth = lineWidth;
+        lineRenderer.startColor = Color.black;
+        lineRenderer.endColor = Color.black;
+
+        lineRenderers.Add(lineRenderer);
     }
 }
