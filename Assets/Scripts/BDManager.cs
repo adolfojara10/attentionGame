@@ -7,17 +7,49 @@ using System;
 
 public class BDManager : MonoBehaviour
 {
+    public static BDManager Instance;
 
     private NivelAtencionJuegosEntity nivelAtencionJuegos;
 
     string game = "";
     string result = "";
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
 
         GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+
+    }
+
+    public void CreateStudent(string name, string lastName, string born)
+    {
+        string id = (GameManager.Instance.estudianteDB.GetRowCount() + 1).ToString();
+        EstudianteEntity estudiante = new EstudianteEntity(id, name, lastName, born);
+        GameManager.Instance.estudianteDB.addData(estudiante);
+
+        string idNivel = (GameManager.Instance.nivelAtencionJuegosDB.GetRowCount() + 1).ToString();
+
+        NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity(idNivel,
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            "facil",
+            id);
+
+        GameManager.Instance.nivelAtencionJuegosDB.addData(nivelEntity);
+
+        Debug.Log("Usuario creado con id: " + id);
 
     }
 

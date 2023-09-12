@@ -55,10 +55,15 @@ namespace DataBank
             return base.getDataByIdString(TABLE_NAME, id);
         }
 
-        
+
         public override IDataReader getAllData()
         {
             return base.getAllData(TABLE_NAME);
+        }
+
+        public int GetRowCount()
+        {
+            return base.GetRowCount(TABLE_NAME);
         }
 
     }

@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         Idle,
         ChooseGame,
+        CreateUser,
         InGame,
         GameCompleted,
         GameOver
@@ -206,6 +207,13 @@ public class GameManager : MonoBehaviour
     public void ChooseGame()
     {
         gameState = GameState.ChooseGame;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void CreateUser()
+    {
+        gameState = GameState.CreateUser;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
     }

@@ -10,6 +10,12 @@ public class UIMenuBTNS : MonoBehaviour
     }
 
 
+    public void UserButtonClicked()
+    {
+        GameManager.Instance.CreateUser();
+    }
+
+
     public void ExitButtonClicked()
     {
         GameManager.Instance.ExitGame();

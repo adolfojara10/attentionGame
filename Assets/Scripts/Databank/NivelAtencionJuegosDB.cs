@@ -150,6 +150,12 @@ namespace DataBank
 
             return null;
         }
+
+
+        public int GetRowCount()
+        { 
+            return base.GetRowCount(TABLE_NAME);
+        }
     }
 
 }

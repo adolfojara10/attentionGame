@@ -50,11 +50,11 @@ public class DbTestBehaviourScript : MonoBehaviour
 
 
 
-        EstudianteDB estDB = new EstudianteDB();
+        /*EstudianteDB estDB = new EstudianteDB();
         string dateString = "2023-08-21";
         DateTime parsedDateTime = DateTime.ParseExact(dateString, "yyyy-MM-dd", null);
 
-        estDB.addData(new EstudianteEntity("2", "Sebastian", "Gavilanes", dateString));
+        estDB.addData(new EstudianteEntity("1", "Adolfo", "Jara", dateString));
         System.Data.IDataReader reader = estDB.getAllData();
 
         int fieldCount2 = reader.FieldCount;
@@ -71,12 +71,12 @@ public class DbTestBehaviourScript : MonoBehaviour
 
             Debug.Log("id: " + entity._id + " nombre: " + entity._name + " born: " + entity._born);
             myList2.Add(entity);
-        }
+        }*/
 
 
         NivelAtencionJuegosDB nivelDB = new NivelAtencionJuegosDB();
 
-        NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity("1",
+        NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity("3",
             "facil",
             "facil",
             "facil",
@@ -86,7 +86,7 @@ public class DbTestBehaviourScript : MonoBehaviour
             "facil",
             "facil",
             "facil",
-            "2");
+            "3");
 
         nivelDB.addData(nivelEntity);
 
