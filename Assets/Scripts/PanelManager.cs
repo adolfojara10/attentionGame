@@ -79,7 +79,8 @@ public class PanelManager : MonoBehaviour
             {
                 bool actualPlaying = GameManager.Instance.gamePlaying == uiScript.visiblePlaying;
                 bool actualState = GameManager.Instance.gameState == uiScript.visibleState;
-                //Debug.Log(GameManager.Instance.gameState + "  " + GameManager.Instance.gamePlaying);
+                //Debug.Log(GameManager.Instance.gameState + "  " + GameManager.Instance.gamePlaying + "  " + uiScript.visiblePlaying + "   " + actualPlaying + "  " + actualState);
+
                 if (actualPlaying && actualState)
                 {
                     //Debug.Log("sirvioooo");

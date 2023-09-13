@@ -31,6 +31,7 @@ public class StopwatchTimeBar : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnGamePlayingUpdated.AddListener(GamePlayingUpdated);
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
     }
 
     // Update is called once per frame
@@ -60,6 +61,17 @@ public class StopwatchTimeBar : MonoBehaviour
             IsPlaying = true;
         }
         else
+        {
+            currentTimeToMatch = 0f;
+            IsPlaying = false;
+        }
+    }
+
+
+    public void GameStateUpdated(GameManager.GameState newState)
+    {
+        //Debug.Log(" estad audio " + newState);
+        if (newState != GameManager.GameState.InGame)
         {
             currentTimeToMatch = 0f;
             IsPlaying = false;
