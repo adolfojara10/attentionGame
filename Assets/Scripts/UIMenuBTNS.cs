@@ -6,7 +6,8 @@ public class UIMenuBTNS : MonoBehaviour
 {
     public void ChooseGameButtonClicked()
     {
-        GameManager.Instance.ChooseGame();
+        //GameManager.Instance.ChooseGame();
+        GameManager.Instance.Charging();
     }
 
 

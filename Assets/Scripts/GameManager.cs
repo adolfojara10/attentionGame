@@ -32,7 +32,8 @@ public class GameManager : MonoBehaviour
         CreateUser,
         InGame,
         GameCompleted,
-        GameOver
+        GameOver,
+        ChargingUser
     }
 
 
@@ -153,6 +154,15 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+    public void ReadStudentById(string IDRead)
+    {
+        IDataReader dataReader = estudianteDB.getDataByIdString(IDRead);
+        nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante(IDRead);
+        estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+
+        this.ChooseGame();
+    }
+
 
     public void StartGame()
     {
@@ -221,6 +231,13 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         gameState = GameState.Idle;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void Charging()
+    {
+        gameState = GameState.ChargingUser;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
     }

@@ -12,19 +12,15 @@ public class BTManager : MonoBehaviour
     public Text BTMessage;
     //public GameObject InfoCanvas;
     //public GameObject ActividadesCanvas;
+    //private string macSelected = "F8:34:41:39:41:F7";
     private string macSelected = "00:22:03:01:8A:12";
-    //// volante
+    // volante
     //public Text valVolante;
     //public Text valAcelerador;
     public string horizontalAxis = "Horizontal";
     public string verticalAxis = "Vertical";
     private float inputHorizontal;
     private float inputVertical;
-
-
-
-    ////
-
 
     private BluetoothDevice device;
     public Text statusText;
@@ -64,41 +60,55 @@ public class BTManager : MonoBehaviour
 
     void Start()
     {
-        
+        //GameManager.Instance.OnGamePlayingUpdated.AddListener(GamePlayingUpdated);
+        GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+
         BluetoothAdapter.OnDeviceOFF += HandleOnDeviceOff;//This would mean a failure in connection! the reason might be that your remote device is OFF
 
         BluetoothAdapter.OnDeviceNotFound += HandleOnDeviceNotFound; //Because connecting using the 'Name' property is just searching, the Plugin might not find it!(only for 'Name').
         //Screen.sleepTimeout = SleepTimeout.NeverSleep;
-        //conectarBT();
+        conectarBT();
         //enviarMen("x");
     }
 
     void Update()
     {
-/*
-        if (device.IsConnected && !conect)
+        /*
+                if (device.IsConnected && !conect)
+                {
+
+                    //ActividadesCanvas.SetActive(true);
+                    //InfoCanvas.SetActive(false);
+                    conect = true;
+
+                    if (device != null && !string.IsNullOrEmpty("x"))
+                    {
+                        device.send(System.Text.Encoding.ASCII.GetBytes("x" + (char)10));//10 is our seperator Byte (sepration between packets)
+                    }
+                }
+
+                if (conect)
+                {
+                    inputHorizontal = SimpleInput.GetAxis(horizontalAxis);
+                    inputVertical = SimpleInput.GetAxis(verticalAxis);
+                    //valVolante.text= inputHorizontal*100+"";
+                    //valAcelerador.text=inputVertical*10+"";
+                    string envi = "G:" + (int)inputHorizontal + "-V:" + (int)inputVertical;
+                    enviarMen(envi);
+
+                }*/
+    }
+
+    public void GameStateUpdated(GameManager.GameState newState)
+    {
+        //Debug.Log(" estad audio " + newState);
+        if (newState == GameManager.GameState.ChargingUser)
         {
+            Debug.Log("leyendo estudiante");
+            enviarMen("leer_persona");
 
-            //ActividadesCanvas.SetActive(true);
-            //InfoCanvas.SetActive(false);
-            conect = true;
 
-            if (device != null && !string.IsNullOrEmpty("x"))
-            {
-                device.send(System.Text.Encoding.ASCII.GetBytes("x" + (char)10));//10 is our seperator Byte (sepration between packets)
-            }
         }
-
-        if (conect)
-        {
-            inputHorizontal = SimpleInput.GetAxis(horizontalAxis);
-            inputVertical = SimpleInput.GetAxis(verticalAxis);
-            //valVolante.text= inputHorizontal*100+"";
-            //valAcelerador.text=inputVertical*10+"";
-            string envi = "G:" + (int)inputHorizontal + "-V:" + (int)inputVertical;
-            enviarMen(envi);
-
-        }*/
     }
 
 
@@ -110,6 +120,8 @@ public class BTManager : MonoBehaviour
         statusText.text = "----------";
         device.connect();
         statusText.text = "aaaaaaaaaaaaa";
+
+        StartManageConnection();
 
     }
 
@@ -148,13 +160,21 @@ public class BTManager : MonoBehaviour
     public void disconnect()
     {
         if (device != null)
+        {
             device.close();
+
+        }
+    }
+    public void StartManageConnection()
+    {
+        StartCoroutine(ManageConnection(device));
     }
 
     //############### Recibe Datos  #####################
     IEnumerator ManageConnection(BluetoothDevice device)
     {
         statusText.text = "Status : Connected & Can read";
+
         while (device.IsReading)
         {
 
@@ -164,6 +184,17 @@ public class BTManager : MonoBehaviour
                 string content = System.Text.ASCIIEncoding.ASCII.GetString(msg);
                 string[] lines = content.Split(new char[] { '\n', '\r' });
                 BTMessage.text = lines[0] + "-";
+
+                if (lines[0] != "-1"){
+                    GameManager.Instance.ReadStudentById(lines[0]);
+                } else if (lines[0] == "-1"){
+                    //Reproducir sonido para que explique que el usuario no existe
+                    //mostrar mensaje de error en la pantalla UICHARGING y poner boton de para volver al menuu
+
+
+                    
+                }
+                
             }
             yield return null;
         }
@@ -181,7 +212,8 @@ public class BTManager : MonoBehaviour
 
     public void enviarMen(string envi)
     {
-        BTMessage.text = envi + " -";
+        //BTMessage.text = envi + " -";
+        BTMessage.text = envi;
         if (device != null && !string.IsNullOrEmpty(envi))
         {
             device.send(System.Text.Encoding.ASCII.GetBytes(envi + (char)10));//10 is our seperator Byte (sepration between packets)
