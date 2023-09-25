@@ -185,6 +185,7 @@ namespace DataBank
             catch (Exception ex)
             {
                 Debug.LogError("Error while getting row count: " + ex.Message);
+                Debug.Log("Error while getting row count: " + ex.Message);
                 return -1; // or another suitable error value
             }
         }

@@ -9,6 +9,8 @@ using System;
 
 public class BTManager : MonoBehaviour
 {
+    public static BTManager Instance;
+
     public Text BTMessage;
     //public GameObject InfoCanvas;
     //public GameObject ActividadesCanvas;
@@ -24,6 +26,11 @@ public class BTManager : MonoBehaviour
 
     private BluetoothDevice device;
     public Text statusText;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
 
     public void salir()
@@ -119,9 +126,9 @@ public class BTManager : MonoBehaviour
         device.ReadingCoroutine = ManageConnection;
         statusText.text = "----------";
         device.connect();
-        statusText.text = "aaaaaaaaaaaaa";
+        //statusText.text = "aaaaaaaaaaaaa";
 
-        StartManageConnection();
+        //StartManageConnection();
 
     }
 
@@ -185,22 +192,51 @@ public class BTManager : MonoBehaviour
                 string[] lines = content.Split(new char[] { '\n', '\r' });
                 BTMessage.text = lines[0] + "-";
 
-                if (lines[0] != "-1"){
-                    GameManager.Instance.ReadStudentById(lines[0]);
-                } else if (lines[0] == "-1"){
-                    //Reproducir sonido para que explique que el usuario no existe
-                    //mostrar mensaje de error en la pantalla UICHARGING y poner boton de para volver al menuu
+                if (GameManager.Instance.gameState == GameManager.GameState.ChargingUser)
+                {
+                    if (lines[0] != "-1")
+                    {
+                        GameManager.Instance.ReadStudentById(lines[0]);
+                    }
+                    else if (lines[0] == "-1")
+                    {
+                        //Reproducir sonido para que explique que el usuario no existe
+                        //mostrar mensaje de error en la pantalla UICHARGING y poner boton de para volver al menuu
+
+                        UIError.Instance.ChangeText("Error: el estudiante no ha sido encontrado. Por favor inténtelo de nuevo.\nSi el error persiste, crear un nuevo usuario.");
+
+                        GameManager.Instance.Error();
 
 
-                    
+
+
+                    }
                 }
-                
-            }
-            yield return null;
-        }
 
+                /*if (GameManager.Instance.gameState == GameManager.GameState.SavingUser)
+                {
+                    if (lines[0] != "-1")
+                    {
+                        GameManager.Instance.MainMenu();
+                    }
+                    else if (lines[0] == "-1")
+                    {
+                        //Reproducir sonido para que explique que el usuario YA existe
+                        //volver al menuu
+
+
+
+                    }
+                }*/
+            }
+
+            yield return null;
+
+        }
         statusText.text = "Status : Done Reading";
     }
+
+
 
     void OnDestroy()
     {

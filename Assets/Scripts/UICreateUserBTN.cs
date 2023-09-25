@@ -52,7 +52,16 @@ public class UICreateUserBTN : MonoBehaviour
                     // Hide the error icon
                     errorIcon.enabled = false;
 
-                    BDManager.Instance.CreateStudent(nameField.text, lastNameField.text, dateOnly);
+                    int ID = GameManager.Instance.estudianteDB.GetRowCount();
+
+                    string idNombreApellido = ID.ToString() + " " + nameField.text + " " + lastNameField.text;
+
+                    
+                    BTManager.Instance.enviarMen(idNombreApellido);
+
+
+
+                    //BDManager.Instance.CreateStudent(nameField.text, lastNameField.text, dateOnly);
                 }
                 else
                 {

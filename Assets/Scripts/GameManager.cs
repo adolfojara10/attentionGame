@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviour
         InGame,
         GameCompleted,
         GameOver,
-        ChargingUser
+        ChargingUser,
+        SavingUser,
+        Error
     }
 
 
@@ -238,6 +240,20 @@ public class GameManager : MonoBehaviour
     public void Charging()
     {
         gameState = GameState.ChargingUser;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void Saving()
+    {
+        gameState = GameState.SavingUser;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void Error()
+    {
+        gameState = GameState.Error;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
     }
