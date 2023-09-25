@@ -153,8 +153,13 @@ namespace DataBank
 
 
         public int GetRowCount()
-        { 
+        {
             return base.GetRowCount(TABLE_NAME);
+        }
+
+        public override void deleteAllData()
+        {
+            base.deleteAllData(TABLE_NAME);
         }
     }
 

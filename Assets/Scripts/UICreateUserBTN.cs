@@ -52,12 +52,20 @@ public class UICreateUserBTN : MonoBehaviour
                     // Hide the error icon
                     errorIcon.enabled = false;
 
-                    int ID = GameManager.Instance.estudianteDB.GetRowCount();
+                    int ID = GameManager.Instance.estudianteDB.GetRowCount() + 1;
 
                     string idNombreApellido = ID.ToString() + " " + nameField.text + " " + lastNameField.text;
 
-                    
+
                     BTManager.Instance.enviarMen(idNombreApellido);
+                    Debug.Log(idNombreApellido);
+
+                    BTManager.Instance.nameNewStudent = nameField.text;
+                    BTManager.Instance.nameNewStudent = lastNameField.text;
+                    BTManager.Instance.bornNewStudent = dateOnly;
+
+                    GameManager.Instance.Saving();
+                    //UIError.Instance.ChangeText("Guardando usuario \n*Por favor colocar el rostro al frente del robot");
 
 
 

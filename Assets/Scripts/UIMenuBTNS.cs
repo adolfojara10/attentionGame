@@ -8,6 +8,7 @@ public class UIMenuBTNS : MonoBehaviour
     {
         //GameManager.Instance.ChooseGame();
         GameManager.Instance.Charging();
+        UIError.Instance.ChangeText("Cargando usuario \n*Por favor colocar el rostro al frente del robot");
     }
 
 

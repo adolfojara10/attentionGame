@@ -27,6 +27,10 @@ public class BTManager : MonoBehaviour
     private BluetoothDevice device;
     public Text statusText;
 
+    public string nameNewStudent;
+    public string lastNameNewStudent;
+    public string bornNewStudent;
+
     private void Awake()
     {
         Instance = this;
@@ -198,36 +202,49 @@ public class BTManager : MonoBehaviour
                     {
                         GameManager.Instance.ReadStudentById(lines[0]);
                     }
-                    else if (lines[0] == "-1")
+                    else if (lines[0] == "-1" || lines[0].Contains("-1"))
                     {
                         //Reproducir sonido para que explique que el usuario no existe
                         //mostrar mensaje de error en la pantalla UICHARGING y poner boton de para volver al menuu
+                        Debug.Log("todo bien");
+                        GameManager.Instance.Error();
+                        Debug.Log("bien 2");
 
                         UIError.Instance.ChangeText("Error: el estudiante no ha sido encontrado. Por favor inténtelo de nuevo.\nSi el error persiste, crear un nuevo usuario.");
+                        UIError.Instance.SetActiveImage(0);
+                        Debug.Log("bien 3");
+
+                    }
+                }
+
+                if (GameManager.Instance.gameState == GameManager.GameState.SavingUser)
+                {
+                    if (lines[0] != "-1")
+                    {
+                        BDManager.Instance.CreateStudent(nameNewStudent, lastNameNewStudent, bornNewStudent);
 
                         GameManager.Instance.Error();
+                        UIError.Instance.ChangeText("Estudiante creado con éxito.");
+                        UIError.Instance.SetActiveImage(1);
+                    }
+                    else if (lines[0] == "-1" || lines[0].Contains("-1"))
+                    {
+                        //Reproducir sonido para que explique que el usuario YA existe
+                        //volver al menuu
+
+
+                        GameManager.Instance.Error();
+
+                        UIError.Instance.ChangeText("Error: el estudiante ya existe. Inténtelo de nuevo o regrese al menú y presione el botón Empezar.");
+                        UIError.Instance.SetActiveImage(0);
+
+                        nameNewStudent = lastNameNewStudent = bornNewStudent = "";
 
 
 
 
                     }
                 }
-
-                /*if (GameManager.Instance.gameState == GameManager.GameState.SavingUser)
-                {
-                    if (lines[0] != "-1")
-                    {
-                        GameManager.Instance.MainMenu();
-                    }
-                    else if (lines[0] == "-1")
-                    {
-                        //Reproducir sonido para que explique que el usuario YA existe
-                        //volver al menuu
-
-
-
-                    }
-                }*/
             }
 
             yield return null;

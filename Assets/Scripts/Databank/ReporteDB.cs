@@ -93,5 +93,10 @@ namespace DataBank
             return base.GetRowCount(TABLE_NAME);
         }
 
+        public override void deleteAllData()
+        {
+            base.deleteAllData(TABLE_NAME);
+        }
+
     }
 }
