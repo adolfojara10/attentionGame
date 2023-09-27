@@ -27,7 +27,16 @@ public class BTNManager : MonoBehaviour
         for (int i = 0; i < buttonsDifference.Count; i++)
         {
             int buttonIndex = i; // Capture the index in a local variable
+            Color transparentColor = new Color(1f, 1f, 1f, 0f);
+
+            // Get the button's image component
+            Image buttonImage = buttonsDifference[i].GetComponent<Image>();
+
+            // Assign the transparent color to the button's image
+            buttonImage.color = transparentColor;
+            buttonsDifference[i].interactable = true;
             buttonsDifference[i].onClick.AddListener(() => ButtonClicked(buttonIndex));
+
         }
 
         GameManager.Instance.OnGamePlayingUpdated.AddListener(GamePlayingUpdated);
@@ -37,7 +46,20 @@ public class BTNManager : MonoBehaviour
 
     public void ButtonClicked(int buttonIndex)
     {
-        buttonsDifference[buttonIndex].gameObject.SetActive(false);
+        Button button = buttonsDifference[buttonIndex];
+
+        // Disable the button's interactivity
+        button.interactable = false;
+
+        // Create a Color with fully opaque alpha (1)
+        Color opaqueColor = new Color(1f, 1f, 1f, 1f);
+
+        // Get the button's image component
+        Image buttonImage = button.GetComponent<Image>();
+
+        // Assign the opaque color to the button's image
+        buttonImage.color = opaqueColor;
+
         differencesFound++;
         differencesMissing.text = differencesFound.ToString();
 
@@ -51,9 +73,19 @@ public class BTNManager : MonoBehaviour
     {
         if (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
         {
-            foreach (Button button in buttonsDifference)
+            for (int i = 0; i < buttonsDifference.Count; i++)
             {
-                button.gameObject.SetActive(true);
+                int buttonIndex = i; // Capture the index in a local variable
+                Color transparentColor = new Color(1f, 1f, 1f, 0f);
+
+                // Get the button's image component
+                Image buttonImage = buttonsDifference[i].GetComponent<Image>();
+
+                // Assign the transparent color to the button's image
+                buttonImage.color = transparentColor;
+                buttonsDifference[i].interactable = true;
+                //buttonsDifference[i].onClick.AddListener(() => ButtonClicked(buttonIndex));
+
             }
         }
         //differencesFound = 0;
