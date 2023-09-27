@@ -9,7 +9,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
     public TextMeshProUGUI title;
 
-    public TextMeshProUGUI differencesMissing;
+    //public TextMeshProUGUI differencesMissing;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +21,15 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
     public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
     {
-        //Debug.Log("jugando--------------- " + newGamePlaying);
+        Debug.Log("jugando--------------- " + newGamePlaying);
         if (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
         {
             StopwatchTimeBar.Instance.timeToMatch = 30f;
             //differencesMissing.text = "Diferencias encontradas: 0";
-            //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
+            Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "facil")
             {
-
+                Debug.Log("---------------------facil");
                 containersLevels[0].SetActive(true);
                 title.text = "Encuentra las 5 diferencias";
 
@@ -37,6 +37,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "medio")
             {
+                Debug.Log("---------------------medio");
                 //StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[1].SetActive(true);
                 title.text = "Encuentra las 7 diferencias";
@@ -44,6 +45,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "dificil")
             {
+                Debug.Log("---------------------dificil");
                 //StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[2].SetActive(true);
                 title.text = "Encuentra las 10 diferencias";

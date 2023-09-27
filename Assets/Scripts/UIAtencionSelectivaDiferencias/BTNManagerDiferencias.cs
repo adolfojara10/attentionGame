@@ -13,6 +13,8 @@ public class BTNManager : MonoBehaviour
 
     public List<Button> buttonsDifference;
 
+    Color transparentColor = new Color(1f, 1f, 1f, 0f);
+
     private void Awake()
     {
 
@@ -73,10 +75,11 @@ public class BTNManager : MonoBehaviour
     {
         if (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
         {
+
             for (int i = 0; i < buttonsDifference.Count; i++)
             {
                 int buttonIndex = i; // Capture the index in a local variable
-                Color transparentColor = new Color(1f, 1f, 1f, 0f);
+                //Color transparentColor = new Color(1f, 1f, 1f, 0f);
 
                 // Get the button's image component
                 Image buttonImage = buttonsDifference[i].GetComponent<Image>();
@@ -87,6 +90,13 @@ public class BTNManager : MonoBehaviour
                 //buttonsDifference[i].onClick.AddListener(() => ButtonClicked(buttonIndex));
 
             }
+
+            foreach (Button button in buttonsDifference)
+            {
+                button.interactable = true; // Hacer interactivo el botón
+                Image buttonImage = button.GetComponent<Image>(); // Obtener el componente de imagen del botón
+                buttonImage.color = transparentColor; // Cambiar el color del botón
+            }
         }
         //differencesFound = 0;
     }
@@ -96,12 +106,22 @@ public class BTNManager : MonoBehaviour
         //Debug.Log("state--------------- " + newState);
         if (newState != GameManager.GameState.InGame)
         {
+            foreach (Button button in buttonsDifference)
+            {
+                button.interactable = true;
+            }
             differencesFound = 0;
             differencesMissing.text = differencesFound.ToString();
         }
 
         if (newState == GameManager.GameState.InGame)
         {
+            foreach (Button button in buttonsDifference)
+            {
+                button.interactable = true; // Hacer interactivo el botón
+                Image buttonImage = button.GetComponent<Image>(); // Obtener el componente de imagen del botón
+                buttonImage.color = transparentColor; // Cambiar el color del botón
+            }
             GamePlayingUpdated(GameManager.Instance.gamePlaying);
         }
 
