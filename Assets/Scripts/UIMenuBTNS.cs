@@ -17,6 +17,16 @@ public class UIMenuBTNS : MonoBehaviour
         GameManager.Instance.CreateUser();
     }
 
+    public void BluetoothButtonClicked()
+    {
+        GameManager.Instance.ConnectBluetooth();
+    }
+
+    public void InvitedButtonClicked()
+    {
+        GameManager.Instance.InvitedSession();
+    }
+
 
     public void ExitButtonClicked()
     {

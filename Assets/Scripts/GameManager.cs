@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 {
 
     //public List<Image> imagesIntegracionVisual = new List<Image>();
-
+    private readonly object databaseLock = new object();
     public static GameManager Instance;
 
     public EstudianteEntity estudiante;
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
         //reporteDB.deleteAllData();
 
 
-        //nivelAtencionJuegosDB.ResetValues();
+        nivelAtencionJuegosDB.ResetValues();
 
 
         IDataReader dataReader = estudianteDB.getDataByIdString("1");
@@ -239,6 +239,7 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        //nivelAtencionJuegosDB.ResetValues();
         gameState = GameState.Idle;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
@@ -265,6 +266,32 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
     }
 
+    public void ConnectBluetooth()
+    {
+        BTManager.Instance.conectarBT();
+    }
+
+    public void InvitedSession()
+    {
+        // Antes de realizar operaciones en la base de datos, adquiere el bloqueo
+        lock (databaseLock)
+        {
+            // Realiza operaciones en la base de datos aquí
+            IDataReader dataReader = estudianteDB.getDataByIdString("1");
+            Debug.Log("Usuario encontrado");
+            //nivelAtencionJuegosDB.ResetValues();
+            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
+            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+
+            Debug.Log(estudiante);
+
+            this.ChooseGame();
+        }
+
+        // Asegúrate de liberar el bloqueo cuando hayas terminado
+
+
+    }
 
     public void AtencionAuditivaLocalizarSonidoGame()
     {
