@@ -8,5 +8,6 @@ public class BTNBackChooseGame : MonoBehaviour
     {
         Debug.Log("--------------------- gameBTNBACKKK");
         GameManager.Instance.ChooseGame();
+        BTManager.Instance.enviarMen("cancelar");
     }
 }
