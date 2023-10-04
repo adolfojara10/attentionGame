@@ -205,7 +205,7 @@ public class BDManager : MonoBehaviour
 
 
 
-        if (newState == GameManager.GameState.GameOver)
+        if (newState == GameManager.GameState.GameOverCierreVisual || newState == GameManager.GameState.GameOverDiscriminacionAuditiva || newState == GameManager.GameState.GameOverEsquemaCorporal)
         {
             result = "Juego no completado";
 

@@ -52,7 +52,7 @@ public class Puzzle : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState state)
     {
-        if (state == GameManager.GameState.GameOver)
+        if (state == GameManager.GameState.GameOverCierreVisual || state == GameManager.GameState.GameOverDiscriminacionAuditiva || state == GameManager.GameState.GameOverEsquemaCorporal)
         {
             //Debug.Log("GAME OVER");
             movedPieces.Clear();

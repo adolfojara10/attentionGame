@@ -9,6 +9,6 @@ public class BTNContainerFacil : MonoBehaviour
     }
 
     public void WrongBTNClicked(){
-        GameManager.Instance.GameOver();
+        GameManager.Instance.GameOverDiscriminacionAuditiva();
     }
 }

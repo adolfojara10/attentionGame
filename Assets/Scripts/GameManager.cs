@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         CreateUser,
         InGame,
         GameCompletedCierreVisual,
-        GameOver,
+        GameOverCierreVisual,
         ChargingUser,
         SavingUser,
         Error,
@@ -40,7 +40,9 @@ public class GameManager : MonoBehaviour
         ChooseGameEsquemaCorporal,
         ChooseGameDiscriminacionAuditiva,
         GameCompletedEsquemaCorporal,
-        GameCompletedDiscriminacionAuditiva
+        GameCompletedDiscriminacionAuditiva,
+        GameOverEsquemaCorporal,
+        GameOverDiscriminacionAuditiva
     }
 
 
@@ -227,10 +229,34 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void GameOver()
+    public void GameOverCierreVisual()
     {
 
-        gameState = GameState.GameOver;
+        gameState = GameState.GameOverCierreVisual;
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+        AudioManager.Instance.SFXSource.Stop();
+
+
+    }
+
+    public void GameOverDiscriminacionAuditiva()
+    {
+
+        gameState = GameState.GameOverDiscriminacionAuditiva;
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+        AudioManager.Instance.SFXSource.Stop();
+
+
+    }
+
+    public void GameOverEsquemaCorporal()
+    {
+
+        gameState = GameState.GameOverEsquemaCorporal;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
 

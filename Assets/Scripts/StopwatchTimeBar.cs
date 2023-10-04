@@ -44,7 +44,19 @@ public class StopwatchTimeBar : MonoBehaviour
             if (currentTimeToMatch > timeToMatch)
             {
                 IsPlaying = false;
-                GameManager.Instance.GameOver();
+
+                if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes || GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
+                {
+                    GameManager.Instance.GameOverCierreVisual();
+                }
+                else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal || GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
+                {
+                    GameManager.Instance.GameOverEsquemaCorporal();
+                }
+                else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
+                {
+                    GameManager.Instance.GameOverDiscriminacionAuditiva();
+                }
             }
         }
     }

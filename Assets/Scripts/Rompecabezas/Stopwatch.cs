@@ -47,7 +47,7 @@ public class Stopwatch : MonoBehaviour
 
     public void GameStateUpdated(GameManager.GameState newState)
     {
-        if (newState == GameManager.GameState.GameOver)
+        if (newState == GameManager.GameState.GameOverCierreVisual || newState == GameManager.GameState.GameOverDiscriminacionAuditiva || newState == GameManager.GameState.GameOverEsquemaCorporal)
         {
             time = 0f;
             //pointsLabel.text = displayedPoints.ToString();
