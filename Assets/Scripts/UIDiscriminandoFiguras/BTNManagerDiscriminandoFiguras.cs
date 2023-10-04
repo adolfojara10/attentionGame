@@ -49,7 +49,7 @@ public class BTNManagerDiscriminandoFiguras : MonoBehaviour
 
         if (soundsFound == soundsToFind)
         {
-            GameManager.Instance.CompletedGame();
+            GameManager.Instance.CompletedGameDiscriminacionAuditiva();
         }
     }
 

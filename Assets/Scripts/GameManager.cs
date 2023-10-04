@@ -31,11 +31,16 @@ public class GameManager : MonoBehaviour
         ChooseGame,
         CreateUser,
         InGame,
-        GameCompleted,
+        GameCompletedCierreVisual,
         GameOver,
         ChargingUser,
         SavingUser,
-        Error
+        Error,
+        ChooseGameCierreVisual,
+        ChooseGameEsquemaCorporal,
+        ChooseGameDiscriminacionAuditiva,
+        GameCompletedEsquemaCorporal,
+        GameCompletedDiscriminacionAuditiva
     }
 
 
@@ -192,10 +197,30 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void CompletedGame()
+    public void CompletedGameCierreVisual()
     {
 
-        gameState = GameState.GameCompleted;
+        gameState = GameState.GameCompletedCierreVisual;
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+
+    }
+
+    public void CompletedGameEsquemaCorporal()
+    {
+
+        gameState = GameState.GameCompletedEsquemaCorporal;
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+
+    }
+
+    public void CompletedGameDiscriminacionAuditiva()
+    {
+
+        gameState = GameState.GameCompletedDiscriminacionAuditiva;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
 
@@ -226,6 +251,27 @@ public class GameManager : MonoBehaviour
     public void ChooseGame()
     {
         gameState = GameState.ChooseGame;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void ChooseGameCierreVisual()
+    {
+        gameState = GameState.ChooseGameCierreVisual;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void ChooseGameEsquemaCorporal()
+    {
+        gameState = GameState.ChooseGameEsquemaCorporal;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
+    public void ChooseGameDiscriminacionAuditiva()
+    {
+        gameState = GameState.ChooseGameDiscriminacionAuditiva;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
     }

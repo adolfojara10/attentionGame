@@ -59,7 +59,7 @@ public class BDManager : MonoBehaviour
         game = "";
         result = "";
 
-        if (newState == GameManager.GameState.GameCompleted)
+        if (newState == GameManager.GameState.GameCompletedCierreVisual || newState == GameManager.GameState.GameCompletedEsquemaCorporal || newState == GameManager.GameState.GameCompletedDiscriminacionAuditiva)
         {
             Debug.Log("BDDDDDDD");
 

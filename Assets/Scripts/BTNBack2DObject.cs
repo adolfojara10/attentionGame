@@ -7,6 +7,6 @@ public class BTNBack2DObject : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("--------------------- gameBTNBACKKK");
-        GameManager.Instance.ChooseGame();
+        GameManager.Instance.ChooseGameCierreVisual();
     }
 }

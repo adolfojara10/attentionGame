@@ -43,7 +43,7 @@ public class Puzzle : MonoBehaviour
     {
         allPiecesInRigthPlace = CheckPiecesPosition();
         if(allPiecesInRigthPlace && !isGameManagerCompletedGame){
-            GameManager.Instance.CompletedGame();
+            GameManager.Instance.CompletedGameCierreVisual();
             //GameManager.Instance.();
             isGameManagerCompletedGame = true;
         }
@@ -61,7 +61,7 @@ public class Puzzle : MonoBehaviour
             //StartCoroutine(DisplayPointsCoroutine());
         }
 
-        if (state == GameManager.GameState.GameCompleted)
+        if (state == GameManager.GameState.GameCompletedCierreVisual || state == GameManager.GameState.GameCompletedEsquemaCorporal || state == GameManager.GameState.GameCompletedDiscriminacionAuditiva)
         {
             //Debug.Log("GAME COMPLETED");
             movedPieces.Clear();

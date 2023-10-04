@@ -67,7 +67,7 @@ public class BTNManager : MonoBehaviour
 
         if (differencesFound == differencesToFind)
         {
-            GameManager.Instance.CompletedGame();
+            GameManager.Instance.CompletedGameCierreVisual();
         }
     }
 

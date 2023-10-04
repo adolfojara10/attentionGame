@@ -53,7 +53,7 @@ public class Stopwatch : MonoBehaviour
             //pointsLabel.text = displayedPoints.ToString();
         }
 
-        if (newState == GameManager.GameState.GameCompleted)
+        if (newState == GameManager.GameState.GameCompletedCierreVisual || newState == GameManager.GameState.GameCompletedEsquemaCorporal || newState == GameManager.GameState.GameCompletedDiscriminacionAuditiva)
         {
             time = 0f;
             //pointsLabel.text = displayedPoints.ToString();

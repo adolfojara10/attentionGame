@@ -9,6 +9,7 @@ public class PanelManager : MonoBehaviour
     public List<GameObject> panels = new List<GameObject>();
 
     private UIScreen UIActive;
+    private UIScreen UILastOne;
 
 
 
@@ -36,6 +37,7 @@ public class PanelManager : MonoBehaviour
             if (initialState)
             {
                 UIActive = uiScript;
+                UILastOne = UIActive;
             }
 
             uiScript.UIObject.SetActive(initialState);
@@ -57,13 +59,22 @@ public class PanelManager : MonoBehaviour
                 if (actualState)
                 {
                     UIActive.HideScreen();
+
+                    /*if (UIActive.visiblePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes || UIActive.visiblePlaying == GameManager.GamePlaying.IntegracionVisual || UIActive.visiblePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida){
+                        GameManager.Instance.ChooseGameCierreVisual();
+                    }*/
+
+
                     uiScript.ShowScreen();
 
                     //Debug.Log("si entraaaa 1");
 
+                    UILastOne = UIActive;
+
                     UIActive = uiScript;
                 }
             }
+
 
         }
     }
@@ -88,6 +99,8 @@ public class PanelManager : MonoBehaviour
                     //UIActive.UIObject.SetActive(false);
                     //uiScript.UIObject.SetActive(false);
                     uiScript.ShowScreen();
+
+                    UILastOne = UIActive;
 
                     //Debug.Log("si entraaaa 2");
                     UIActive = uiScript;

@@ -59,13 +59,22 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.IntegracionVisualGame();
     }
 
-
-
-
-
     public void BackButtonClicked()
     {
         //Debug.Log("MAIN MENUUU");
         GameManager.Instance.MainMenu();
     }
+
+    public void CierreVisualButtonClicked()
+    {
+        GameManager.Instance.ChooseGameCierreVisual();
+    }
+
+    public void BackButtonToChooseGameClicked()
+    {
+        //Debug.Log("MAIN MENUUU");
+        GameManager.Instance.ChooseGame();
+    }
+
+
 }

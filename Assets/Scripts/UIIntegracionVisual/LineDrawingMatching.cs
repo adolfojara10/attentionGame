@@ -191,7 +191,7 @@ public class LineDrawingMatching : MonoBehaviour
 
             if (numberOfImages == matchedCards.Count)
             {
-                GameManager.Instance.CompletedGame();
+                GameManager.Instance.CompletedGameCierreVisual();
             }
         }
 

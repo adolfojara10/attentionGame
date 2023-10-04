@@ -5,7 +5,7 @@ using UnityEngine;
 public class BTNContainerFacil : MonoBehaviour
 {
     public void RigthBTNClicked(){
-        GameManager.Instance.CompletedGame();
+        GameManager.Instance.CompletedGameDiscriminacionAuditiva();
     }
 
     public void WrongBTNClicked(){

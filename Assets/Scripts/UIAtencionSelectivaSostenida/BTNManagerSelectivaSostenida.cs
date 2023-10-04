@@ -33,7 +33,7 @@ public class BTNManagerSelectivaSostenida : MonoBehaviour
 
         if (objectsFound == objectsToFind)
         {
-            GameManager.Instance.CompletedGame();
+            GameManager.Instance.CompletedGameCierreVisual();
         }
     }
 
