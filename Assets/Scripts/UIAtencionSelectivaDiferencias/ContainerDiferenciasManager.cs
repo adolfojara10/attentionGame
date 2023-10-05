@@ -21,10 +21,10 @@ public class ContainerDiferenciasManager : MonoBehaviour
 
     public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
     {
-        Debug.Log("jugando--------------- " + newGamePlaying);
+        //Debug.Log("jugando--------------- " + newGamePlaying);
         if (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
         {
-            StopwatchTimeBar.Instance.timeToMatch = 30f;
+            StopwatchTimeBar.Instance.timeToMatch = 33f;
             //differencesMissing.text = "Diferencias encontradas: 0";
             Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "facil")

@@ -8,7 +8,7 @@ public class StopwatchTimeBar : MonoBehaviour
 
     public float currentTimeToMatch = 0f;
 
-    public float timeToMatch = 15f;
+    public float timeToMatch = 18f;
 
 
     public bool IsPlaying = false;

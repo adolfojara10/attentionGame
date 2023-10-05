@@ -23,7 +23,7 @@ public class ContainerDiscriminandoFigurasManager : MonoBehaviour
 
         if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
         {
-            StopwatchTimeBar.Instance.timeToMatch = 15f;
+            StopwatchTimeBar.Instance.timeToMatch = 18f;
             //containersLevels[0].SetActive(true);
 
             //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaDiscriminarFigura);
