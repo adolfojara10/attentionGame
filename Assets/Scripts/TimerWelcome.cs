@@ -5,11 +5,18 @@ using UnityEngine;
 public class TimerWelcome : MonoBehaviour
 {
 
-    private float timerDuration = 4.0f; // Change this to the desired number of seconds
+    private float timerDuration = 5.0f; // Change this to the desired number of seconds
     private float elapsedTime = 0.0f;
     private bool isTimerRunning = false;
 
     public GameObject panel;
+    public static TimerWelcome Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+        //GameManager.Instance.OnGameStateUpdated.AddListener(GameStateUpdated);
+    }
 
     private void Start()
     {
@@ -18,8 +25,6 @@ public class TimerWelcome : MonoBehaviour
 
     private void Update()
     {
-
-
         if (isTimerRunning)
         {
             elapsedTime += Time.deltaTime;
@@ -29,19 +34,17 @@ public class TimerWelcome : MonoBehaviour
                 StopTimer();
             }
         }
-
-
     }
 
 
-    private void StartTimer()
+    public void StartTimer()
     {
         elapsedTime = 0.0f;
         isTimerRunning = true;
         Debug.Log("Timer started!");
     }
 
-    private void StopTimer()
+    public void StopTimer()
     {
         isTimerRunning = false;
         elapsedTime = 0.0f;

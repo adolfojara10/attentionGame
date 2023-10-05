@@ -184,9 +184,10 @@ public class GameManager : MonoBehaviour
     {
 
         gameState = GameState.Welcome;
-        //Debug.Log("INGAME");
-        OnGameStateUpdated?.Invoke(gameState);
 
+        OnGameStateUpdated?.Invoke(gameState);
+        Debug.Log("welcomeeeeeeeeee");
+        TimerWelcome.Instance.StartTimer();
     }
 
 
