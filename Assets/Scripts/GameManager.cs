@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour
         GameCompletedEsquemaCorporal,
         GameCompletedDiscriminacionAuditiva,
         GameOverEsquemaCorporal,
-        GameOverDiscriminacionAuditiva
+        GameOverDiscriminacionAuditiva,
+        Welcome
     }
 
 
@@ -176,7 +177,16 @@ public class GameManager : MonoBehaviour
         estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
         Debug.Log("4" + estudiante);
 
-        this.ChooseGame();
+        this.Welcome();
+    }
+
+    public void Welcome()
+    {
+
+        gameState = GameState.Welcome;
+        //Debug.Log("INGAME");
+        OnGameStateUpdated?.Invoke(gameState);
+
     }
 
 
@@ -358,7 +368,7 @@ public class GameManager : MonoBehaviour
 
             Debug.Log(estudiante);
 
-            this.ChooseGame();
+            this.Welcome();
         }
 
         // Asegúrate de liberar el bloqueo cuando hayas terminado
