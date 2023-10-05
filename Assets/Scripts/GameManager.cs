@@ -300,6 +300,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.ChooseGameDiscriminacionAuditiva;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
+        //Debug.Log("iiiiii");
     }
 
     public void CreateUser()

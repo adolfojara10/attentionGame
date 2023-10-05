@@ -67,7 +67,7 @@ public class PanelManager : MonoBehaviour
 
                     uiScript.ShowScreen();
 
-                    //Debug.Log("si entraaaa 1");
+                    //Debug.Log("si entraaaa 1" + uiScript.visibleState);
 
                     UILastOne = UIActive;
 

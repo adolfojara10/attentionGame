@@ -70,6 +70,17 @@ public class UIChooseGameBTN : MonoBehaviour
         GameManager.Instance.ChooseGameCierreVisual();
     }
 
+    public void EsquemaCorporalButtonClicked()
+    {
+        GameManager.Instance.ChooseGameEsquemaCorporal();
+    }
+
+    public void DiscriminacionAuditivaButtonClicked()
+    {
+        GameManager.Instance.ChooseGameDiscriminacionAuditiva();
+        //Debug.Log("hhhhhhhhhhhhhh");
+    }
+
     public void BackButtonToChooseGameClicked()
     {
         //Debug.Log("MAIN MENUUU");
