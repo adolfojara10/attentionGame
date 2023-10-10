@@ -27,10 +27,10 @@ public class BDManager : MonoBehaviour
 
     }
 
-    public void CreateStudent(string name, string lastName, string born)
+    public void CreateStudent(string cedula, string nivelBasica, string gender, string born)
     {
         string id = (GameManager.Instance.estudianteDB.GetRowCount() + 1).ToString();
-        EstudianteEntity estudiante = new EstudianteEntity(id, name, lastName, born);
+        EstudianteEntity estudiante = new EstudianteEntity(id, cedula, nivelBasica, gender, born);
         GameManager.Instance.estudianteDB.addData(estudiante);
 
         string idNivel = (GameManager.Instance.nivelAtencionJuegosDB.GetRowCount() + 1).ToString();

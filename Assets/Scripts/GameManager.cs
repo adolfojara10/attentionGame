@@ -102,8 +102,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("----------creando usuarioooooo-----------");
             string dateString = "2023-08-21";
 
-            estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", dateString));
-            estudiante = new EstudianteEntity("1", "Invitado", "Invitado", dateString);
+            estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString));
+            estudiante = new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString);
 
             NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
             "facil",
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Uusuario encontrado");
             //nivelAtencionJuegosDB.ResetValues();
             nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
-            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
             Debug.Log(estudiante);
         }
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("2");
         nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante(IDRead);
         Debug.Log("3" + nivelAtencionJuegos);
-        estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+        estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
         Debug.Log("4" + estudiante);
 
         this.Welcome();
@@ -326,6 +326,7 @@ public class GameManager : MonoBehaviour
         //nivelAtencionJuegosDB.ResetValues();
         gameState = GameState.Idle;
         gamePlaying = GamePlaying.None;
+        BTManager.Instance.enviarMen("cancelar");
         OnGameStateUpdated?.Invoke(gameState);
     }
 
@@ -365,7 +366,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("Usuario encontrado");
             //nivelAtencionJuegosDB.ResetValues();
             nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
-            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3));
+            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
             Debug.Log(estudiante);
 

@@ -27,8 +27,9 @@ public class BTManager : MonoBehaviour
     private BluetoothDevice device;
     public Text statusText;
 
-    public string nameNewStudent;
-    public string lastNameNewStudent;
+    public string cedulaNewStudent;
+    public string nivelBasicaNewStudent;
+    public string genderNewStudent;
     public string bornNewStudent;
 
     private void Awake()
@@ -221,7 +222,7 @@ public class BTManager : MonoBehaviour
                 {
                     if (lines[0] != "-1")
                     {
-                        BDManager.Instance.CreateStudent(nameNewStudent, lastNameNewStudent, bornNewStudent);
+                        BDManager.Instance.CreateStudent(cedulaNewStudent, nivelBasicaNewStudent, genderNewStudent, bornNewStudent);
 
                         GameManager.Instance.Error();
                         UIError.Instance.ChangeText("Estudiante creado con éxito.");
@@ -238,7 +239,7 @@ public class BTManager : MonoBehaviour
                         UIError.Instance.ChangeText("Error: el estudiante ya existe. Inténtelo de nuevo o regrese al menú y presione el botón Empezar.");
                         UIError.Instance.SetActiveImage(0);
 
-                        nameNewStudent = lastNameNewStudent = bornNewStudent = "";
+                        cedulaNewStudent = nivelBasicaNewStudent = bornNewStudent = genderNewStudent = "";
 
 
 

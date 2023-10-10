@@ -9,8 +9,9 @@ namespace DataBank
     public class EstudianteEntity
     {
         public string _id;
-        public string _name;
-        public string _lastName;
+        public string _cedula;
+        public string _nivelBasica;
+        public string _gender;
         public string _born;
 
         public EstudianteEntity()
@@ -19,11 +20,12 @@ namespace DataBank
         }
 
 
-        public EstudianteEntity(string id, String name, string lastName, string born)
+        public EstudianteEntity(string id, String cedula, string nivelBasica, string gender, string born)
         {
             _id = id;
-            _name = name;
-            _lastName = lastName;
+            _cedula = cedula;
+            _nivelBasica = nivelBasica;
+            _gender = gender;
             _born = born;
         }
 

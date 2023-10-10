@@ -10,6 +10,8 @@ public class UICreateUserBTN : MonoBehaviour
 {
     [SerializeField] private TMP_InputField nameField;
     [SerializeField] private TMP_InputField lastNameField;
+    public TMP_Dropdown dropdownGender;
+    public TMP_Dropdown dropdownNivel;
     [SerializeField] private DatePicker datePicker;
     [SerializeField] private Button actionButton;
     [SerializeField] private Image errorIcon;
@@ -21,7 +23,19 @@ public class UICreateUserBTN : MonoBehaviour
 
         // Attach a click event to the button
         actionButton.onClick.AddListener(OnActionButtonClick);
+
+        //dropdownGender.onValueChanged.AddListener(OnDropdownValueChanged);
     }
+
+    private void OnDropdownValueChanged(int index)
+    {
+        // Get the selected text from the dropdown's captionText.
+        string selectedText = dropdownGender.captionText.text;
+
+        // Now you can use the selectedText as needed.
+        Debug.Log("Selected text: " + selectedText);
+    }
+
 
     private void OnActionButtonClick()
     {
@@ -34,42 +48,66 @@ public class UICreateUserBTN : MonoBehaviour
             // Hide the error icon
             errorIcon.enabled = false;
 
-            if (!string.IsNullOrWhiteSpace(lastNameField.text))
+            if (!string.IsNullOrWhiteSpace(dropdownNivel.captionText.text))
             {
                 // Execute your code here when the input field is not empty
-                Debug.Log("Input field has text: " + lastNameField.text);
+                Debug.Log("Input field has text: " + dropdownNivel.captionText.text);
 
                 // Hide the error icon
                 errorIcon.enabled = false;
 
-                if (!string.IsNullOrWhiteSpace(datePicker.GetComponent<DatePicker>().SelectedDate.ToString()) && datePicker.GetComponent<DatePicker>().SelectedDate.ToString() != "Selecciona una fecha")
+                if (!string.IsNullOrWhiteSpace(dropdownGender.captionText.text))
                 {
                     // Execute your code here when the input field is not empty
-                    Debug.Log("Input field has text: " + datePicker.GetComponent<DatePicker>().SelectedDate.ToString());
-                    DateTime dateTime = DateTime.Parse(datePicker.GetComponent<DatePicker>().SelectedDate.ToString()); // Parse the input string into a DateTime object
-                    string dateOnly = dateTime.ToShortDateString();
-                    Debug.Log(dateOnly);
+                    Debug.Log("Input field has text: " + dropdownGender.captionText.text);
+
                     // Hide the error icon
                     errorIcon.enabled = false;
 
-                    int ID = GameManager.Instance.estudianteDB.GetRowCount() + 1;
+                    if (!string.IsNullOrWhiteSpace(datePicker.GetComponent<DatePicker>().SelectedDate.ToString()) && datePicker.GetComponent<DatePicker>().SelectedDate.ToString() != "Selecciona una fecha")
+                    {
+                        // Execute your code here when the input field is not empty
+                        Debug.Log("Input field has text: " + datePicker.GetComponent<DatePicker>().SelectedDate.ToString());
+                        DateTime dateTime = DateTime.Parse(datePicker.GetComponent<DatePicker>().SelectedDate.ToString()); // Parse the input string into a DateTime object
+                        string dateOnly = dateTime.ToShortDateString();
+                        Debug.Log(dateOnly);
+                        // Hide the error icon
+                        errorIcon.enabled = false;
 
-                    string idNombreApellido = ID.ToString() + " " + nameField.text + " " + lastNameField.text;
+                        int ID = GameManager.Instance.estudianteDB.GetRowCount() + 1;
 
-
-                    BTManager.Instance.enviarMen(idNombreApellido);
-                    Debug.Log(idNombreApellido);
-
-                    BTManager.Instance.nameNewStudent = nameField.text;
-                    BTManager.Instance.nameNewStudent = lastNameField.text;
-                    BTManager.Instance.bornNewStudent = dateOnly;
-
-                    GameManager.Instance.Saving();
-                    //UIError.Instance.ChangeText("Guardando usuario \n*Por favor colocar el rostro al frente del robot");
-
+                        string idNombreApellido = ID.ToString() + " " + nameField.text;
 
 
-                    //BDManager.Instance.CreateStudent(nameField.text, lastNameField.text, dateOnly);
+                        BTManager.Instance.enviarMen(idNombreApellido);
+                        Debug.Log(idNombreApellido);
+
+                        BTManager.Instance.cedulaNewStudent = nameField.text;
+                        BTManager.Instance.nivelBasicaNewStudent = dropdownNivel.captionText.text;
+                        BTManager.Instance.genderNewStudent = dropdownGender.captionText.text;
+                        BTManager.Instance.bornNewStudent = dateOnly;
+
+                        GameManager.Instance.Saving();
+                        //UIError.Instance.ChangeText("Guardando usuario \n*Por favor colocar el rostro al frente del robot");
+
+
+
+                        //BDManager.Instance.CreateStudent(nameField.text, lastNameField.text, dateOnly);
+                    }
+                    else
+                    {
+                        // Show the error icon
+                        errorIcon.enabled = true;
+
+                        // Position the error icon relative to the input field
+                        RectTransform inputFieldRect = datePicker.GetComponent<RectTransform>();
+                        RectTransform errorIconRect = errorIcon.GetComponent<RectTransform>();
+
+                        errorIconRect.anchoredPosition = new Vector2(
+                            334f,
+                            inputFieldRect.anchoredPosition.y + 26f// Keep the same y position
+                        );
+                    }
                 }
                 else
                 {
@@ -77,12 +115,12 @@ public class UICreateUserBTN : MonoBehaviour
                     errorIcon.enabled = true;
 
                     // Position the error icon relative to the input field
-                    RectTransform inputFieldRect = datePicker.GetComponent<RectTransform>();
+                    RectTransform inputFieldRect = lastNameField.GetComponent<RectTransform>();
                     RectTransform errorIconRect = errorIcon.GetComponent<RectTransform>();
 
                     errorIconRect.anchoredPosition = new Vector2(
-                        334f,
-                        inputFieldRect.anchoredPosition.y + 26f// Keep the same y position
+                        334f, //+ inputFieldRect.rect.width + 10f, // Adjust the x offset as needed
+                        inputFieldRect.anchoredPosition.y // Keep the same y position
                     );
                 }
             }
@@ -92,7 +130,7 @@ public class UICreateUserBTN : MonoBehaviour
                 errorIcon.enabled = true;
 
                 // Position the error icon relative to the input field
-                RectTransform inputFieldRect = lastNameField.GetComponent<RectTransform>();
+                RectTransform inputFieldRect = nameField.GetComponent<RectTransform>();
                 RectTransform errorIconRect = errorIcon.GetComponent<RectTransform>();
 
                 errorIconRect.anchoredPosition = new Vector2(
@@ -100,22 +138,8 @@ public class UICreateUserBTN : MonoBehaviour
                     inputFieldRect.anchoredPosition.y // Keep the same y position
                 );
             }
+
         }
-        else
-        {
-            // Show the error icon
-            errorIcon.enabled = true;
-
-            // Position the error icon relative to the input field
-            RectTransform inputFieldRect = nameField.GetComponent<RectTransform>();
-            RectTransform errorIconRect = errorIcon.GetComponent<RectTransform>();
-
-            errorIconRect.anchoredPosition = new Vector2(
-                334f, //+ inputFieldRect.rect.width + 10f, // Adjust the x offset as needed
-                inputFieldRect.anchoredPosition.y // Keep the same y position
-            );
-        }
-
 
 
 

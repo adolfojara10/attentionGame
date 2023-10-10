@@ -13,19 +13,21 @@ namespace DataBank
 
         private const String TABLE_NAME = "Estudiantes";
         private const String KEY_ID = "id";
-        private const String KEY_NAME = "name";
-        private const String KEY_LASTNAME = "lastname";
+        private const String KEY_CEDULA = "cedula";
+        private const String KEY_NIVEL_BASICA = "nivelBasica";
+        private const String KEY_GENDER = "gender";
         private const String KEY_BORN = "born";
 
-        private String[] COLUMNS = new String[] { KEY_ID, KEY_NAME, KEY_LASTNAME, KEY_BORN };
+        private String[] COLUMNS = new String[] { KEY_ID, KEY_CEDULA, KEY_NIVEL_BASICA,KEY_GENDER, KEY_BORN };
 
         public EstudianteDB() : base()
         {
             IDbCommand dbcmd = getDbCommand();
             dbcmd.CommandText = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ( " +
                 KEY_ID + " TEXT PRIMARY KEY, " +
-                KEY_NAME + " TEXT, " +
-                KEY_LASTNAME + " TEXT, " +
+                KEY_CEDULA + " TEXT, " +
+                KEY_NIVEL_BASICA + " TEXT, " +
+                KEY_GENDER + " TEXT, " +
                 KEY_BORN + " TEXT )";
 
             dbcmd.ExecuteNonQuery();
@@ -38,14 +40,16 @@ namespace DataBank
                 "INSERT INTO " + TABLE_NAME
                 + " ( "
                 + KEY_ID + ", "
-                + KEY_NAME + ", "
-                + KEY_LASTNAME + ", "
+                + KEY_CEDULA + ", "
+                + KEY_NIVEL_BASICA + ", "
+                + KEY_GENDER + ", "
                 + KEY_BORN + " ) "
 
                 + "VALUES ( '"
                 + estudiante._id + "', '"
-                + estudiante._name + "', '"
-                + estudiante._lastName + "', '"
+                + estudiante._cedula + "', '"
+                + estudiante._nivelBasica + "', '"
+                + estudiante._gender + "', '"
                 + estudiante._born + "' )";
             dbcmd.ExecuteNonQuery();
         }
