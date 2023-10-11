@@ -67,6 +67,8 @@ public class BTNManager : MonoBehaviour
 
         if (differencesFound == differencesToFind)
         {
+            BDManager.Instance.tiempo = StopwatchTimeBar.Instance.currentTimeToMatch.ToString();
+            BDManager.Instance.botonesEncontrados = differencesFound.ToString();
             GameManager.Instance.CompletedGameCierreVisual();
         }
     }

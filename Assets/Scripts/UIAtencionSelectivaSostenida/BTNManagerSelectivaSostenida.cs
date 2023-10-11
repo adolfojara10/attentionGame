@@ -5,12 +5,19 @@ using UnityEngine.UI;
 
 public class BTNManagerSelectivaSostenida : MonoBehaviour
 {
+    public static BTNManagerSelectivaSostenida Instance;
+
     public int objectsToFind;
     public int objectsFound = 0;
 
     public List<Button> buttonsDifference;
 
     public List<Image> images;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +40,8 @@ public class BTNManagerSelectivaSostenida : MonoBehaviour
 
         if (objectsFound == objectsToFind)
         {
+            BDManager.Instance.tiempo = StopwatchTimeBar.Instance.currentTimeToMatch.ToString();
+            BDManager.Instance.botonesEncontrados = objectsFound.ToString();
             GameManager.Instance.CompletedGameCierreVisual();
         }
     }

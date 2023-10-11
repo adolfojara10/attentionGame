@@ -47,6 +47,18 @@ public class StopwatchTimeBar : MonoBehaviour
 
                 if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes || GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
                 {
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
+                    {
+                        BDManager.Instance.botonesEncontrados = BTNManager.Instance.differencesFound.ToString();
+                        BDManager.Instance.tiempo = (timeToMatch - 3).ToString();
+                    }
+
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
+                    {
+                        BDManager.Instance.botonesEncontrados = BTNManagerSelectivaSostenida.Instance.objectsFound.ToString();
+                        BDManager.Instance.tiempo = (timeToMatch - 3).ToString();
+                    }
+
                     GameManager.Instance.GameOverCierreVisual();
                 }
                 else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal || GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
@@ -55,6 +67,17 @@ public class StopwatchTimeBar : MonoBehaviour
                 }
                 else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido || GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
                 {
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
+                    {
+                        BDManager.Instance.botonesEncontrados = BTNManagerDiscriminandoFiguras.Instance.soundsFound.ToString();
+                        BDManager.Instance.tiempo = (timeToMatch - 3).ToString();
+                    }
+
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido)
+                    {
+                        BDManager.Instance.tiempo = (timeToMatch - 3).ToString();
+                    }
+                    
                     GameManager.Instance.GameOverDiscriminacionAuditiva();
                 }
             }

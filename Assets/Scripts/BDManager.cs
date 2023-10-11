@@ -16,12 +16,16 @@ public class BDManager : MonoBehaviour
     public string tiempo = "-";
     public string botonesEncontrados = "-";
     public string intentos = "-";
+    public string level = "-";
+
+
 
     public void RestartVars()
     {
         tiempo = "-";
         botonesEncontrados = "-";
         intentos = "-";
+        level = "-";
     }
 
     private void Awake()
@@ -68,6 +72,7 @@ public class BDManager : MonoBehaviour
 
         game = "";
         result = "";
+        level = "";
 
         if (newState == GameManager.GameState.GameCompletedCierreVisual || newState == GameManager.GameState.GameCompletedEsquemaCorporal || newState == GameManager.GameState.GameCompletedDiscriminacionAuditiva)
         {
@@ -82,11 +87,18 @@ public class BDManager : MonoBehaviour
 
                 if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                }
+                else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Atencion Auditiva - Localizar Sonido";
@@ -98,11 +110,18 @@ public class BDManager : MonoBehaviour
 
                 if (nivelAtencionJuegos._concienciaCorporal == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._concienciaCorporal = "medio";
                 }
                 else if (nivelAtencionJuegos._concienciaCorporal == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._concienciaCorporal = "dificil";
+                }
+                else if (nivelAtencionJuegos._concienciaCorporal == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Conciencia Corporal";
@@ -114,11 +133,18 @@ public class BDManager : MonoBehaviour
 
                 if (nivelAtencionJuegos._atencionSelectivaLaberinto == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionSelectivaLaberinto = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionSelectivaLaberinto = "dificil";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Atencion Selectiva - Laberinto";
@@ -128,11 +154,18 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._yoga == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._yoga = "medio";
                 }
                 else if (nivelAtencionJuegos._yoga == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._yoga = "dificil";
+                }
+                else if (nivelAtencionJuegos._yoga == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Yoga";
@@ -142,11 +175,18 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "dificil";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Atencion Selectiva - Objetos Perdidos";
@@ -156,11 +196,18 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "dificil";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Atencion Selectiva - Piezas Faltantes";
@@ -170,12 +217,20 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._atencionSelectivaSostenida == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionSelectivaSostenida = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionSelectivaSostenida == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionSelectivaSostenida = "dificil";
                 }
+                else if (nivelAtencionJuegos._atencionSelectivaSostenida == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                }
+
                 game = "Atencion Selectiva y Sostenida";
             }
 
@@ -183,11 +238,18 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._integracionVisual == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._integracionVisual = "medio";
                 }
                 else if (nivelAtencionJuegos._integracionVisual == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._integracionVisual = "dificil";
+                }
+                else if (nivelAtencionJuegos._integracionVisual == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Integracion Visual";
@@ -197,11 +259,18 @@ public class BDManager : MonoBehaviour
             {
                 if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "facil")
                 {
+                    level = "facil";
                     nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "medio";
                 }
                 else if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "medio")
                 {
+                    level = "medio";
                     nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "dificil";
+                }
+                else if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "dificil")
+                {
+                    level = "dificil";
+                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
                 game = "Atencion Auditiva - Discriminar Figura";
@@ -218,49 +287,115 @@ public class BDManager : MonoBehaviour
         if (newState == GameManager.GameState.GameOverCierreVisual || newState == GameManager.GameState.GameOverDiscriminacionAuditiva || newState == GameManager.GameState.GameOverEsquemaCorporal)
         {
             result = "Juego no completado";
+            nivelAtencionJuegos = GameManager.Instance.nivelAtencionJuegos;
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaLocalizarSonido)
             {
+                if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "facil")
+                {
+                    level = "facil";
+                }
+                else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
+                {
+                    level = "medio";
+                }
+                else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
+                {
+                    level = "dificil";
+                }
+
                 game = "Atencion Auditiva - Localizar Sonido";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
             {
+                if (nivelAtencionJuegos._concienciaCorporal == "facil")
+                {
+                    level = "facil";
+                }
+                else if (nivelAtencionJuegos._concienciaCorporal == "medio")
+                {
+                    level = "medio";
+                }
+                else if (nivelAtencionJuegos._concienciaCorporal == "dificil")
+                {
+                    level = "dificil";
+                }
                 game = "Conciencia Corporal";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaLaberinto)
             {
+                if (nivelAtencionJuegos._atencionSelectivaLaberinto == "facil")
+                {
+                    level = "facil";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "medio")
+                {
+                    level = "medio";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "dificil")
+                {
+                    level = "dificil";
+                }
                 game = "Atencion Selectiva - Laberinto";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
             {
+                if (nivelAtencionJuegos._yoga == "facil")
+                {
+                    level = "facil";
+                }
+                else if (nivelAtencionJuegos._yoga == "medio")
+                {
+                    level = "medio";
+                }
+                else if (nivelAtencionJuegos._yoga == "dificil")
+                {
+                    level = "dificil";
+                }
                 game = "Yoga";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
             {
+                if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "facil")
+                {
+                    level = "facil";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "medio")
+                {
+                    level = "medio";
+                }
+                else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "dificil")
+                {
+                    level = "dificil";
+                }
                 game = "Atencion Selectiva - Objetos Perdidos";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
             {
+                level = nivelAtencionJuegos._atencionSelectivaPiezasFaltantes;
                 game = "Atencion Selectiva - Piezas Faltantes";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
             {
+                level = nivelAtencionJuegos._atencionSelectivaSostenida;
                 game = "Atencion Selectiva y Sostenida";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual)
             {
+                level = nivelAtencionJuegos._integracionVisual;
                 game = "Integracion Visual";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
             {
+                level = nivelAtencionJuegos._atencionAuditivaDiscriminarFigura;
                 game = "Atencion Auditiva - Discriminar Figura";
             }
 
@@ -294,6 +429,7 @@ public class BDManager : MonoBehaviour
             tiempo,
             botonesEncontrados,
             intentos,
+            level,
             GameManager.Instance.nivelAtencionJuegos._idEstudiante);
 
 

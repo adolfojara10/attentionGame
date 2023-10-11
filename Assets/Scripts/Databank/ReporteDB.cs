@@ -19,10 +19,12 @@ namespace DataBank
         private const String KEY_TIME = "time";
         private const String KEY_BUTTONS_FOUND = "buttonsFound";
         private const String KEY_TRIES = "tries";
+        private const String KEY_LEVEL = "level";
+
 
         private const String KEY_ID_ESTUDIANTE = "idEstudiante";
 
-        private String[] COLUMNS = new String[] { KEY_ID, KEY_GAME, KEY_DATE, KEY_RESULT, KEY_TIME, KEY_BUTTONS_FOUND, KEY_TRIES, KEY_ID_ESTUDIANTE };
+        private String[] COLUMNS = new String[] { KEY_ID, KEY_GAME, KEY_DATE, KEY_RESULT, KEY_TIME, KEY_BUTTONS_FOUND, KEY_TRIES, KEY_LEVEL, KEY_ID_ESTUDIANTE };
 
         public ReporteDB() : base()
         {
@@ -35,6 +37,7 @@ namespace DataBank
                 KEY_TIME + " TEXT, " +
                 KEY_BUTTONS_FOUND + " TEXT, " +
                 KEY_TRIES + " TEXT, " +
+                KEY_LEVEL + " TEXT, " +
                 KEY_ID_ESTUDIANTE + " TEXT )";
 
             dbcmd.ExecuteNonQuery();
@@ -53,6 +56,7 @@ namespace DataBank
                 + KEY_TIME + ", "
                 + KEY_BUTTONS_FOUND + ", "
                 + KEY_TRIES + ", "
+                + KEY_LEVEL + ", "
                 + KEY_ID_ESTUDIANTE + " ) "
 
                 + "VALUES ( '"
@@ -63,6 +67,7 @@ namespace DataBank
                 + reporte._time + "', '"
                 + reporte._buttonsFound + "', '"
                 + reporte._tries + "', '"
+                + reporte._level + "', '"
                 + reporte._idEstudiante + "' )";
             dbcmd.ExecuteNonQuery();
         }
@@ -82,7 +87,7 @@ namespace DataBank
             {
                 // Access the data using dataReader.GetXXX methods
 
-                string idEstudiante = dataReader.GetString(7);
+                string idEstudiante = dataReader.GetString(8);
 
                 if (idEstudiante == id)
                 {
@@ -94,7 +99,8 @@ namespace DataBank
                     rep._time = dataReader.GetString(4);
                     rep._buttonsFound = dataReader.GetString(5);
                     rep._tries = dataReader.GetString(6);
-                    rep._idEstudiante = dataReader.GetString(7);
+                    rep._level = dataReader.GetString(7);
+                    rep._idEstudiante = dataReader.GetString(8);
                     list.Add(rep);
                 }
 

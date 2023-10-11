@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BTNContainerFacil : MonoBehaviour
 {
-    public void RigthBTNClicked(){
+    public void RigthBTNClicked()
+    {
+        BDManager.Instance.tiempo = StopwatchTimeBar.Instance.currentTimeToMatch.ToString();
         GameManager.Instance.CompletedGameDiscriminacionAuditiva();
     }
 
-    public void WrongBTNClicked(){
+    public void WrongBTNClicked()
+    {
+        BDManager.Instance.tiempo = StopwatchTimeBar.Instance.currentTimeToMatch.ToString();
         GameManager.Instance.GameOverDiscriminacionAuditiva();
     }
 }

@@ -49,6 +49,8 @@ public class BTNManagerDiscriminandoFiguras : MonoBehaviour
 
         if (soundsFound == soundsToFind)
         {
+            BDManager.Instance.tiempo = StopwatchTimeBar.Instance.currentTimeToMatch.ToString();
+            BDManager.Instance.botonesEncontrados = soundsFound.ToString();
             GameManager.Instance.CompletedGameDiscriminacionAuditiva();
         }
     }

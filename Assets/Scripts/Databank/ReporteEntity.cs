@@ -16,6 +16,7 @@ namespace DataBank
         public string _time;
         public string _buttonsFound;
         public string _tries;
+        public string _level;
 
         public string _idEstudiante;
 
@@ -25,7 +26,7 @@ namespace DataBank
         }
 
         public ReporteEntity(string id, string game, string date, string result,
-        string tiempo, string botonesEncontrados, string intentos, string idEstudiante)
+        string tiempo, string botonesEncontrados, string intentos, string level, string idEstudiante)
         {
             _id = id;
             _game = game;
@@ -34,6 +35,7 @@ namespace DataBank
             _time = tiempo;
             _buttonsFound = botonesEncontrados;
             _tries = intentos;
+            _level = level;
             _idEstudiante = idEstudiante;
         }
 
