@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Uusuario encontrado");
             //nivelAtencionJuegosDB.ResetValues();
-            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("2");
+            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
             estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
             Debug.Log(estudiante);
@@ -171,11 +171,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("1");
         IDataReader dataReader = estudianteDB.getDataByIdString(IDRead);
-        Debug.Log("2");
-        nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante(IDRead);
-        Debug.Log("3" + nivelAtencionJuegos);
         estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
         Debug.Log("4" + estudiante);
+
+        Debug.Log("2");
+        dataReader = nivelAtencionJuegosDB.getDataByIdString(IDRead);
+        nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0),dataReader.GetString(1), dataReader.GetString(2),dataReader.GetString(3),dataReader.GetString(4),dataReader.GetString(5),dataReader.GetString(6),dataReader.GetString(7),dataReader.GetString(8),dataReader.GetString(9),dataReader.GetString(10));
+        Debug.Log("3" + nivelAtencionJuegos);
+        
 
         this.Welcome();
     }
@@ -324,6 +327,7 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         //nivelAtencionJuegosDB.ResetValues();
+        nivelAtencionJuegos = null;
         gameState = GameState.Idle;
         gamePlaying = GamePlaying.None;
         BTManager.Instance.enviarMen("cancelar");
@@ -394,6 +398,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.ConcienciaCorporal;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._concienciaCorporal);
     }
 
     public void YogaGame()
@@ -403,6 +408,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.Yoga;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._yoga);
     }
 
     public void ObjetosPerdidosGame()
@@ -412,6 +418,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos);
     }
 
     public void DiferenciasGame()

@@ -246,6 +246,33 @@ public class BTManager : MonoBehaviour
 
                     }
                 }
+
+                if (GameManager.Instance.gameState == GameManager.GameState.InGame)
+                {
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
+                    {
+                        string[] parts = lines[0].Split("_");
+
+                        if (parts[0] == "1")
+                        {
+                            BDManager.Instance.tiempo = parts[1];
+
+                            GameManager.Instance.CompletedGameEsquemaCorporal();
+                        }
+                    }
+
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
+                    {
+                        string[] parts = lines[0].Split("_");
+
+                        if (parts[0] == "1")
+                        {
+                            BDManager.Instance.tiempo = parts[1];
+
+                            GameManager.Instance.CompletedGameDiscriminacionAuditiva();
+                        }
+                    }
+                }
             }
 
             yield return null;

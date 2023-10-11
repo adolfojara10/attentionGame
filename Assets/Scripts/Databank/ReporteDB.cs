@@ -16,10 +16,13 @@ namespace DataBank
         private const String KEY_GAME = "game";
         private const String KEY_DATE = "date";
         private const String KEY_RESULT = "result";
+        private const String KEY_TIME = "time";
+        private const String KEY_BUTTONS_FOUND = "buttonsFound";
+        private const String KEY_TRIES = "tries";
 
         private const String KEY_ID_ESTUDIANTE = "idEstudiante";
 
-        private String[] COLUMNS = new String[] { KEY_ID, KEY_GAME, KEY_DATE, KEY_RESULT, KEY_ID_ESTUDIANTE };
+        private String[] COLUMNS = new String[] { KEY_ID, KEY_GAME, KEY_DATE, KEY_RESULT, KEY_TIME, KEY_BUTTONS_FOUND, KEY_TRIES, KEY_ID_ESTUDIANTE };
 
         public ReporteDB() : base()
         {
@@ -29,6 +32,9 @@ namespace DataBank
                 KEY_GAME + " TEXT, " +
                 KEY_DATE + " TEXT, " +
                 KEY_RESULT + " TEXT, " +
+                KEY_TIME + " TEXT, " +
+                KEY_BUTTONS_FOUND + " TEXT, " +
+                KEY_TRIES + " TEXT, " +
                 KEY_ID_ESTUDIANTE + " TEXT )";
 
             dbcmd.ExecuteNonQuery();
@@ -44,6 +50,9 @@ namespace DataBank
                 + KEY_GAME + ", "
                 + KEY_DATE + ", "
                 + KEY_RESULT + ", "
+                + KEY_TIME + ", "
+                + KEY_BUTTONS_FOUND + ", "
+                + KEY_TRIES + ", "
                 + KEY_ID_ESTUDIANTE + " ) "
 
                 + "VALUES ( '"
@@ -51,6 +60,9 @@ namespace DataBank
                 + reporte._game + "', '"
                 + reporte._date + "', '"
                 + reporte._result + "', '"
+                + reporte._time + "', '"
+                + reporte._buttonsFound + "', '"
+                + reporte._tries + "', '"
                 + reporte._idEstudiante + "' )";
             dbcmd.ExecuteNonQuery();
         }
@@ -70,7 +82,7 @@ namespace DataBank
             {
                 // Access the data using dataReader.GetXXX methods
 
-                string idEstudiante = dataReader.GetString(4);
+                string idEstudiante = dataReader.GetString(7);
 
                 if (idEstudiante == id)
                 {
@@ -79,7 +91,10 @@ namespace DataBank
                     rep._game = dataReader.GetString(1);
                     rep._date = dataReader.GetString(2);
                     rep._result = dataReader.GetString(3);
-                    rep._idEstudiante = dataReader.GetString(4);
+                    rep._time = dataReader.GetString(4);
+                    rep._buttonsFound = dataReader.GetString(5);
+                    rep._tries = dataReader.GetString(6);
+                    rep._idEstudiante = dataReader.GetString(7);
                     list.Add(rep);
                 }
 

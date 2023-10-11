@@ -13,6 +13,16 @@ public class BDManager : MonoBehaviour
 
     string game = "";
     string result = "";
+    public string tiempo = "-";
+    public string botonesEncontrados = "-";
+    public string intentos = "-";
+
+    public void RestartVars()
+    {
+        tiempo = "-";
+        botonesEncontrados = "-";
+        intentos = "-";
+    }
 
     private void Awake()
     {
@@ -257,6 +267,9 @@ public class BDManager : MonoBehaviour
             CreateReport();
         }
 
+
+        RestartVars();
+
     }
 
 
@@ -278,6 +291,9 @@ public class BDManager : MonoBehaviour
             game,
             formattedDate,
             result,
+            tiempo,
+            botonesEncontrados,
+            intentos,
             GameManager.Instance.nivelAtencionJuegos._idEstudiante);
 
 
