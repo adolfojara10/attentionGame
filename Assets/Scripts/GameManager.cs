@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public ReporteDB reporteDB;
 
+    public int numberOfComment;
+
 
     public enum GameState
     {
@@ -168,6 +170,13 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+    public void AssignNumberOfComment()
+    {
+        // Generate a random integer between 1 and 100 (inclusive).
+        numberOfComment = Random.Range(1, 101);
+    }
+
+
     public void ReadStudentById(string IDRead)
     {
         Debug.Log("1");
@@ -216,7 +225,9 @@ public class GameManager : MonoBehaviour
 
     public void CompletedGameCierreVisual()
     {
-
+        AssignNumberOfComment();
+        string message = "good_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameCompletedCierreVisual;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
@@ -226,7 +237,9 @@ public class GameManager : MonoBehaviour
 
     public void CompletedGameEsquemaCorporal()
     {
-
+        AssignNumberOfComment();
+        string message = "good_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameCompletedEsquemaCorporal;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
@@ -236,7 +249,9 @@ public class GameManager : MonoBehaviour
 
     public void CompletedGameDiscriminacionAuditiva()
     {
-
+        AssignNumberOfComment();
+        string message = "good_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameCompletedDiscriminacionAuditiva;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
@@ -246,7 +261,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOverCierreVisual()
     {
-
+        AssignNumberOfComment();
+        string message = "bad_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameOverCierreVisual;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
@@ -258,7 +275,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOverDiscriminacionAuditiva()
     {
-
+        AssignNumberOfComment();
+        string message = "bad_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameOverDiscriminacionAuditiva;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
@@ -270,7 +289,9 @@ public class GameManager : MonoBehaviour
 
     public void GameOverEsquemaCorporal()
     {
-
+        AssignNumberOfComment();
+        string message = "bad_" + numberOfComment.ToString();
+        BTManager.Instance.enviarMen(message);
         gameState = GameState.GameOverEsquemaCorporal;
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
