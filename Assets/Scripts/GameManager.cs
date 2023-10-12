@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
         GameCompletedDiscriminacionAuditiva,
         GameOverEsquemaCorporal,
         GameOverDiscriminacionAuditiva,
-        Welcome
+        Welcome,
+        DemoIntegracionVisual
     }
 
 
@@ -176,9 +177,9 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("2");
         dataReader = nivelAtencionJuegosDB.getDataByIdString(IDRead);
-        nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0),dataReader.GetString(1), dataReader.GetString(2),dataReader.GetString(3),dataReader.GetString(4),dataReader.GetString(5),dataReader.GetString(6),dataReader.GetString(7),dataReader.GetString(8),dataReader.GetString(9),dataReader.GetString(10));
+        nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetString(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8), dataReader.GetString(9), dataReader.GetString(10));
         Debug.Log("3" + nivelAtencionJuegos);
-        
+
 
         this.Welcome();
     }
@@ -382,6 +383,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void StartDemoIntegracionVisual()
+    {
+        gameState = GameState.DemoIntegracionVisual;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+    }
+
     public void AtencionAuditivaLocalizarSonidoGame()
     {
         //Debug.Log("--------------------- game manager");
@@ -398,7 +406,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.ConcienciaCorporal;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._concienciaCorporal);
+        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._concienciaCorporal);
     }
 
     public void YogaGame()
@@ -408,7 +416,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.Yoga;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._yoga);
+        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._yoga);
     }
 
     public void ObjetosPerdidosGame()
@@ -418,7 +426,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_"+this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos);
+        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos);
     }
 
     public void DiferenciasGame()

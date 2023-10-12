@@ -56,8 +56,14 @@ public class UIChooseGameBTN : MonoBehaviour
 
     public void IntegracionVisualButtonClicked()
     {
+        GameManager.Instance.StartDemoIntegracionVisual();
+    }
+
+    public void IntegracionVisualEmpezarButtonClicked()
+    {
         GameManager.Instance.IntegracionVisualGame();
     }
+
 
     public void BackButtonClicked()
     {
@@ -81,11 +87,14 @@ public class UIChooseGameBTN : MonoBehaviour
         //Debug.Log("hhhhhhhhhhhhhh");
     }
 
+
     public void BackButtonToChooseGameClicked()
     {
         //Debug.Log("MAIN MENUUU");
         GameManager.Instance.ChooseGame();
     }
+
+
 
 
 }

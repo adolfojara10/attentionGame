@@ -9,6 +9,9 @@ public class LineDrawingMatching : MonoBehaviour
     public float lineWidth = 0.1f; // The width of the line.
     private bool isDrawing = false; // Indicates whether the line is being drawn.
 
+    //public GameObject movingImage; // Assign the image prefab in the inspector.
+    //private List<GameObject> followingImages = new List<GameObject>();
+
     public LayerMask cardLayer; // Create a LayerMask for the cards.
 
     public List<Transform> selectedCards = new List<Transform>();
@@ -22,6 +25,7 @@ public class LineDrawingMatching : MonoBehaviour
     private List<Vector3> linePositions = new List<Vector3>();
 
     public int numberOfImages = 0;
+    private int currentPointIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,6 +75,9 @@ public class LineDrawingMatching : MonoBehaviour
         if (isDrawing)
         {
             DrawLine();
+
+
+            //MoveImageAlongLine();
         }
 
 
@@ -131,6 +138,20 @@ public class LineDrawingMatching : MonoBehaviour
         //CheckForMatch();
     }
 
+    /*void MoveImageAlongLine()
+    {
+        if (currentPointIndex < lineRenderer.positionCount)
+        {
+            Vector3 targetPosition = lineRenderer.GetPosition(currentPointIndex);
+            targetPosition.x += 0.5f; // Adjust the x-coordinate by subtracting 20 units.
+            targetPosition.y -= 1f;
+            movingImage.transform.position = targetPosition;
+
+
+            currentPointIndex++;
+        }
+    }*/
+
     public void GamePlayingUpdated(GameManager.GamePlaying newGamePlaying)
     {
         if (newGamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
@@ -150,7 +171,7 @@ public class LineDrawingMatching : MonoBehaviour
             {
                 container.SetActive(false);
             }*/
-            
+
             ClearLines();
             lineRenderers.Clear();
             linePositions.Clear();
@@ -198,6 +219,7 @@ public class LineDrawingMatching : MonoBehaviour
         isDrawing = false;
         linePositions.Clear(); // Clear stored line positions.
         lineRenderer.positionCount = 0;
+        currentPointIndex = 0;
     }
 
     void DrawLine()
