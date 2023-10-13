@@ -409,6 +409,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.DemoIntegracionVisual;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("completa_imagen");
     }
 
     public void AtencionAuditivaLocalizarSonidoGame()
@@ -418,6 +419,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("atencion_auditiva");
     }
 
     public void ConcienciaCorporalGame()
@@ -437,7 +439,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.Yoga;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._yoga);
+        BTManager.Instance.enviarMen("yoga_" + this.nivelAtencionJuegos._yoga);
     }
 
     public void ObjetosPerdidosGame()
@@ -447,7 +449,9 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos);
+        string messageSend = "simon_dice_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
+        Debug.Log(messageSend);
+        BTManager.Instance.enviarMen(messageSend);
     }
 
     public void DiferenciasGame()
@@ -457,6 +461,8 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaPiezasFaltantes;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("encuentra_diferencias");
+
     }
 
     public void AtencionSelectivaSostenidaGame()
@@ -466,6 +472,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaSostenida;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("encuentra_objeto");
     }
 
     public void AtencionAuditivaDiscriminarFiguraGame()
@@ -475,6 +482,7 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionAuditivaDiscriminarFigura;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("sonidos_naturaleza");
     }
 
 

@@ -24,9 +24,7 @@ public class UIChooseGameBTN : MonoBehaviour
     {
         //Debug.Log("--------------------- gameBTNMA");
         GameManager.Instance.ObjetosPerdidosGame();
-        string messageSend = "simon_dice_" + GameManager.Instance.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
-        Debug.Log(messageSend);
-        BTManager.Instance.enviarMen(messageSend);
+        
     }
 
     public void DiferenciasGameButtonClicked()
