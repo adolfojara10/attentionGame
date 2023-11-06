@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System;
+
 
 public class UIMenuBTNS : MonoBehaviour
 {
@@ -27,6 +30,11 @@ public class UIMenuBTNS : MonoBehaviour
         GameManager.Instance.InvitedSession();
     }
 
+
+    public void DownloadBD()
+    {
+        
+    }
 
     public void ExitButtonClicked()
     {

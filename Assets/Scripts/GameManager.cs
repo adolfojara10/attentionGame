@@ -85,54 +85,55 @@ public class GameManager : MonoBehaviour
         //puzzleSelectionInstance.SetPuzzlePhoto(1);
 
         //Debug.Log("manager");
-
-        estudianteDB = new EstudianteDB();
-        nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
-        reporteDB = new ReporteDB();
-
-        //estudianteDB.deleteAllData();
-        //nivelAtencionJuegosDB.deleteAllData();
-        //reporteDB.deleteAllData();
-
-
-        nivelAtencionJuegosDB.ResetValues();
-
-
-        IDataReader dataReader = estudianteDB.getDataByIdString("1");
-
-        if (dataReader == null)
+        lock (databaseLock)
         {
-            Debug.Log("----------creando usuarioooooo-----------");
-            string dateString = "2023-08-21";
+            estudianteDB = new EstudianteDB();
+            nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
+            reporteDB = new ReporteDB();
 
-            estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString));
-            estudiante = new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString);
+            //estudianteDB.deleteAllData();
+            //nivelAtencionJuegosDB.deleteAllData();
+            //reporteDB.deleteAllData();
 
-            NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "facil",
-            "1");
 
-            nivelAtencionJuegosDB.addData(nivelAtencionJuegos);
+            nivelAtencionJuegosDB.ResetValues();
+
+
+            IDataReader dataReader = estudianteDB.getDataByIdString("1");
+
+            if (dataReader == null)
+            {
+                Debug.Log("----------creando usuarioooooo-----------");
+                string dateString = "2023-08-21";
+
+                estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString));
+                estudiante = new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString);
+
+                NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "facil",
+                "1");
+
+                nivelAtencionJuegosDB.addData(nivelAtencionJuegos);
+            }
+            else
+            {
+                Debug.Log("Uusuario encontrado");
+                //nivelAtencionJuegosDB.ResetValues();
+                nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
+                estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
+
+                Debug.Log(estudiante);
+            }
+
         }
-        else
-        {
-            Debug.Log("Uusuario encontrado");
-            //nivelAtencionJuegosDB.ResetValues();
-            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
-            estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
-
-            Debug.Log(estudiante);
-        }
-
-
         /*dataReader = estudianteDB.getAllData();
 
         int fieldCount2 = dataReader.FieldCount;
