@@ -33,8 +33,25 @@ public class UIMenuBTNS : MonoBehaviour
 
     public void DownloadBD()
     {
-        
+        string databaseName = "my_db";
+        string sourcePath = "/storage/emulated/0/Android/data/com.DefaultCompany.AttentionGame/files/" + databaseName;
+        string destinationPath = Path.Combine(Application.persistentDataPath, "Documentos", databaseName);
+
+        if (!File.Exists(destinationPath))
+        {
+            // Create the "Documentos" folder if it doesn't exist
+            Directory.CreateDirectory(Path.GetDirectoryName(destinationPath));
+
+            // Copy the file from the source to the destination
+            File.Copy(sourcePath, destinationPath);
+            Debug.Log("Database file copied to 'Documentos' folder: " + destinationPath);
+        }
+        else
+        {
+            Debug.Log("Database file already exists in the 'Documentos' folder.");
+        }
     }
+
 
     public void ExitButtonClicked()
     {
