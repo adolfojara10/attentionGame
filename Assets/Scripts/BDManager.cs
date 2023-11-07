@@ -45,11 +45,11 @@ public class BDManager : MonoBehaviour
 
     public void CreateStudent(string cedula, string nivelBasica, string gender, string born)
     {
-        string id = (GameManager.Instance.estudianteDB.GetRowCount() + 1).ToString();
+        string id = (GameManager.Instance.conexionSQL.GetRowCount("Estudiantes") + 1).ToString();
         EstudianteEntity estudiante = new EstudianteEntity(id, cedula, nivelBasica, gender, born);
-        GameManager.Instance.estudianteDB.addData(estudiante);
+        GameManager.Instance.conexionSQL.addDataEstudiante(estudiante);
 
-        string idNivel = (GameManager.Instance.nivelAtencionJuegosDB.GetRowCount() + 1).ToString();
+        string idNivel = (GameManager.Instance.conexionSQL.GetRowCount("NivelAtencionJuegos") + 1).ToString();
 
         NivelAtencionJuegosEntity nivelEntity = new NivelAtencionJuegosEntity(idNivel,
             "facil",
@@ -63,7 +63,7 @@ public class BDManager : MonoBehaviour
             "facil",
             id);
 
-        GameManager.Instance.nivelAtencionJuegosDB.addData(nivelEntity);
+        GameManager.Instance.conexionSQL.addDataNivelAtencionJuegos(nivelEntity);
 
         Debug.Log("Usuario creado con id: " + id);
 
@@ -278,7 +278,7 @@ public class BDManager : MonoBehaviour
                 game = "Atencion Auditiva - Discriminar Figura";
             }
             GameManager.Instance.nivelAtencionJuegos = this.nivelAtencionJuegos;
-            GameManager.Instance.nivelAtencionJuegosDB.Update(this.nivelAtencionJuegos);
+            GameManager.Instance.conexionSQL.UpdateDataByIdStringNivelAtencion("NivelAtencionJuegos", this.nivelAtencionJuegos);
 
             CreateReport();
 
@@ -414,7 +414,7 @@ public class BDManager : MonoBehaviour
     {
         lock (databaseLock)
         {
-            int rowCount = GameManager.Instance.reporteDB.GetRowCount() + 1;
+            int rowCount = GameManager.Instance.conexionSQL.GetRowCount("Reportes") + 1;
             string rowCountAsString = rowCount.ToString();
 
             string formattedDate = DateTime.Now.ToString("dd/MM/yyyy");
@@ -436,7 +436,7 @@ public class BDManager : MonoBehaviour
                 GameManager.Instance.nivelAtencionJuegos._idEstudiante);
 
 
-            GameManager.Instance.reporteDB.addData(rep);
+            GameManager.Instance.conexionSQL.addDataReporteTable(rep);
 
         }
     }

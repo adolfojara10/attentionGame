@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public ReporteDB reporteDB;
 
+    public SqliteHelper conexionSQL;
+
     public int numberOfComment;
 
 
@@ -87,27 +89,69 @@ public class GameManager : MonoBehaviour
         //Debug.Log("manager");
         lock (databaseLock)
         {
-            estudianteDB = new EstudianteDB();
-            nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
-            reporteDB = new ReporteDB();
+            //estudianteDB = new EstudianteDB();
+            //nivelAtencionJuegosDB = new NivelAtencionJuegosDB();
+            //reporteDB = new ReporteDB();
+
+            conexionSQL = new SqliteHelper();
+
+            conexionSQL.createEstudiantesTable();
+            conexionSQL.createNivelAtencionTable();
+            conexionSQL.createReporteTable();
+
+
+            /*conexionSQL.deleteAllData("NivelAtencionJuegos");
+            conexionSQL.deleteAllData("Reportes");
+            conexionSQL.deleteAllData("Estudiantes");*/
 
             //estudianteDB.deleteAllData();
             //nivelAtencionJuegosDB.deleteAllData();
             //reporteDB.deleteAllData();
 
+            //conexionSQL.ResetFacilValuesNivelJuegos();
 
-            nivelAtencionJuegosDB.ResetValues();
+            //nivelAtencionJuegosDB.ResetValues();
 
 
-            IDataReader dataReader = estudianteDB.getDataByIdString("1");
+            IDataReader dataReader = conexionSQL.getDataByIdString("Estudiantes", "1");
+            /*IDataReader dataReader = conexionSQL.getAllData("Estudiantes");
+            if (dataReader.Read())
+            {
+                // Iterate through the rows
+                while (dataReader.Read())
+                {
+                    // Iterate through the columns
+                    for (int i = 0; i < dataReader.FieldCount; i++)
+                    {
+                        // Print the column name and value
+                        string columnName = dataReader.GetName(i);
+                        object columnValue = dataReader[i];
+
+                        // You can adjust the formatting as needed
+                        Debug.Log($"{columnName}: {columnValue}");
+                    }
+
+                    // Add a separator between rows
+                    Debug.Log("--------------------------------------------------");
+                }
+
+            }
+            else
+            {
+                Debug.LogWarning("No data found for the specified ID.");
+                dataReader.Close(); // Close the reader when no data is found
+                
+            }*/
+
 
             if (dataReader == null)
             {
                 Debug.Log("----------creando usuarioooooo-----------");
                 string dateString = "2023-08-21";
 
-                estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString));
+                //estudianteDB.addData(new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString));
                 estudiante = new EstudianteEntity("1", "Invitado", "Invitado", "invitado", dateString);
+                conexionSQL.addDataEstudiante(estudiante);
 
                 NivelAtencionJuegosEntity nivelAtencionJuegos = new NivelAtencionJuegosEntity("1",
                 "facil",
@@ -121,13 +165,13 @@ public class GameManager : MonoBehaviour
                 "facil",
                 "1");
 
-                nivelAtencionJuegosDB.addData(nivelAtencionJuegos);
+                conexionSQL.addDataNivelAtencionJuegos(nivelAtencionJuegos);
             }
             else
             {
                 Debug.Log("Uusuario encontrado");
                 //nivelAtencionJuegosDB.ResetValues();
-                nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
+                nivelAtencionJuegos = conexionSQL.getDataByIdEstudiante("1");
                 estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
                 Debug.Log(estudiante);
@@ -181,12 +225,12 @@ public class GameManager : MonoBehaviour
     public void ReadStudentById(string IDRead)
     {
         Debug.Log("1");
-        IDataReader dataReader = estudianteDB.getDataByIdString(IDRead);
+        IDataReader dataReader = conexionSQL.getDataByIdString("Estudiantes", IDRead);
         estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
         Debug.Log("4" + estudiante);
 
         Debug.Log("2");
-        dataReader = nivelAtencionJuegosDB.getDataByIdString(IDRead);
+        dataReader = conexionSQL.getDataByIdString("NivelAtencionJuegos", IDRead);
         nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetString(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8), dataReader.GetString(9), dataReader.GetString(10));
         Debug.Log("3" + nivelAtencionJuegos);
 
@@ -389,10 +433,10 @@ public class GameManager : MonoBehaviour
         lock (databaseLock)
         {
             // Realiza operaciones en la base de datos aquí
-            IDataReader dataReader = estudianteDB.getDataByIdString("1");
+            IDataReader dataReader = conexionSQL.getDataByIdString("Estudiantes", "1");
             Debug.Log("Usuario encontrado");
             //nivelAtencionJuegosDB.ResetValues();
-            nivelAtencionJuegos = nivelAtencionJuegosDB.getDataByIdEstudiante("1");
+            nivelAtencionJuegos = conexionSQL.getDataByIdEstudiante("1");
             estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
             Debug.Log(estudiante);

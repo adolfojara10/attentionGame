@@ -74,7 +74,7 @@ public class UICreateUserBTN : MonoBehaviour
                         // Hide the error icon
                         errorIcon.enabled = false;
 
-                        int ID = GameManager.Instance.estudianteDB.GetRowCount() + 1;
+                        int ID = GameManager.Instance.conexionSQL.GetRowCount("Estudiantes") + 1;
 
                         string idNombreApellido = ID.ToString() + " " + nameField.text;
 
