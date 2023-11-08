@@ -329,6 +329,35 @@ namespace DataBank
             dbcmd.ExecuteNonQuery();
         }
 
+        public IDataReader getStudentByCedula(string cedula)
+        {
+
+            IDbCommand dbcmd = db_connection.CreateCommand();
+            dbcmd.CommandText = "SELECT * FROM Estudiantes WHERE CEDULA = '" + cedula + "'";
+
+            try
+            {
+                IDataReader reader = dbcmd.ExecuteReader();
+
+                // Check if there is a valid row before accessing data
+                if (reader.Read())
+                {
+                    return reader; // Return the reader with the valid row
+                }
+                else
+                {
+                    Debug.LogWarning("No data found for the specified ID.");
+                    reader.Close(); // Close the reader when no data is found
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Error while retrieving data by ID: " + ex.Message);
+                return null;
+            }
+        }
+
 
         // virtual functions
         public virtual IDataReader getDataById(int id)
