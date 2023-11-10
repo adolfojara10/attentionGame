@@ -249,7 +249,7 @@ public class BTManager : MonoBehaviour
 
                 if (GameManager.Instance.gameState == GameManager.GameState.InGame)
                 {
-                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
+                    if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConscienciaCorporal)
                     {
                         string[] parts = lines[0].Split("_");
 

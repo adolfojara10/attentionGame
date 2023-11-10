@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimerWelcome : MonoBehaviour
 {
 
-    private float timerDuration = 5.0f; // Change this to the desired number of seconds
+    private float timerDuration = 2.4f; // Change this to the desired number of seconds
     private float elapsedTime = 0.0f;
     private bool isTimerRunning = false;
 

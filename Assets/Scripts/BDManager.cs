@@ -103,11 +103,11 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Atencion Auditiva - Localizar Sonido";
+                game = "Sonidos ambientales";
 
             }
 
-            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConscienciaCorporal)
             {
 
                 if (nivelAtencionJuegos._concienciaCorporal == "facil")
@@ -126,7 +126,7 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Conciencia Corporal";
+                game = "Esquema Corporal";
 
             }
 
@@ -191,7 +191,7 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Atencion Selectiva - Objetos Perdidos";
+                game = "Instrucciones";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
@@ -212,7 +212,7 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Atencion Selectiva - Piezas Faltantes";
+                game = "Encuentra las diferencias";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
@@ -233,7 +233,7 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Atencion Selectiva y Sostenida";
+                game = "Encuentra los objetos";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual)
@@ -254,7 +254,7 @@ public class BDManager : MonoBehaviour
                     //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
                 }
 
-                game = "Integracion Visual";
+                game = "Completar la imagen";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)
@@ -306,10 +306,10 @@ public class BDManager : MonoBehaviour
                     level = "dificil";
                 }
 
-                game = "Atencion Auditiva - Localizar Sonido";
+                game = "Sonidos ambientales";
             }
 
-            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal)
+            if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConscienciaCorporal)
             {
                 if (nivelAtencionJuegos._concienciaCorporal == "facil")
                 {
@@ -323,7 +323,7 @@ public class BDManager : MonoBehaviour
                 {
                     level = "dificil";
                 }
-                game = "Conciencia Corporal";
+                game = "Esquema Corporal";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaLaberinto)
@@ -374,25 +374,25 @@ public class BDManager : MonoBehaviour
                 {
                     level = "dificil";
                 }
-                game = "Atencion Selectiva - Objetos Perdidos";
+                game = "Instrucciones";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
             {
                 level = nivelAtencionJuegos._atencionSelectivaPiezasFaltantes;
-                game = "Atencion Selectiva - Piezas Faltantes";
+                game = "Encuentra las diferencias";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaSostenida)
             {
                 level = nivelAtencionJuegos._atencionSelectivaSostenida;
-                game = "Atencion Selectiva y Sostenida";
+                game = "Encuentra los objetos";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.IntegracionVisual)
             {
                 level = nivelAtencionJuegos._integracionVisual;
-                game = "Integracion Visual";
+                game = "Completar la imagen";
             }
 
             if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionAuditivaDiscriminarFigura)

@@ -61,7 +61,7 @@ public class StopwatchTimeBar : MonoBehaviour
 
                     GameManager.Instance.GameOverCierreVisual();
                 }
-                else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConcienciaCorporal || GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
+                else if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.ConscienciaCorporal || GameManager.Instance.gamePlaying == GameManager.GamePlaying.Yoga)
                 {
                     GameManager.Instance.GameOverEsquemaCorporal();
                 }

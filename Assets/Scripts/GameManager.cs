@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         None,
         AtencionAuditivaLocalizarSonido,
-        ConcienciaCorporal,
+        ConscienciaCorporal,
         AtencionSelectivaLaberinto,
         Yoga,
         AtencionSelectivaObjetosPerdidos,
@@ -471,7 +471,7 @@ public class GameManager : MonoBehaviour
     {
         //Debug.Log("--------------------- game manager");
         gameState = GameState.InGame;
-        gamePlaying = GamePlaying.ConcienciaCorporal;
+        gamePlaying = GamePlaying.ConscienciaCorporal;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
         BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._concienciaCorporal);
