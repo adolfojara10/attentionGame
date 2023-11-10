@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 Debug.Log("Uusuario encontrado");
-                //nivelAtencionJuegosDB.ResetValues();
+                conexionSQL.ResetFacilValuesNivelJuegos();
                 nivelAtencionJuegos = conexionSQL.getDataByIdEstudiante("1");
                 estudiante = new EstudianteEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4));
 
