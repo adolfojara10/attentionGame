@@ -26,7 +26,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
         {
             StopwatchTimeBar.Instance.timeToMatch = 33f;
             //differencesMissing.text = "Diferencias encontradas: 0";
-            Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
+            //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes);
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "facil")
             {
                 Debug.Log("---------------------facil");

@@ -6,6 +6,11 @@ public class UIChooseGameBTN : MonoBehaviour
 {
     public void AtencionAuditivaLocalizarSonidoGameButtonClicked()
     {
+        GameManager.Instance.StartDemoLocalizarSonido();
+    }
+
+    public void AtencionAuditivaLocalizarSonidoGameEmpezarButtonClicked()
+    {
         GameManager.Instance.AtencionAuditivaLocalizarSonidoGame();
     }
 
@@ -24,16 +29,30 @@ public class UIChooseGameBTN : MonoBehaviour
     {
         //Debug.Log("--------------------- gameBTNMA");
         GameManager.Instance.ObjetosPerdidosGame();
-        
+
     }
 
     public void DiferenciasGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        GameManager.Instance.StartDemoDiferencias();
+    }
+
+    public void DiferenciasGameEmpezarButtonClicked()
     {
         //Debug.Log("--------------------- gameBTNMA");
         GameManager.Instance.DiferenciasGame();
     }
 
     public void AtencionSelectivaSostenidaGameButtonClicked()
+    {
+        //Debug.Log("--------------------- gameBTNMA");
+        
+        GameManager.Instance.StartDemoEncuentraObjeto();
+    }
+
+
+    public void AtencionSelectivaSostenidaGameEmpezarButtonClicked()
     {
         //Debug.Log("--------------------- gameBTNMA");
         GameManager.Instance.AtencionSelectivaSostenidaGame();

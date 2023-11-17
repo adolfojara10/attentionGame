@@ -48,7 +48,10 @@ public class GameManager : MonoBehaviour
         GameOverEsquemaCorporal,
         GameOverDiscriminacionAuditiva,
         Welcome,
-        DemoIntegracionVisual
+        DemoIntegracionVisual,
+        DemoDiferencias,
+        DemoEncuentraObjeto,
+        DemoLocalizarSonido
     }
 
 
@@ -176,6 +179,8 @@ public class GameManager : MonoBehaviour
 
                 Debug.Log(estudiante);
             }
+
+            
 
         }
         /*dataReader = estudianteDB.getAllData();
@@ -455,6 +460,30 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
         BTManager.Instance.enviarMen("completa_imagen");
+    }
+
+    public void StartDemoDiferencias()
+    {
+        gameState = GameState.DemoDiferencias;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("encuentra_diferencias");
+    }
+
+    public void StartDemoEncuentraObjeto()
+    {
+        gameState = GameState.DemoEncuentraObjeto;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("encuentra_objeto");
+    }
+
+    public void StartDemoLocalizarSonido()
+    {
+        gameState = GameState.DemoLocalizarSonido;
+        gamePlaying = GamePlaying.None;
+        OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("atencion_auditiva");
     }
 
     public void AtencionAuditivaLocalizarSonidoGame()

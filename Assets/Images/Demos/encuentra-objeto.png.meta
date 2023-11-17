@@ -1,0 +1,1539 @@
+fileFormatVersion: 2
+guid: 40a64f83d4f5b1442b9692978fbb1093
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: encuentra-objeto_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 709ae01cc6ff1e64f9cf8bd32492b1ba
+      internalID: -494799866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_1
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42b25880471e14144b4a239e4500fde8
+      internalID: -1694797616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_2
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116a225ca375f2b4f90c68d43ce921b1
+      internalID: 1218371351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_3
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0983cfbf82b9d747af3441bea268695
+      internalID: -762509416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_4
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f8155b08e6b741469849846d6207bba
+      internalID: -1313674365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_5
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c62f23b522b1bb468526c3aca8d5e30
+      internalID: -1025056049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_6
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 3104
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf93e0b6e64d8ee489685cb7445d62cf
+      internalID: 43112062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce58e3010e81386488d196000d9de2c4
+      internalID: -1579377596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_8
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28c2f5231b615074c93db9459b24d262
+      internalID: 400618414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_9
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b626755db8f3144e86997bfff77e131
+      internalID: -182993764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_10
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1d43a28dbb9dd4999adfac0b0cbf74
+      internalID: 1668050830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_11
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 106129f0ec63fb64489be96a9547ce3a
+      internalID: 1166012126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_12
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6454b9c05a55a3e47a874b57da08041a
+      internalID: 1877968581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_13
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 2716
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92276a52882408d448caa8c93267d5fa
+      internalID: 1470782202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6be17e657e845d4daa94c7d053b58b1
+      internalID: 529311623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_15
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc253d0c62848c140bdc1c4de87e2e8f
+      internalID: 623201455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_16
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de69dc27c45607441bdf7d88653c2180
+      internalID: -866108122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_17
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a62114c461b11a488b234d0a107501d
+      internalID: 800917419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_18
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b71e244cd66df046b64e8a7eb704a1d
+      internalID: -232691615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_19
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0bea17ff71f504bba6abdff362d23c
+      internalID: 1361600764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_20
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 2328
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102a6dacfb2f98e449cbe175e22ef7eb
+      internalID: 1459304104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccc170da1a0480c42b2566806a1f45d4
+      internalID: -65898551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_22
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320a7cb4e6f5b9f4a9839556e3547761
+      internalID: -125634947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_23
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9a98bc56a070d478a69b008aad5e35
+      internalID: 1123676131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_24
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40846db3b6b31d640b65ef82576d2e49
+      internalID: 1252228210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_25
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0185287152b0d449be699094c1b7cd
+      internalID: 1458156241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_26
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac55a2038c8a3ea44b3a78461806d281
+      internalID: 1896665535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_27
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 1940
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c19414cffe3249b46bba8f5368b89191
+      internalID: -1553453477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e869dfaffcd2754bac3ebb1d97e57c7
+      internalID: -1941179442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_29
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5770a21f98853304e9c24a4331e44fb3
+      internalID: 795210589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_30
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d745db8dbb7ca4380a8b6bf7cf3267
+      internalID: 49796535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_31
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a5ef91f4c37c844b969190007b41f0
+      internalID: 898639323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_32
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4284c31d8fe5d974da9d224f0a664088
+      internalID: -1928089987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_33
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ec60ea36b544b4459efb3d10d43aa70
+      internalID: 453967973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_34
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 1552
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 252ab03de9c91e74b84a1c3c48ab968c
+      internalID: 1207402983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a6c8d93c0819c94bad7d2bf294fdce9
+      internalID: 1903604609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_36
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af52613433ca02b4e91f56fef1608cec
+      internalID: 1637480168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_37
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc6ee2a59b15f7f43a57d9195f09e486
+      internalID: 1701373039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_38
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458a406f39cf1b14fa83efd37fb854fc
+      internalID: 293047555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_39
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a668298275b467640a3a8a6ef98b04f5
+      internalID: -1471456190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_40
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59699eaa5331693458622da56a3cf5b7
+      internalID: -571697349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_41
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 1164
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1872082f0ea2204c80380cb2310d459
+      internalID: 157981560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 648e95f0035667848a116f73fab06a5e
+      internalID: -388844519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_43
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c785293ac9c42c8489593a0d54d3bab3
+      internalID: 1272553005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_44
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bda17a73c0728c45b12b6357a8d13e5
+      internalID: -863477871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_45
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662e7245f899821488a59d2bfefa6342
+      internalID: 535186062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_46
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d00709210ee86314c9f41ce68e1394c0
+      internalID: 956845181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_47
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e389fd655db674c9c3ae48702c95c1
+      internalID: 1948996361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_48
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 776
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1047412e0dc83429caab235737ea8d
+      internalID: 1279987817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11dcdbd350b7e1489d2339a6af42bf3
+      internalID: 120308755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_50
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f85045e8284142428bdf73169aaf063
+      internalID: 38203489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_51
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 041930d420d4ae941910aac052117920
+      internalID: 279339498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_52
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa86b0c31f763fd499dcee37f16bf9c0
+      internalID: 987282888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_53
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b7cc0dd2fa172419525f55f725da34
+      internalID: 1313990018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_54
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff90ce903190e94cbbff48a14d0f391
+      internalID: 399096272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_55
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 388
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fac39bf3159a234e893639702438bbf
+      internalID: -637773224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54406a31ef43904c98888dd88b8bec9
+      internalID: -234838116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_57
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17f5eea7086cb154a91c7bda0c5d133a
+      internalID: 119871207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_58
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddffe2b578d62104f8f247a7364d2ef0
+      internalID: -2124304010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_59
+      rect:
+        serializedVersion: 2
+        x: 2070
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2799d5cd879ce7b40866cb038a41bb8d
+      internalID: -1166774102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_60
+      rect:
+        serializedVersion: 2
+        x: 2760
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b322170fe9673048bd70a17f54dd241
+      internalID: 1024583962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_61
+      rect:
+        serializedVersion: 2
+        x: 3450
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160371dac0cdd1c46a124c72ae534092
+      internalID: 59939365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: encuentra-objeto_62
+      rect:
+        serializedVersion: 2
+        x: 4140
+        y: 0
+        width: 690
+        height: 388
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b40b75752d4d6c41a9678bff02277a0
+      internalID: 69005375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      encuentra-objeto_0: -494799866
+      encuentra-objeto_1: -1694797616
+      encuentra-objeto_10: 1668050830
+      encuentra-objeto_11: 1166012126
+      encuentra-objeto_12: 1877968581
+      encuentra-objeto_13: 1470782202
+      encuentra-objeto_14: 529311623
+      encuentra-objeto_15: 623201455
+      encuentra-objeto_16: -866108122
+      encuentra-objeto_17: 800917419
+      encuentra-objeto_18: -232691615
+      encuentra-objeto_19: 1361600764
+      encuentra-objeto_2: 1218371351
+      encuentra-objeto_20: 1459304104
+      encuentra-objeto_21: -65898551
+      encuentra-objeto_22: -125634947
+      encuentra-objeto_23: 1123676131
+      encuentra-objeto_24: 1252228210
+      encuentra-objeto_25: 1458156241
+      encuentra-objeto_26: 1896665535
+      encuentra-objeto_27: -1553453477
+      encuentra-objeto_28: -1941179442
+      encuentra-objeto_29: 795210589
+      encuentra-objeto_3: -762509416
+      encuentra-objeto_30: 49796535
+      encuentra-objeto_31: 898639323
+      encuentra-objeto_32: -1928089987
+      encuentra-objeto_33: 453967973
+      encuentra-objeto_34: 1207402983
+      encuentra-objeto_35: 1903604609
+      encuentra-objeto_36: 1637480168
+      encuentra-objeto_37: 1701373039
+      encuentra-objeto_38: 293047555
+      encuentra-objeto_39: -1471456190
+      encuentra-objeto_4: -1313674365
+      encuentra-objeto_40: -571697349
+      encuentra-objeto_41: 157981560
+      encuentra-objeto_42: -388844519
+      encuentra-objeto_43: 1272553005
+      encuentra-objeto_44: -863477871
+      encuentra-objeto_45: 535186062
+      encuentra-objeto_46: 956845181
+      encuentra-objeto_47: 1948996361
+      encuentra-objeto_48: 1279987817
+      encuentra-objeto_49: 120308755
+      encuentra-objeto_5: -1025056049
+      encuentra-objeto_50: 38203489
+      encuentra-objeto_51: 279339498
+      encuentra-objeto_52: 987282888
+      encuentra-objeto_53: 1313990018
+      encuentra-objeto_54: 399096272
+      encuentra-objeto_55: -637773224
+      encuentra-objeto_56: -234838116
+      encuentra-objeto_57: 119871207
+      encuentra-objeto_58: -2124304010
+      encuentra-objeto_59: -1166774102
+      encuentra-objeto_6: 43112062
+      encuentra-objeto_60: 1024583962
+      encuentra-objeto_61: 59939365
+      encuentra-objeto_62: 69005375
+      encuentra-objeto_7: -1579377596
+      encuentra-objeto_8: 400618414
+      encuentra-objeto_9: -182993764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
