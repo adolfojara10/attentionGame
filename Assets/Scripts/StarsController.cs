@@ -25,7 +25,7 @@ public class StarsController : MonoBehaviour
         {"terminado", "stars3"}
     };
 
-    public string currentLevelDiferencias = "facil";
+    public string currentLevelDiferencias = "medio";
     public string currentLevelCompletaImagen = "facil";
     public string currentLevelEncuentraObjeto = "facil";
     public string currentLevelSonidosAmbientales = "facil";
@@ -46,12 +46,12 @@ public class StarsController : MonoBehaviour
     public void UpdateAllImages()
     {
         UpdateLevelImageDiferencias();
-        UpdateLevelImageCompletaImagen();
+        /*UpdateLevelImageCompletaImagen();
         UpdateLevelImageEncuentraObjeto();
         UpdateLevelImageSonidosAmbientales();
         UpdateLevelImageInstrucciones();
         UpdateLevelImageYoga();
-        UpdateLevelImageEsquemaCorporal();
+        UpdateLevelImageEsquemaCorporal();*/
     }
 
     void UpdateLevelImageDiferencias()
@@ -99,6 +99,7 @@ public class StarsController : MonoBehaviour
             if (texture != null)
             {
                 levelImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+                Debug.Log("imageneeeeeeeeeeeeeeeeeeeeeee" + "     " + textureName + "      " + texture.name + "     " + currentLevelDiferencias);
             }
             else
             {

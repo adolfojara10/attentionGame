@@ -100,7 +100,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "terminado";
                 }
 
                 game = "Sonidos ambientales";
@@ -123,7 +123,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._concienciaCorporal == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._concienciaCorporal = "terminado";
                 }
 
                 game = "Esquema Corporal";
@@ -146,7 +146,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionSelectivaLaberinto == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionSelectivaLaberinto = "terminado";
                 }
 
                 game = "Atencion Selectiva - Laberinto";
@@ -167,7 +167,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._yoga == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._yoga = "terminado";
                 }
 
                 game = "Yoga";
@@ -188,7 +188,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionSelectivaObjetosPerdidos = "terminado";
                 }
 
                 game = "Instrucciones";
@@ -209,7 +209,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionSelectivaPiezasFaltantes = "terminado";
                 }
 
                 game = "Encuentra las diferencias";
@@ -230,7 +230,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionSelectivaSostenida == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionSelectivaSostenida = "terminado";
                 }
 
                 game = "Encuentra los objetos";
@@ -251,7 +251,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._integracionVisual == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._integracionVisual = "terminado";
                 }
 
                 game = "Completar la imagen";
@@ -272,7 +272,7 @@ public class BDManager : MonoBehaviour
                 else if (nivelAtencionJuegos._atencionAuditivaDiscriminarFigura == "dificil")
                 {
                     level = "dificil";
-                    //nivelAtencionJuegos._atencionAuditivaLocalizarSonido = "dificil";
+                    nivelAtencionJuegos._atencionAuditivaDiscriminarFigura = "terminado";
                 }
 
                 game = "Atencion Auditiva - Discriminar Figura";
@@ -281,6 +281,17 @@ public class BDManager : MonoBehaviour
             GameManager.Instance.conexionSQL.UpdateDataByIdStringNivelAtencion("NivelAtencionJuegos", this.nivelAtencionJuegos);
 
             CreateReport();
+            
+            StarsController.Instance.currentLevelDiferencias = nivelAtencionJuegos._atencionSelectivaPiezasFaltantes;
+            //StarsController.Instance.currentLevelDiferencias = "medio";
+            StarsController.Instance.currentLevelCompletaImagen = nivelAtencionJuegos._integracionVisual;
+            StarsController.Instance.currentLevelEncuentraObjeto = nivelAtencionJuegos._atencionSelectivaSostenida;
+            StarsController.Instance.currentLevelSonidosAmbientales = nivelAtencionJuegos._atencionAuditivaLocalizarSonido;
+            StarsController.Instance.currentLevelInstrucciones = nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
+            StarsController.Instance.currentLevelYoga = nivelAtencionJuegos._yoga;
+            StarsController.Instance.currentLevelEsquemaCorporal = nivelAtencionJuegos._concienciaCorporal;
+
+            StarsController.Instance.UpdateAllImages();
 
         }
 
@@ -406,6 +417,8 @@ public class BDManager : MonoBehaviour
 
 
         RestartVars();
+
+
 
     }
 

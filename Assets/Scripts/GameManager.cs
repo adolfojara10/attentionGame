@@ -180,7 +180,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log(estudiante);
             }
 
-            
+
 
         }
         /*dataReader = estudianteDB.getAllData();
@@ -239,7 +239,16 @@ public class GameManager : MonoBehaviour
         nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetString(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8), dataReader.GetString(9), dataReader.GetString(10));
         Debug.Log("3" + nivelAtencionJuegos);
 
-        
+        //StarsController.Instance.currentLevelDiferencias = nivelAtencionJuegos._atencionSelectivaPiezasFaltantes;
+        StarsController.Instance.currentLevelDiferencias = "medio";
+        StarsController.Instance.currentLevelCompletaImagen = nivelAtencionJuegos._integracionVisual;
+        StarsController.Instance.currentLevelEncuentraObjeto = nivelAtencionJuegos._atencionSelectivaSostenida;
+        StarsController.Instance.currentLevelSonidosAmbientales = nivelAtencionJuegos._atencionAuditivaLocalizarSonido;
+        StarsController.Instance.currentLevelInstrucciones = nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
+        StarsController.Instance.currentLevelYoga = nivelAtencionJuegos._yoga;
+        StarsController.Instance.currentLevelEsquemaCorporal = nivelAtencionJuegos._concienciaCorporal;
+
+        StarsController.Instance.UpdateAllImages();
 
 
         this.Welcome();
@@ -450,6 +459,8 @@ public class GameManager : MonoBehaviour
 
             this.Welcome();
         }
+
+        StarsController.Instance.UpdateAllImages();
 
         // Asegúrate de liberar el bloqueo cuando hayas terminado
 
