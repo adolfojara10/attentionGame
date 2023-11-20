@@ -46,12 +46,12 @@ public class StarsController : MonoBehaviour
     public void UpdateAllImages()
     {
         UpdateLevelImageDiferencias();
-        /*UpdateLevelImageCompletaImagen();
+        UpdateLevelImageCompletaImagen();
         UpdateLevelImageEncuentraObjeto();
         UpdateLevelImageSonidosAmbientales();
         UpdateLevelImageInstrucciones();
         UpdateLevelImageYoga();
-        UpdateLevelImageEsquemaCorporal();*/
+        UpdateLevelImageEsquemaCorporal();
     }
 
     void UpdateLevelImageDiferencias()
