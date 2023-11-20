@@ -239,6 +239,8 @@ public class GameManager : MonoBehaviour
         nivelAtencionJuegos = new NivelAtencionJuegosEntity(dataReader.GetString(0), dataReader.GetString(1), dataReader.GetString(2), dataReader.GetString(3), dataReader.GetString(4), dataReader.GetString(5), dataReader.GetString(6), dataReader.GetString(7), dataReader.GetString(8), dataReader.GetString(9), dataReader.GetString(10));
         Debug.Log("3" + nivelAtencionJuegos);
 
+        
+
 
         this.Welcome();
     }
