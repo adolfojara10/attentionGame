@@ -51,7 +51,10 @@ public class GameManager : MonoBehaviour
         DemoIntegracionVisual,
         DemoDiferencias,
         DemoEncuentraObjeto,
-        DemoLocalizarSonido
+        DemoLocalizarSonido,
+        NivelJuegoTerminadoPercepcionVisual,
+        NivelJuegoTerminadoConscienciaCorporal,
+        NivelJuegoTerminadoPercepcionAuditiva
     }
 
 
@@ -284,6 +287,34 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ShowNivelJuegoTerminadoPercepcionVisual()
+    {
+
+        gameState = GameState.NivelJuegoTerminadoPercepcionVisual;
+
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+    }
+    public void ShowNivelJuegoTerminadoConscienciaCorporal()
+    {
+
+        gameState = GameState.NivelJuegoTerminadoConscienciaCorporal;
+
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+    }
+    public void ShowNivelJuegoTerminadoPercepcionAuditiva()
+    {
+
+        gameState = GameState.NivelJuegoTerminadoPercepcionAuditiva;
+
+        OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+        OnGameStateUpdated?.Invoke(gameState);
+
+    }
+
     public void CompletedGameCierreVisual()
     {
         AssignNumberOfComment();
@@ -469,38 +500,68 @@ public class GameManager : MonoBehaviour
 
     public void StartDemoIntegracionVisual()
     {
-        gameState = GameState.DemoIntegracionVisual;
-        gamePlaying = GamePlaying.None;
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("completa_imagen");
+        if (nivelAtencionJuegos._integracionVisual != "terminado")
+        {
+            gameState = GameState.DemoIntegracionVisual;
+            gamePlaying = GamePlaying.None;
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("completa_imagen");
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoPercepcionVisual();
+        }
     }
 
     public void StartDemoDiferencias()
     {
-        gameState = GameState.DemoDiferencias;
-        gamePlaying = GamePlaying.None;
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("encuentra_diferencias");
+        if (nivelAtencionJuegos._atencionSelectivaPiezasFaltantes != "terminado")
+        {
+            gameState = GameState.DemoDiferencias;
+            gamePlaying = GamePlaying.None;
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("encuentra_diferencias");
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoPercepcionVisual();
+        }
     }
 
     public void StartDemoEncuentraObjeto()
     {
-        gameState = GameState.DemoEncuentraObjeto;
-        gamePlaying = GamePlaying.None;
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("encuentra_objeto");
+        if (nivelAtencionJuegos._atencionSelectivaSostenida != "terminado")
+        {
+            gameState = GameState.DemoEncuentraObjeto;
+            gamePlaying = GamePlaying.None;
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("encuentra_objeto");
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoPercepcionVisual();
+        }
     }
 
     public void StartDemoLocalizarSonido()
     {
-        gameState = GameState.DemoLocalizarSonido;
-        gamePlaying = GamePlaying.None;
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("atencion_auditiva");
+        if (nivelAtencionJuegos._atencionAuditivaLocalizarSonido != "terminado")
+        {
+            gameState = GameState.DemoLocalizarSonido;
+            gamePlaying = GamePlaying.None;
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("atencion_auditiva");
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoPercepcionAuditiva();
+        }
     }
 
     public void AtencionAuditivaLocalizarSonidoGame()
     {
+
+
         //Debug.Log("--------------------- game manager");
         gameState = GameState.InGame;
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
@@ -511,34 +572,56 @@ public class GameManager : MonoBehaviour
 
     public void ConcienciaCorporalGame()
     {
-        //Debug.Log("--------------------- game manager");
-        gameState = GameState.InGame;
-        gamePlaying = GamePlaying.ConscienciaCorporal;
-        OnGamePlayingUpdated?.Invoke(gamePlaying);
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._concienciaCorporal);
+        if (nivelAtencionJuegos._concienciaCorporal != "terminado")
+        {
+            //Debug.Log("--------------------- game manager");
+            gameState = GameState.InGame;
+            gamePlaying = GamePlaying.ConscienciaCorporal;
+            OnGamePlayingUpdated?.Invoke(gamePlaying);
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("conciencia_corporal_" + this.nivelAtencionJuegos._concienciaCorporal);
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoConscienciaCorporal();
+        }
     }
 
     public void YogaGame()
     {
-        //Debug.Log("--------------------- game manager");
-        gameState = GameState.InGame;
-        gamePlaying = GamePlaying.Yoga;
-        OnGamePlayingUpdated?.Invoke(gamePlaying);
-        OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("yoga_" + this.nivelAtencionJuegos._yoga);
+
+        if (nivelAtencionJuegos._yoga != "terminado")
+        {
+            //Debug.Log("--------------------- game manager");
+            gameState = GameState.InGame;
+            gamePlaying = GamePlaying.Yoga;
+            OnGamePlayingUpdated?.Invoke(gamePlaying);
+            OnGameStateUpdated?.Invoke(gameState);
+            BTManager.Instance.enviarMen("yoga_" + this.nivelAtencionJuegos._yoga);
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoConscienciaCorporal();
+        }
     }
 
     public void ObjetosPerdidosGame()
     {
-        //Debug.Log("--------------------- game manager");
-        gameState = GameState.InGame;
-        gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
-        OnGamePlayingUpdated?.Invoke(gamePlaying);
-        OnGameStateUpdated?.Invoke(gameState);
-        string messageSend = "simon_dice_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
-        Debug.Log(messageSend);
-        BTManager.Instance.enviarMen(messageSend);
+        if (nivelAtencionJuegos._atencionSelectivaObjetosPerdidos != "terminado")
+        {
+            //Debug.Log("--------------------- game manager");
+            gameState = GameState.InGame;
+            gamePlaying = GamePlaying.AtencionSelectivaObjetosPerdidos;
+            OnGamePlayingUpdated?.Invoke(gamePlaying);
+            OnGameStateUpdated?.Invoke(gameState);
+            string messageSend = "simon_dice_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
+            Debug.Log(messageSend);
+            BTManager.Instance.enviarMen(messageSend);
+        }
+        else
+        {
+            ShowNivelJuegoTerminadoPercepcionAuditiva();
+        }
     }
 
     public void DiferenciasGame()
