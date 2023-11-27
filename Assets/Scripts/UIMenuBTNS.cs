@@ -52,6 +52,10 @@ public class UIMenuBTNS : MonoBehaviour
         }
     }
 
+    public void JugarRobot(){
+        GameManager.Instance.JugarRobot();
+    }
+
 
     public void ExitButtonClicked()
     {

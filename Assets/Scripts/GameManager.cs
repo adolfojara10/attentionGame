@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
         DemoLocalizarSonido,
         NivelJuegoTerminadoPercepcionVisual,
         NivelJuegoTerminadoConscienciaCorporal,
-        NivelJuegoTerminadoPercepcionAuditiva
+        NivelJuegoTerminadoPercepcionAuditiva,
+        JugarRobot
     }
 
 
@@ -265,6 +266,15 @@ public class GameManager : MonoBehaviour
         OnGameStateUpdated?.Invoke(gameState);
         Debug.Log("welcomeeeeeeeeee");
         TimerWelcome.Instance.StartTimer();
+        StarsController.Instance.UpdateAllImages();
+
+    }
+
+    public void JugarRobot()
+    {
+        gameState = GameState.JugarRobot;
+        OnGameStateUpdated?.Invoke(gameState);
+        BTManager.Instance.enviarMen("jugar_robot");
     }
 
 
@@ -414,6 +424,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.ChooseGameCierreVisual;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
+        StarsController.Instance.UpdateAllImages();
     }
 
     public void ChooseGameEsquemaCorporal()
@@ -421,6 +432,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.ChooseGameEsquemaCorporal;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
+        StarsController.Instance.UpdateAllImages();
     }
 
     public void ChooseGameDiscriminacionAuditiva()
@@ -428,6 +440,7 @@ public class GameManager : MonoBehaviour
         gameState = GameState.ChooseGameDiscriminacionAuditiva;
         gamePlaying = GamePlaying.None;
         OnGameStateUpdated?.Invoke(gameState);
+        StarsController.Instance.UpdateAllImages();
         //Debug.Log("iiiiii");
     }
 
@@ -567,7 +580,8 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionAuditivaLocalizarSonido;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("atencion_auditiva");
+        string messageSend = "atencion_auditiva_" + this.nivelAtencionJuegos._atencionAuditivaLocalizarSonido;
+        BTManager.Instance.enviarMen(messageSend);
     }
 
     public void ConcienciaCorporalGame()
@@ -615,7 +629,6 @@ public class GameManager : MonoBehaviour
             OnGamePlayingUpdated?.Invoke(gamePlaying);
             OnGameStateUpdated?.Invoke(gameState);
             string messageSend = "simon_dice_" + this.nivelAtencionJuegos._atencionSelectivaObjetosPerdidos;
-            Debug.Log(messageSend);
             BTManager.Instance.enviarMen(messageSend);
         }
         else
@@ -631,7 +644,8 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaPiezasFaltantes;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("encuentra_diferencias");
+        string messageSend = "encuentra_diferencias_" + this.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes;
+        BTManager.Instance.enviarMen(messageSend);
 
     }
 
@@ -642,7 +656,8 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionSelectivaSostenida;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("encuentra_objeto");
+        string messageSend = "encuentra_objeto_" + this.nivelAtencionJuegos._atencionSelectivaSostenida;
+        BTManager.Instance.enviarMen(messageSend);
     }
 
     public void AtencionAuditivaDiscriminarFiguraGame()
@@ -652,7 +667,8 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.AtencionAuditivaDiscriminarFigura;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
-        BTManager.Instance.enviarMen("sonidos_naturaleza");
+        string messageSend = "sonidos_naturaleza_" + this.nivelAtencionJuegos._atencionAuditivaDiscriminarFigura;
+        BTManager.Instance.enviarMen(messageSend);
     }
 
 
@@ -672,6 +688,9 @@ public class GameManager : MonoBehaviour
         gamePlaying = GamePlaying.IntegracionVisual;
         OnGamePlayingUpdated?.Invoke(gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
+        string messageSend = "completa_imagen_" + this.nivelAtencionJuegos._integracionVisual;
+        BTManager.Instance.enviarMen(messageSend);
+
     }
 
 }

@@ -13,7 +13,7 @@ namespace DataBank
     {
         private const string Tag = "Riz: SqliteHelper:\t";
 
-        private const string database_name = "my_db";
+        private const string database_name = "my_db.db";
 
         public string db_connection_string;
         public IDbConnection db_connection;
