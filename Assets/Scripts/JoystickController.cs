@@ -26,7 +26,7 @@ public class JoystickController : MonoBehaviour
         if (Mathf.Abs(verticalValue) != 0 || Mathf.Abs(horizontalValue) != 0)
         {
             // Convert float values to integers
-            int roundedHorizontal = Mathf.RoundToInt(horizontalValue * 200f);
+            int roundedHorizontal = Mathf.RoundToInt(horizontalValue * -200f);
             int roundedVertical = Mathf.RoundToInt(verticalValue * 200f);
 
             // Create the formatted string
