@@ -293,6 +293,11 @@ public class GameManager : MonoBehaviour
         gameState = GameState.InGame;
 
         OnGamePlayingUpdated?.Invoke(this.gamePlaying);
+
+        //string gamePlayingString = gamePlaying.ToString();
+        //string enumStringWithUnderscore = "_" + gamePlaying.ToString().ToLower();
+        //string messageSend = "atencion_auditiva_" + this.nivelAtencionJuegos._atencionAuditivaLocalizarSonido;
+        //BTManager.Instance.enviarMen(this.gamePlaying);
         OnGameStateUpdated?.Invoke(gameState);
 
     }
@@ -691,6 +696,13 @@ public class GameManager : MonoBehaviour
         string messageSend = "completa_imagen_" + this.nivelAtencionJuegos._integracionVisual;
         BTManager.Instance.enviarMen(messageSend);
 
+    }
+
+
+    public void CloseApp()
+    {
+        BTManager.Instance.enviarMen("apagar");
+        Application.Quit();
     }
 
 }

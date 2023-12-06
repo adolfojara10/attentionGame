@@ -7,19 +7,50 @@ public class JoystickController : MonoBehaviour
     //public float speed;
     public FixedJoystick fixedJoystick;
 
+    public bool is_zero_send;
+
+    private void Start()
+    {
+        is_zero_send = true;
+    }
+
 
     public void FixedUpdate()
     {
-        Vector3 direction = Vector3.forward * fixedJoystick.Vertical + Vector3.right * fixedJoystick.Horizontal;
-        //rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+        //float verticalValue = fixedJoystick.Vertical;
+        //float horizontalValue = fixedJoystick.Horizontal;
 
-        // Format to one decimal place and concatenate into a string separated by a comma
-        string formattedValues = (fixedJoystick.Horizontal * 200f).ToString("F1", System.Globalization.CultureInfo.InvariantCulture) + ", " +
-                         (fixedJoystick.Vertical * 200f).ToString("F1", System.Globalization.CultureInfo.InvariantCulture);
+        float horizontalValue = fixedJoystick.Vertical;
+        float verticalValue = fixedJoystick.Horizontal;
 
-        // Log or use the resulting string
-        BTManager.Instance.enviarMen(formattedValues);
-        //Debug.Log(formattedValues);
+        if (Mathf.Abs(verticalValue) != 0 || Mathf.Abs(horizontalValue) != 0)
+        {
+            // Convert float values to integers
+            int roundedHorizontal = Mathf.RoundToInt(horizontalValue * 200f);
+            int roundedVertical = Mathf.RoundToInt(verticalValue * 200f);
+
+            // Create the formatted string
+            string formattedValues = "jugar_robot_" + "v " + roundedHorizontal + " " + roundedVertical;
+
+            // Log or use the resulting string
+            BTManager.Instance.enviarMen(formattedValues);
+
+            is_zero_send = false;
+            //Debug.Log(formattedValues);
+        }
+        else if (Mathf.Abs(verticalValue) == 0 && Mathf.Abs(horizontalValue) == 0 && !is_zero_send)
+        {
+            // Convert float values to integers
+            int roundedHorizontal = 0;
+            int roundedVertical = 0;
+
+            // Create the formatted string
+            string formattedValues = "jugar_robot_" + "v " + roundedHorizontal + " " + roundedVertical;
+
+            // Log or use the resulting string
+            BTManager.Instance.enviarMen(formattedValues);
+            is_zero_send = true;
+        }
 
     }
 }

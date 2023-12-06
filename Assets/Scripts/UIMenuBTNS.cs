@@ -52,13 +52,25 @@ public class UIMenuBTNS : MonoBehaviour
         }
     }
 
-    public void JugarRobot(){
+    public void JugarRobot()
+    {
         GameManager.Instance.JugarRobot();
+    }
+
+    public void TestSerial()
+    {
+        BTManager.Instance.enviarMen("test_serial");
+        BTManager.Instance.enviarMen("test_serial_2");
     }
 
 
     public void ExitButtonClicked()
     {
         GameManager.Instance.ExitGame();
+    }
+
+    public void CloseApp()
+    {
+        GameManager.Instance.CloseApp();
     }
 }
