@@ -185,7 +185,7 @@ public class BTManager : MonoBehaviour
     //############### Recibe Datos  #####################
     IEnumerator ManageConnection(BluetoothDevice device)
     {
-        statusText.text = "Status : Connected & Can read";
+        statusText.text = "Encendiendo Robot";
 
         while (device.IsReading)
         {
@@ -196,6 +196,11 @@ public class BTManager : MonoBehaviour
                 string content = System.Text.ASCIIEncoding.ASCII.GetString(msg);
                 string[] lines = content.Split(new char[] { '\n', '\r' });
                 BTMessage.text = lines[0] + "-";
+
+                if (GameManager.Instance.gameState == GameManager.GameState.Idle)
+                {
+                    statusText.text = content;
+                }
 
                 if (GameManager.Instance.gameState == GameManager.GameState.ChargingUser)
                 {
@@ -259,6 +264,10 @@ public class BTManager : MonoBehaviour
 
                             GameManager.Instance.CompletedGameEsquemaCorporal();
                         }
+                        else
+                        {
+                            GameManager.Instance.GameOverEsquemaCorporal();
+                        }
                     }
 
                     if (GameManager.Instance.gamePlaying == GameManager.GamePlaying.AtencionSelectivaObjetosPerdidos)
@@ -271,6 +280,12 @@ public class BTManager : MonoBehaviour
 
                             GameManager.Instance.CompletedGameDiscriminacionAuditiva();
                         }
+                        else
+                        {
+                            BDManager.Instance.tiempo = parts[1];
+
+                            GameManager.Instance.GameOverDiscriminacionAuditiva();
+                        }
                     }
                 }
             }
@@ -278,7 +293,7 @@ public class BTManager : MonoBehaviour
             yield return null;
 
         }
-        statusText.text = "Status : Done Reading";
+        //statusText.text = "Status : Done Reading";
     }
 
 

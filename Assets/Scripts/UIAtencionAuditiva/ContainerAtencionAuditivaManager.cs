@@ -33,19 +33,19 @@ public class ContainerAtencionAuditivaManager : MonoBehaviour
             //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido);
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "facil")
             {
-                StopwatchTimeBar.Instance.timeToMatch = 18f;
+                StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[0].SetActive(true);
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "medio")
             {
-                StopwatchTimeBar.Instance.timeToMatch = 29.3f;
+                StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[1].SetActive(true);
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
             {
-                StopwatchTimeBar.Instance.timeToMatch = 34f;
+                StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[2].SetActive(true);
             }
         }

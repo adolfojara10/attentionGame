@@ -506,6 +506,8 @@ public class GameManager : MonoBehaviour
 
             Debug.Log(estudiante);
 
+            BTManager.Instance.enviarMen("saludar");
+
             this.Welcome();
         }
 

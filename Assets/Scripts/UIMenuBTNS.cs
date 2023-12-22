@@ -59,7 +59,7 @@ public class UIMenuBTNS : MonoBehaviour
 
     public void TestSerial()
     {
-        BTManager.Instance.enviarMen("test_serial");
+        //BTManager.Instance.enviarMen("test_serial");
         BTManager.Instance.enviarMen("test_serial_2");
     }
 
@@ -67,6 +67,11 @@ public class UIMenuBTNS : MonoBehaviour
     public void ExitButtonClicked()
     {
         GameManager.Instance.ExitGame();
+    }
+
+    public void ResetButtonClicked()
+    {
+        BTManager.Instance.enviarMen("reset");
     }
 
     public void CloseApp()

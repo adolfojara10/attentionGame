@@ -51,7 +51,12 @@ public class AudioManager : MonoBehaviour
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionAuditivaLocalizarSonido == "dificil")
             {
-                SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[2]);
+                StartCoroutine(PlaySoundMultipleTimes(atencionAuditivaLocalizarSonidoSounds[2], 3));
+                /*
+                for (int i = 0; i < 3; i++)
+                {
+                    SFXSource.PlayOneShot(atencionAuditivaLocalizarSonidoSounds[2]);
+                }*/
             }
 
 
@@ -67,6 +72,15 @@ public class AudioManager : MonoBehaviour
             {
                 SFXSource.Stop();
             }
+        }
+    }
+
+    IEnumerator PlaySoundMultipleTimes(AudioClip clip, int times)
+    {
+        for (int i = 0; i < times; i++)
+        {
+            SFXSource.PlayOneShot(clip);
+            yield return new WaitForSeconds(clip.length); // Wait for the clip to finish before playing again
         }
     }
 }

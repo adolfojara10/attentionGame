@@ -24,7 +24,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
         //Debug.Log("jugando--------------- " + newGamePlaying);
         if (newGamePlaying == GameManager.GamePlaying.AtencionSelectivaPiezasFaltantes)
         {
-            StopwatchTimeBar.Instance.timeToMatch = 33f;
+            
             //differencesMissing.text = "Diferencias encontradas: 0";
             //Debug.Log("nivel ---------------- : " + GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes);
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "facil")
@@ -32,6 +32,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
                 Debug.Log("---------------------facil");
                 containersLevels[0].SetActive(true);
                 title.text = "Encuentra las 5 diferencias";
+                StopwatchTimeBar.Instance.timeToMatch = 45f;
 
             }
 
@@ -41,6 +42,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
                 //StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[1].SetActive(true);
                 title.text = "Encuentra las 7 diferencias";
+                StopwatchTimeBar.Instance.timeToMatch = 60f;
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaPiezasFaltantes == "dificil")
@@ -49,6 +51,7 @@ public class ContainerDiferenciasManager : MonoBehaviour
                 //StopwatchTimeBar.Instance.timeToMatch = 30f;
                 containersLevels[2].SetActive(true);
                 title.text = "Encuentra las 10 diferencias";
+                StopwatchTimeBar.Instance.timeToMatch = 90f;
             }
         }
     }

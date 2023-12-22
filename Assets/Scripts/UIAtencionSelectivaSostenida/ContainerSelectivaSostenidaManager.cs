@@ -25,21 +25,21 @@ public class ContainerSelectivaSostenidaManager : MonoBehaviour
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaSostenida == "facil")
             {
                 containersLevels[0].SetActive(true);
-                StopwatchTimeBar.Instance.timeToMatch = 33f;
+                StopwatchTimeBar.Instance.timeToMatch = 45f;
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaSostenida == "medio")
             {
                 
                 containersLevels[1].SetActive(true);
-                StopwatchTimeBar.Instance.timeToMatch = 48f;
+                StopwatchTimeBar.Instance.timeToMatch = 45f;
             }
 
             if (GameManager.Instance.nivelAtencionJuegos._atencionSelectivaSostenida == "dificil")
             {
                 
                 containersLevels[2].SetActive(true);
-                StopwatchTimeBar.Instance.timeToMatch = 63f;
+                StopwatchTimeBar.Instance.timeToMatch = 80f;
 
             }
         }

@@ -53,4 +53,24 @@ public class BTNPlayRobot : MonoBehaviour
     {
         BTManager.Instance.enviarMen("jugar_robot_5");
     }
+
+    public void Uno()
+    {
+        BTManager.Instance.enviarMen("jugar_robot_1");
+    }
+
+    public void Dos()
+    {
+        BTManager.Instance.enviarMen("jugar_robot_2");
+    }
+
+    public void Tres()
+    {
+        BTManager.Instance.enviarMen("jugar_robot_3");
+    }
+
+    public void Cuatro()
+    {
+        BTManager.Instance.enviarMen("jugar_robot_4");
+    }
 }

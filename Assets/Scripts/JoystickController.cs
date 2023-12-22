@@ -8,10 +8,13 @@ public class JoystickController : MonoBehaviour
     public FixedJoystick fixedJoystick;
 
     public bool is_zero_send;
+    private int frameCounter = 0;
 
     private void Start()
     {
         is_zero_send = true;
+        // Set the fixed time step to 1/30th of a second (30 frames per second)
+        Time.fixedDeltaTime = 1f / 60f;
     }
 
 
@@ -35,6 +38,16 @@ public class JoystickController : MonoBehaviour
             // Log or use the resulting string
             BTManager.Instance.enviarMen(formattedValues);
 
+            if (frameCounter == 620)
+            {
+                BTManager.Instance.enviarMen(formattedValues);
+                frameCounter = 0;
+            }
+            else
+            {
+                frameCounter++;
+            }
+
             is_zero_send = false;
             //Debug.Log(formattedValues);
         }
@@ -50,6 +63,7 @@ public class JoystickController : MonoBehaviour
             // Log or use the resulting string
             BTManager.Instance.enviarMen(formattedValues);
             is_zero_send = true;
+            //frameCounter = 0;
         }
 
     }

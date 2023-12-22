@@ -28,7 +28,7 @@ public class BTNFindCedula : MonoBehaviour
 
                 GameManager.Instance.ReadStudentById(estudiante._id);
 
-                BTManager.Instance.enviarMen("cancelar");
+                BTManager.Instance.enviarMen("saludar");
 
             }
             else
